@@ -883,7 +883,6 @@ function renderDashboardSection() {
     </div>
     <div class="cards-grid">
       ${dashboardProjects.map(p => {
-        const isNew = p.id === 404;
         const thumbHtml = p.thumbnail
           ? `<img class="card-thumbnail" src="${p.thumbnail}" alt="${p.title}" loading="lazy">`
           : `<div class="card-placeholder ${placeholderClasses[p.id] || 'placeholder-chart'}"><span style="font-size:3rem;">${placeholderIcons[p.id] || '📊'}</span></div>`;
@@ -896,7 +895,6 @@ function renderDashboardSection() {
                 <div class="card-title">${p.title}</div>
                 <div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end;flex-shrink:0;">
                   <span class="badge badge-${p.badge}">${p.badgeLabel}</span>
-                  ${isNew ? '<span class="badge badge-progress">🔨 구축 중</span>' : ''}
                 </div>
               </div>
               <div class="card-desc">${p.desc}</div>
@@ -1057,7 +1055,6 @@ function openDashboardModal(projectId) {
     <h2 class="modal-title">${project.title}</h2>
     <div class="modal-badges">
       <span class="badge badge-${project.badge}">${project.badgeLabel}</span>
-      ${project.id === 404 ? '<span class="badge badge-progress">🔨 구축 중</span>' : ''}
     </div>
 
     ${galleryHtml}
