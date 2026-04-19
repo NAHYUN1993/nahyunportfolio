@@ -447,22 +447,8 @@ const projects = [
 
 /* ── AI Image Files ── */
 const characterFiles = [
-  "dan_asa_A_close-up_portrait_of_the_cutest_baby_bat._Its_body__dd1a27c3-6e9e-4b9a-8b09-d0878610ecb3_1.png",
-  "dan_asa_Cute_SD_anime_style_girl_dynamic_pose_pressing_face_a_dd26f3dd-a647-47bc-816e-401dc4dedfa7_2.png",
-  "dan_asa_Full_body_shot_wide_angle_chibi_style_beautiful_Korea_4e24740f-9027-4c46-8ded-3cd0f76da14d_0.png",
-  "dan_asa_Wide_tracking_shot_dynamic_motion._A_young_girl_with__358ea8ff-8ab2-4d9a-ab40-14a7e8d9fe78_1.png",
-  "dan_asa_a_male_of_angel_--ar_34_--niji_7_19b51f0f-251c-48df-9931-f5b1f02409c7_3.png",
-  "dan_asa_chibi_style_close-up_portrait_shot_cool_korean_girl_c_be24f469-d9c1-4e36-a9ae-c8e769d2f9bf_3.png",
-  "dan_asa_chibi_style_close-up_portrait_shot_handsome_korean_bo_8ce10f33-697f-4636-b7ab-093717726913_3.png",
-  "dan_asa_chibi_style_full_body_shot_cute_korean_girl_character_48b11e05-808e-4f1b-b25e-ce265874fe87_1.png",
-  "dan_asa_chibi_style_full_body_view_cute_korean_girl_character_d65092b0-d86a-42f0-b95f-8b0ec82d6f20_3.png",
-  "dan_asa_chibi_style_medium_shot._Snowy_Korean_stone_wall_road_9198cb62-4741-4037-aaf8-c5a6e090b6d1_1.png",
-  "dan_asa_chibi_style_portrait_shot_cute_korean_girl_character__e122a4e6-4207-4010-89f9-8113d45a74e3_0.png",
-  "dan_asa_cute_and_lively_3D_animated_character_Blender_Cycles__d7f4bbc4-449e-441e-9298-38a8529e059c_2.png",
-  "dan_asa_httpss.mj.runHGcqPQ1_YV8_A_wide_shot_of_the_marshmall_21f55a88-a9f5-4e15-87c3-cb6ebaafa71a_0.png",
-  "dan_asa_httpss.mj.runV9AU0mxRykw_A_close-up_portrait_of_a_cut_95f1374d-2bea-4cec-8d51-059f63c66e8e_2.png",
-  "dan_asa_httpss.mj.runzw9cHaC2uWE_A_low_angle_shot_of_the_mars_672b6280-32ad-437f-a071-fafba61e8131_0.png",
-  "추가01.png"
+  "1.png","2.png","3.png","4.png","5.png",
+  "6.png","7.png","8.png","9.png","10.png"
 ];
 
 const conceptArtFiles = [
@@ -607,11 +593,15 @@ const dashboardProjects = [
     categoryLabel: 'AI 에이전트 시스템',
     title: 'AI 개인 비서 시스템',
     desc: 'Gemini API를 두뇌로, Oracle Cloud를 서버로, Discord를 인터페이스로, Notion을 데이터베이스로 연결하여 구축한 개인 맞춤형 AI 비서 시스템.',
-    thumbnail: null,
+    thumbnail: 'https://nahyun1993.github.io/portfolio3/images/웹앱/AI 개인 비서 시스템01.png',
     badge: 'personal',
     badgeLabel: '🤖 AI Agent',
     tools: ['Gemini API', 'Oracle Cloud', 'Discord API', 'Notion API'],
-    images: [],
+    images: [
+      'https://nahyun1993.github.io/portfolio3/images/웹앱/AI 개인 비서 시스템01.png',
+      'https://nahyun1993.github.io/portfolio3/images/웹앱/AI 개인 비서 시스템02.png',
+      'https://nahyun1993.github.io/portfolio3/images/웹앱/AI 개인 비서 시스템03.png'
+    ],
     brief: 'Discord 채널을 통해 자연어로 명령을 입력하면 → Gemini AI가 의도를 분석하고 → Notion 데이터베이스에 일정/메모/할 일을 자동 저장/조회하는 통합 워크플로우를 구현. Oracle Cloud 서버에서 24시간 상시 운영.',
     process: [
       { title: '멀티 API 통합 아키텍처 설계', desc: 'Gemini API + Oracle Cloud + Discord API + Notion API 4개의 외부 서비스를 하나의 파이프라인으로 연결하는 통합 아키텍처를 설계 및 구현함.' },
@@ -703,10 +693,19 @@ function renderAbout() {
         <div class="about-role">AI Creator & Visual Director</div>
         <p class="about-intro">
           AI 생성 기술과 영상 연출의 교차점에서 작업합니다.<br><br>
-          프롬프트 엔지니어링과 AI 워크플로우 설계부터 커머셜 숏폼, 시네마틱 단편, 실사 촬영까지
-          콘텐츠의 전 사이클을 직접 기획하고 제작합니다.<br><br>
-          기술을 도구로, 스토리텔링을 목표로.
+          실사 콘텐츠부터 AI 워크플로우 설계까지
+          하이브리드 자동화 크리에이티브 워크플로를 설계합니다.
         </p>
+        <div class="showreel-wrap">
+          <div class="showreel-label">▶ SHOW REEL</div>
+          <div class="showreel-frame">
+            <iframe
+              src="https://drive.google.com/file/d/1J0VQY8UWf6KQcn3aoOCcj0l2zfmb7ptr/preview"
+              allow="autoplay"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
       </div>
       <div class="about-right">
         <div class="about-stack-title">TECH STACK</div>
