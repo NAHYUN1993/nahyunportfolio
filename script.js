@@ -308,7 +308,7 @@ const projects = [
     badgeLabel: '🎥 실사 콘텐츠',
     tools: ['SONY A7M4', 'Premiere Pro'],
     driveId: '1xfMZ9DcIq4ZN_bj7tENJ9IKuaJrU8bT5',
-    orientation: 'vertical',
+    orientation: 'horizontal',
     scenes: [
       'https://nahyun1993.github.io/portfolio3/images/주요장면/블루밍버블/시퀀스 01.00_02_00_01.스틸 039.png',
       'https://nahyun1993.github.io/portfolio3/images/주요장면/블루밍버블/시퀀스 01.00_02_02_14.스틸 040.png',
