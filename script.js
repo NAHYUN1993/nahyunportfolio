@@ -300,14 +300,14 @@ const projects = [
     id: 201,
     type: 'video',
     category: 'liveaction',
-    categoryLabel: '실사 숏폼',
+    categoryLabel: '실사 콘텐츠',
     title: '블루밍버블',
     desc: '식물과 교감하는 일상을 따뜻한 무드로 담아내어 타겟 시청자(식집사)의 깊은 공감대를 이끌어낸 감성 숏폼.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/블루밍버블.png',
     badge: 'company',
-    badgeLabel: '🎥 실사 숏폼',
+    badgeLabel: '🎥 실사 콘텐츠',
     tools: ['SONY A7M4', 'Premiere Pro'],
-    driveId: '1TtotSNse0TqE-a0xPl9xxuyFw2opmFlk',
+    driveId: '1xfMZ9DcIq4ZN_bj7tENJ9IKuaJrU8bT5',
     orientation: 'vertical',
     scenes: [
       'https://nahyun1993.github.io/portfolio3/images/주요장면/블루밍버블/시퀀스 01.00_02_00_01.스틸 039.png',
@@ -317,14 +317,14 @@ const projects = [
       'https://nahyun1993.github.io/portfolio3/images/주요장면/블루밍버블/시퀀스 01.00_02_05_01.스틸 043.png',
       'https://nahyun1993.github.io/portfolio3/images/주요장면/블루밍버블/시퀀스 01.00_02_07_13.스틸 044.png'
     ],
-    brief: '자연광을 적극 활용한 촬영과 시네마틱한 컬러 그레이딩(색보정)을 통해 몽환적이고 따뜻한 라이프스타일 룩을 완성함.',
+    brief: '식물과 교감하는 일상을 따뜻한 무드로 담아내어 타겟 시청자(식집사)의 깊은 공감대를 이끌어낸 감성 콘텐츠',
     process: []
   },
   {
     id: 202,
     type: 'video',
     category: 'liveaction',
-    categoryLabel: '실사 숏폼',
+    categoryLabel: '실사 콘텐츠',
     title: 'HOW TO 뿌리영양제',
     desc: '제품의 올바른 사용법을 직관적인 앵글로 담아내어 시청자의 편의성을 높인 실용적 가이드 영상.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/뿌리영양제.png',
@@ -341,14 +341,14 @@ const projects = [
       'https://nahyun1993.github.io/portfolio3/images/주요장면/뿌리영양제/시퀀스 01.00_03_37_22.스틸 037.png',
       'https://nahyun1993.github.io/portfolio3/images/주요장면/뿌리영양제/시퀀스 01.00_03_44_11.스틸 038.png'
     ],
-    brief: '제품의 올바른 사용법을 직관적인 앵글로 담아내어 시청자의 편의성을 높임.',
+    brief: '제품의 올바른 사용법을 직관적인 앵글로 담아내어 시청자의 편의성을 높인 실용적 가이드 영상.',
     process: []
   },
   {
     id: 203,
     type: 'video',
     category: 'liveaction',
-    categoryLabel: '실사 숏폼',
+    categoryLabel: '실사 콘텐츠',
     title: '다이소 식물 아이템 리뷰',
     desc: 'SNS 트렌드를 반영하여 화제성 높은 타사(다이소) 아이템을 직접 구매 후, 활용하는 모습을 기획한 바이럴 콘텐츠.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/다이소.png',
@@ -372,7 +372,7 @@ const projects = [
     id: 204,
     type: 'video',
     category: 'liveaction',
-    categoryLabel: '실사 숏폼',
+    categoryLabel: '실사 콘텐츠',
     title: '식물살리기 60일 프로젝트',
     desc: '죽어가는 식물에 제품을 투여하여 60일간 소생하는 과정을 기록한 리얼리티 다큐멘터리.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/식물살리기.png',
@@ -399,7 +399,7 @@ const projects = [
     id: 205,
     type: 'video',
     category: 'liveaction',
-    categoryLabel: '실사 숏폼',
+    categoryLabel: '실사 콘텐츠',
     title: '식물편집샵 대표 인터뷰',
     desc: '업계 전문가의 인사이트를 담아내어 브랜드의 권위를 높이고 전문성을 강조한 인터뷰 영상.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/유니크플랜트.png',
@@ -423,7 +423,7 @@ const projects = [
     id: 206,
     type: 'video',
     category: 'liveaction',
-    categoryLabel: '실사 숏폼',
+    categoryLabel: '실사 콘텐츠',
     title: '이지코트 제품 소개 ASMR',
     desc: '제품 특유의 질감과 소리를 백색소음으로 활용해 시청각적 쾌감을 동시에 자극하는 감각적인 제품 홍보 영상.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/이지코트.png',
@@ -440,7 +440,7 @@ const projects = [
       'https://nahyun1993.github.io/portfolio3/images/주요장면/이지코트/시퀀스 01.00_00_24_16.스틸 015.png',
       'https://nahyun1993.github.io/portfolio3/images/주요장면/이지코트/시퀀스 01.00_00_29_11.스틸 017.png'
     ],
-    brief: '오디오 피드백을 극대화하여 시청자의 무의식에 편안함과 긍정적인 이미지를 각인시키는 전략을 취함.',
+    brief: '제품 특유의 질감과 소리를 백색소음으로 활용해 시청각적 쾌감을 동시에 자극하는 감각적인 제품 홍보 영상.',
     process: []
   }
 ];
@@ -545,7 +545,7 @@ const dashboardProjects = [
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/웹앱/채널분석01.png',
     badge: 'personal',
     badgeLabel: '📊 Web App',
-    tools: ['YouTube Data API v3', 'React', 'AI'],
+    tools: ['YouTube Data API v3', 'Claude OPUS'],
     images: [
       'https://nahyun1993.github.io/portfolio3/images/웹앱/채널분석01.png',
       'https://nahyun1993.github.io/portfolio3/images/웹앱/채널분석02.png',
@@ -570,7 +570,7 @@ const dashboardProjects = [
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/웹앱/챗봇01.png',
     badge: 'personal',
     badgeLabel: '🚀 Extension',
-    tools: ['Antigravity', 'JavaScript'],
+    tools: ['Claude OPUS'],
     images: [
       'https://nahyun1993.github.io/portfolio3/images/웹앱/챗봇01.png',
       'https://nahyun1993.github.io/portfolio3/images/웹앱/챗봇02.png',
@@ -596,7 +596,7 @@ const dashboardProjects = [
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/웹앱/AI 개인 비서 시스템01.png',
     badge: 'personal',
     badgeLabel: '🤖 AI Agent',
-    tools: ['Gemini API', 'Oracle Cloud', 'Discord API', 'Notion API'],
+    tools: ['Claude OPUS', 'Gemini API', 'Oracle Cloud', 'Discord API', 'Notion API'],
     images: [
       'https://nahyun1993.github.io/portfolio3/images/웹앱/AI 개인 비서 시스템01.png',
       'https://nahyun1993.github.io/portfolio3/images/웹앱/AI 개인 비서 시스템02.png',
@@ -634,7 +634,7 @@ const SECTIONS = [
   { id: 'commercial', label: 'AI 영상 — 커머셜',   num: '01', count: 7 },
   { id: 'cinematic',  label: 'AI 영상 — 시네마틱',  num: '02', count: 3 },
   { id: 'ai-image',   label: 'AI 이미지',          num: '03' },
-  { id: 'liveaction', label: '실사 숏폼',           num: '04', count: 6 },
+  { id: 'liveaction', label: '실사 콘텐츠',           num: '04', count: 6 },
   { id: 'photography',label: 'Photography',        num: '05' },
   { id: 'dashboard',  label: '대시보드 & 웹앱',     num: '06', count: 4 }
 ];
