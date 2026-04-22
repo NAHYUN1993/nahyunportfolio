@@ -618,15 +618,15 @@ const techStack = [
   { icon: '⚙️', name: 'ComfyUI' },
   { icon: '🎬', name: 'Kling' },
   { icon: '🎙️', name: 'ElevenLabs' },
-  { icon: '🚀', name: 'Runway' },
   { icon: '🎞️', name: 'Premiere Pro' },
   { icon: '📷', name: 'SONY A7M4' },
   { icon: '🌅', name: 'Lightroom' },
-  { icon: '📊', name: 'YouTube API' },
-  { icon: '🤖', name: 'Google AI Studio' },
-  { icon: '🐍', name: 'Python' },
-  { icon: '🌌', name: 'Antigravity' }
-];
+  { icon: '🌌', name: 'Antigravity' },
+  { icon: '🎥', name: 'VEO' },
+  { icon: '🎵', name: 'SUNO' },
+  { icon: '✨', name: 'Claude' },
+  { icon: '📓', name: 'Obsidian' }
+];
 
 /* ── Section Config ── */
 const SECTIONS = [
