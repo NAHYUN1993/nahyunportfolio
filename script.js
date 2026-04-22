@@ -302,7 +302,7 @@ const projects = [
     category: 'liveaction',
     categoryLabel: '실사 콘텐츠',
     title: '블루밍버블',
-    desc: '식물과 교감하는 일상을 따뜻한 무드로 담아내어 타겟 시청자(식집사)의 깊은 공감대를 이끌어낸 감성 숏폼.',
+    desc: '식물과 교감하는 일상을 따뜻한 무드로 담아내어 타겟 시청자(식집사)의 깊은 공감대를 이끌어낸 감성 콘텐츠.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/블루밍버블.png',
     badge: 'company',
     badgeLabel: '🎥 실사 콘텐츠',
@@ -626,7 +626,8 @@ const techStack = [
   { icon: '🎵', name: 'SUNO' },
   { icon: '✨', name: 'Claude' },
   { icon: '📓', name: 'Obsidian' }
-];
+];
+
 
 /* ── Section Config ── */
 const SECTIONS = [
@@ -1210,7 +1211,7 @@ function init() {
   renderVideoSection('commercial', '01', 'AI 영상 — 커머셜', 'Brand & Commercial AI Films', commercialList);
   renderVideoSection('cinematic',  '02', 'AI 영상 — 시네마틱', 'Cinematic & Short Films', cinematicList);
   renderImageSection();
-  renderVideoSection('liveaction', '04', '실사 숏폼', 'Live-Action Short Films', liveActionList);
+  renderVideoSection('liveaction', '04', '실사 콘텐츠', 'Live-Action Contents', liveActionList);
   renderPhotoSection();
   renderDashboardSection();
 
