@@ -328,7 +328,7 @@ const projects = [
     id: 201,
     type: 'video',
     category: 'liveaction',
-    categoryLabel: '실사 콘텐츠',
+    categoryLabel: '오리지널 영상 - 실사',
     title: '블루밍버블',
     desc: '식물과 교감하는 일상을 따뜻한 무드로 담아내어 타겟 시청자(식집사)의 깊은 공감대를 이끌어낸 감성 콘텐츠.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/블루밍버블.png',
@@ -352,7 +352,7 @@ const projects = [
     id: 202,
     type: 'video',
     category: 'liveaction',
-    categoryLabel: '실사 콘텐츠',
+    categoryLabel: '오리지널 영상 - 실사',
     title: 'HOW TO 뿌리영양제',
     desc: '제품의 올바른 사용법을 직관적인 앵글로 담아내어 시청자의 편의성을 높인 실용적 가이드 영상.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/뿌리영양제.png',
@@ -376,7 +376,7 @@ const projects = [
     id: 203,
     type: 'video',
     category: 'liveaction',
-    categoryLabel: '실사 콘텐츠',
+    categoryLabel: '오리지널 영상 - 실사',
     title: '다이소 식물 아이템 리뷰',
     desc: 'SNS 트렌드를 반영하여 화제성 높은 타사(다이소) 아이템을 직접 구매 후, 활용하는 모습을 기획한 바이럴 콘텐츠.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/다이소.png',
@@ -400,7 +400,7 @@ const projects = [
     id: 204,
     type: 'video',
     category: 'liveaction',
-    categoryLabel: '실사 콘텐츠',
+    categoryLabel: '오리지널 영상 - 실사',
     title: '식물살리기 60일 프로젝트',
     desc: '죽어가는 식물에 제품을 투여하여 60일간 소생하는 과정을 기록한 리얼리티 다큐멘터리.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/식물살리기.png',
@@ -427,7 +427,7 @@ const projects = [
     id: 205,
     type: 'video',
     category: 'liveaction',
-    categoryLabel: '실사 콘텐츠',
+    categoryLabel: '오리지널 영상 - 실사',
     title: '식물편집샵 대표 인터뷰',
     desc: '업계 전문가의 인사이트를 담아내어 브랜드의 권위를 높이고 전문성을 강조한 인터뷰 영상.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/유니크플랜트.png',
@@ -451,7 +451,7 @@ const projects = [
     id: 206,
     type: 'video',
     category: 'liveaction',
-    categoryLabel: '실사 콘텐츠',
+    categoryLabel: '오리지널 영상 - 실사',
     title: '이지코트 제품 소개 ASMR',
     desc: '제품 특유의 질감과 소리를 백색소음으로 활용해 시청각적 쾌감을 동시에 자극하는 감각적인 제품 홍보 영상.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/이지코트.png',
@@ -660,11 +660,11 @@ const techStack = [
 /* ── Section Config ── */
 const SECTIONS = [
   { id: 'about',      label: 'ABOUT',            num: null },
-  { id: 'commercial', label: 'AI 영상 — 커머셜',   num: '01', count: 7 },
-  { id: 'cinematic',  label: 'AI 영상 — 시네마틱',  num: '02', count: 3 },
-  { id: 'ai-image',   label: 'AI 이미지',          num: '03' },
-  { id: 'liveaction', label: '실사 콘텐츠',           num: '04', count: 6 },
-  { id: 'photography',label: 'Photography',        num: '05' },
+  { id: 'cinematic',  label: 'AI 영상 — 시네마틱',  num: '01', count: 3 },
+  { id: 'artfilm',    label: 'AI 영상 — 아트필름',  num: '02', count: 1 },
+  { id: 'commercial', label: 'AI 영상 — 커머셜',   num: '03', count: 7 },
+  { id: 'liveaction', label: '오리지널 영상 — 실사',  num: '04', count: 6 },
+  { id: 'ai-image',   label: '비주얼 아트 — 이미지 & 사진', num: '05' },
   { id: 'dashboard',  label: '대시보드 & 웹앱',     num: '06', count: 4 }
 ];
 
@@ -810,7 +810,8 @@ function renderImageSection() {
     ...characterFiles.map(f => ({ src: `https://nahyun1993.github.io/portfolio3/images/AI Image/character/${f}`, cat: 'character', label: '캐릭터 일관성' })),
     ...conceptArtFiles.map(f => ({ src: `https://nahyun1993.github.io/portfolio3/images/AI Image/Concept Art/${f}`, cat: 'concept-art', label: '컨셉 아트' })),
     ...portraitFiles.map(f => ({ src: `https://nahyun1993.github.io/portfolio3/images/AI Image/Portrait/${f}`, cat: 'portrait', label: '인물 이미지' })),
-    ...productImageFiles.map(f => ({ src: `https://nahyun1993.github.io/portfolio3/images/AI Image/Product Image/${f}`, cat: 'product-image', label: '제품 이미지' }))
+    ...productImageFiles.map(f => ({ src: `https://nahyun1993.github.io/portfolio3/images/AI Image/Product Image/${f}`, cat: 'product-image', label: '제품 이미지' })),
+    ...photographyFiles.map(f => ({ src: `https://nahyun1993.github.io/portfolio3/images/AI Image/Photography/${f}`, cat: 'photography', label: 'Photography' }))
   ];
 
   const filters = [
@@ -818,15 +819,16 @@ function renderImageSection() {
     { key: 'character', label: '캐릭터 일관성' },
     { key: 'concept-art', label: '컨셉 아트' },
     { key: 'portrait', label: '인물 이미지' },
-    { key: 'product-image', label: '제품 이미지' }
+    { key: 'product-image', label: '제품 이미지' },
+    { key: 'photography', label: 'Photography' }
   ];
 
   section.innerHTML = `
     <div class="section-header">
-      <div class="section-num">03</div>
+      <div class="section-num">05</div>
       <div>
-        <div class="section-title">AI 이미지</div>
-        <div class="section-subtitle">AI Image Generation</div>
+        <div class="section-title">비주얼 아트 - 이미지 & 사진</div>
+        <div class="section-subtitle">AI Generation & Live Photography</div>
       </div>
     </div>
     <div class="filter-tabs">
@@ -1232,15 +1234,16 @@ function init() {
   renderSidebar();
   renderAbout();
 
-  const commercialList = projects.filter(p => p.category === 'commercial');
   const cinematicList  = projects.filter(p => p.category === 'cinematic');
+  const artfilmList    = projects.filter(p => p.category === 'artfilm');
+  const commercialList = projects.filter(p => p.category === 'commercial');
   const liveActionList = projects.filter(p => p.category === 'liveaction');
 
-  renderVideoSection('commercial', '01', 'AI 영상 — 커머셜', 'Brand & Commercial AI Films', commercialList);
-  renderVideoSection('cinematic',  '02', 'AI 영상 — 시네마틱', 'Cinematic & Short Films', cinematicList);
+  renderVideoSection('cinematic',  '01', 'AI 영상 — 시네마틱', 'Cinematic & Short Films', cinematicList);
+  renderVideoSection('artfilm',    '02', 'AI 영상 — 아트필름', 'Art Films', artfilmList);
+  renderVideoSection('commercial', '03', 'AI 영상 — 커머셜', 'Brand & Commercial AI Films', commercialList);
+  renderVideoSection('liveaction', '04', '오리지널 영상 — 실사', 'Live-Action Contents', liveActionList);
   renderImageSection();
-  renderVideoSection('liveaction', '04', '실사 콘텐츠', 'Live-Action Contents', liveActionList);
-  renderPhotoSection();
   renderDashboardSection();
 
   initStarCanvas();
