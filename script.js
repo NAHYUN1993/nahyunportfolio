@@ -1103,13 +1103,13 @@ function renderMotion() {
     </header>
     <div class="motion-strip">
       <figure class="motion-item reveal" style="--i:0">
-        <video src="./images/자막/제목.mp4" autoplay loop muted playsinline preload="metadata"></video>
+        <video src="./images/자막/제목.mp4" poster="./images/posters/자막-제목.jpg" autoplay loop muted playsinline preload="metadata"></video>
       </figure>
       <figure class="motion-item reveal" style="--i:1">
-        <video src="./images/자막/연참.mp4" autoplay loop muted playsinline preload="metadata"></video>
+        <video src="./images/자막/연참.mp4" poster="./images/posters/자막-연참.jpg" autoplay loop muted playsinline preload="metadata"></video>
       </figure>
       <figure class="motion-item reveal" style="--i:2">
-        <video src="./images/자막/그래프.mp4" autoplay loop muted playsinline preload="metadata"></video>
+        <video src="./images/자막/그래프.mp4" poster="./images/posters/자막-그래프.jpg" autoplay loop muted playsinline preload="metadata"></video>
       </figure>
     </div>
     <div class="motion-stills">
