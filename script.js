@@ -44,7 +44,7 @@ const projects = [
     desc: '작물 영양제의 핵심 성분과 효능을 직관적으로 시각화하고, 고도화된 프롬프트 엔지니어링으로 한글 텍스트 깨짐을 원천 차단하여 후반 리터칭 없이 상업용 숏폼 에셋을 구축한 커머스 영상.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/작물영양제 기능 홍보.png',
     badge: 'company',
-    badgeLabel: '🏢 커머스 프로젝트',
+    badgeLabel: '커머스 프로젝트',
     tools: ['Antigravity', 'Nano Banana', 'Premiere Pro', 'Kling', 'Obsidian'],
     driveId: '1EClMUBheaXkb-DgJTsscnEIPpK80AA0S',
     orientation: 'horizontal',
@@ -72,7 +72,7 @@ const projects = [
     desc: '복잡한 분갈이 공정을 5분 미션이라는 게이미피케이션 요소로 재해석하여, 초보자의 심리적 장벽을 낮추고 제품의 올인원 편의성을 극대화한 숏폼 영상.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/분갈이흙2.png',
     badge: 'company',
-    badgeLabel: '🏢 커머스 프로젝트',
+    badgeLabel: '커머스 프로젝트',
     tools: ['Nano Banana', 'Photoshop', 'Kling', 'Premiere Pro'],
     driveId: '1kzPULkIVpHz7PnBzJW3cBCNiU-EnxxV8',
     orientation: 'vertical',
@@ -100,7 +100,7 @@ const projects = [
     desc: '자사 마스코트 토끼 캐릭터에 크리스마스 산타 코스튬을 적용한 시즌 베리에이션을 생성하고, 실제 자사 제품을 정교하게 합성하여 완성도 높은 숏폼 캠페인 필름을 제작함.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/시즌캠페인_크리스마스.png',
     badge: 'company',
-    badgeLabel: '🏢 회사 프로젝트',
+    badgeLabel: '회사 프로젝트',
     tools: ['Nano Banana', 'ComfyUI', 'Kling', 'Premiere Pro'],
     driveId: '1qtkc4js6sA5ZEvdF8BUB8N1gLcI8tB6B',
     orientation: 'vertical',
@@ -130,7 +130,7 @@ const projects = [
     desc: '브랜드 이름(이도 식당)의 모티브인 세종대왕(이도)을 화자로 등장시켜 드라마틱한 스토리텔링을 부여. "이름을 도용당해 화가 난 왕이 맛을 보고 감동한다"는 반전 서사 영상.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/공모전_한복한식.png',
     badge: 'contest',
-    badgeLabel: '🏆 공모전 출품작',
+    badgeLabel: '공모전 출품작',
     tools: ['Midjourney', 'Nano Banana', 'Photoshop', 'Kling'],
     driveId: '1lDDOm36ZfYtygXeCRUZEDgXU_cjzabI0',
     orientation: 'horizontal',
@@ -159,7 +159,7 @@ const projects = [
     desc: '초고성능 인공지능 이미지 생성 기술인 나노바나나의 압도적인 스타일 베리에이션 능력을 직관적으로 증명하기 위한 테크 커머셜 필름.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/나노바나나.png',
     badge: 'company',
-    badgeLabel: '🏢 커머스 프로젝트',
+    badgeLabel: '커머스 프로젝트',
     tools: ['Nano Banana', 'Premiere Pro'],
     driveId: '1UionJ84Kyz9OjvfQot6yiUt0piYegRUt',
     orientation: 'horizontal',
@@ -186,7 +186,7 @@ const projects = [
     desc: '인스타그램 바이럴 오션아이 밈을 AI 숏폼 영상으로 완벽하게 재현. 손가락의 해부학적 구조와 자연스러운 윙크 모션을 왜곡 없이 구현함.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/오션아이.png',
     badge: 'personal',
-    badgeLabel: '✨ 숏폼 프로젝트',
+    badgeLabel: '숏폼 프로젝트',
     tools: ['ComfyUI', 'Kling', 'Premiere Pro'],
     driveId: '1vkH7IVE0fJ6ya444eaZ3OcL1wX1Ak6uX',
     orientation: 'vertical',
@@ -208,7 +208,7 @@ const projects = [
     desc: '기존 뷰티 광고의 감성적 클리셰를 배제하고, 1mm의 빈틈도 허락하지 않는 완벽주의자의 시선에서 네모 패드가 얼굴 굴곡에 완벽히 밀착되는 시각적 카타르시스와 3-Step 루틴을 직관적으로 연출한 브랜드 필름.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/공모전_메디힐.png',
     badge: 'contest',
-    badgeLabel: '🏆 공모전 출품작',
+    badgeLabel: '공모전 출품작',
     tools: ['Midjourney', 'Nano Banana', 'ComfyUI', 'Kling'],
     driveId: '1eSSpwG9XS92l4zofZlsaio4MO2V_PiHY',
     orientation: 'horizontal',
@@ -243,7 +243,7 @@ const projects = [
     desc: '인간의 탐욕(순혈주의 펫샵)이 부른 좀비 바이러스 사태 속에서, 순수함을 간직한 아이들과 실험체 강아지들이 연대하여 재난을 극복해 나가는 SF 스릴러.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/단편영화_개물림사고주의.png',
     badge: 'team',
-    badgeLabel: '👥 팀 프로젝트',
+    badgeLabel: '팀 프로젝트',
     tools: ['Kling', 'Premiere Pro'],
     driveId: '1k3vUbi10fCBuQrny8BzC4N006jmxTZ9h',
     orientation: 'horizontal',
@@ -270,7 +270,7 @@ const projects = [
     desc: '기후 위기로 얼어붙은 아마존 디스토피아 세계관을 배경으로, 인류 생존의 열쇠인 코어를 고치기 위한 여정을 다룬 시네마틱 SF 단편 영화.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/아마존.png',
     badge: 'personal',
-    badgeLabel: '🎬 개인 필름',
+    badgeLabel: '개인 필름',
     tools: ['Midjourney', 'Runway', 'Premiere Pro'],
     driveId: '11i8xV-new7gxnxQ571zmbRbqTqm3P1Lf',
     orientation: 'horizontal',
@@ -301,7 +301,7 @@ const projects = [
     desc: '외부 섭외의 한계를 돌파하기 위해 제작자가 직접 농사에 참여하는 오리지널 리얼리티 포맷을 기획. 단일 영상 최고 조회수 40만 회 달성 및 전사 \'도전왕\' 1위 수상한 채널 턴어라운드 프로젝트.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/농사짓기프로젝트_썸네일.png',
     badge: 'company',
-    badgeLabel: '🌟 40만 조회 · 도전왕 1위',
+    badgeLabel: '40만 조회 · 도전왕 1위',
     tools: ['iPhone 13', 'Premiere Pro'],
     youtubeId: 'ucorOvw9rcc',
     orientation: 'horizontal',
@@ -322,7 +322,7 @@ const projects = [
     desc: '식물과 교감하는 일상을 따뜻한 무드로 담아내어 타겟 시청자(식집사)의 깊은 공감대를 이끌어낸 감성 콘텐츠.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/블루밍버블.png',
     badge: 'company',
-    badgeLabel: '🎥 실사 콘텐츠',
+    badgeLabel: '실사 콘텐츠',
     tools: ['SONY A7M4', 'Premiere Pro'],
     driveId: '1xfMZ9DcIq4ZN_bj7tENJ9IKuaJrU8bT5',
     orientation: 'horizontal',
@@ -346,7 +346,7 @@ const projects = [
     desc: '제품의 올바른 사용법을 직관적인 앵글로 담아내어 시청자의 편의성을 높인 실용적 가이드 영상.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/뿌리영양제.png',
     badge: 'company',
-    badgeLabel: '🎥 가이드',
+    badgeLabel: '가이드',
     tools: ['SONY A7M4', 'Premiere Pro'],
     driveId: '1i6yHs4zkGyhTsg-LQYjTQzSs2kai3eYU',
     orientation: 'vertical',
@@ -370,7 +370,7 @@ const projects = [
     desc: 'SNS 트렌드를 반영하여 화제성 높은 타사(다이소) 아이템을 직접 구매 후, 활용하는 모습을 기획한 바이럴 콘텐츠.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/다이소.png',
     badge: 'company',
-    badgeLabel: '🎥 바이럴',
+    badgeLabel: '바이럴',
     tools: ['SONY A7M4', 'Premiere Pro'],
     driveId: '1oFDI3Byt37doGDW5cyWupMHD8Hd9KqF7',
     orientation: 'vertical',
@@ -394,7 +394,7 @@ const projects = [
     desc: '죽어가는 식물에 제품을 투여하여 60일간 소생하는 과정을 기록한 리얼리티 다큐멘터리.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/식물살리기.png',
     badge: 'company',
-    badgeLabel: '🎥 다큐멘터리',
+    badgeLabel: '다큐멘터리',
     tools: ['SONY A7M4', 'Premiere Pro'],
     driveId: '1jxEVFvKeHQE2-xII4eEH3Btz4DzFAcWy',
     orientation: 'vertical',
@@ -421,7 +421,7 @@ const projects = [
     desc: '업계 전문가의 인사이트를 담아내어 브랜드의 권위를 높이고 전문성을 강조한 인터뷰 영상.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/유니크플랜트.png',
     badge: 'company',
-    badgeLabel: '🎥 인터뷰',
+    badgeLabel: '인터뷰',
     tools: ['SONY A7M4', 'Premiere Pro'],
     driveId: '1W2uaNmzFF5gXUSpl_kz1W-K6zqlxhVCZ',
     orientation: 'vertical',
@@ -445,7 +445,7 @@ const projects = [
     desc: '제품 특유의 질감과 소리를 백색소음으로 활용해 시청각적 쾌감을 동시에 자극하는 감각적인 제품 홍보 영상.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/이지코트.png',
     badge: 'company',
-    badgeLabel: '🎥 ASMR',
+    badgeLabel: 'ASMR',
     tools: ['SONY A7M4', 'Premiere Pro'],
     driveId: '1ptineNnf4KlaojxJwMm1sQcbCl1dIXkg',
     orientation: 'vertical',
@@ -458,6 +458,81 @@ const projects = [
       'https://nahyun1993.github.io/portfolio3/images/주요장면/이지코트/시퀀스 01.00_00_29_11.스틸 017.png'
     ],
     brief: '제품 특유의 질감과 소리를 백색소음으로 활용해 시청각적 쾌감을 동시에 자극하는 감각적인 제품 홍보 영상.',
+    process: []
+  },
+  /* ─────────────────────────────────────────────────────────
+     신규 추가 (2026) - 로컬 호스팅 영상
+  ───────────────────────────────────────────────────────── */
+  {
+    id: 301,
+    type: 'video',
+    category: 'artfilm',
+    categoryLabel: '아트필름',
+    title: 'LG 유쓰 AI 쇼츠 페스티벌 우수상',
+    desc: 'AI로 생성한 인물이 스스로를 소개하는 형식. 서로 모순되는 자기 인식을 짧은 문장과 셀피 앵글로 이어 붙여 한 사람의 결을 보여준 숏폼.',
+    videoSrc: './videos/lg-youth-festival.mp4',
+    poster: './images/posters/lg-youth-festival.jpg',
+    thumbnail: './images/posters/lg-youth-festival.jpg',
+    badge: 'award',
+    badgeLabel: '우수상',
+    tools: [],
+    orientation: 'vertical',
+    scenes: [],
+    brief: 'LG 유쓰 AI 쇼츠 페스티벌 출품작. 커피 향은 좋아하지만 커피는 못 마시는 사람, 앞장서는 사람이지만 주목받으면 부끄러운 사람. 한 인물 안의 상반된 면을 병렬로 나열하는 구조로 짧은 러닝타임 안에서 캐릭터를 각인시킴.',
+    process: []
+  },
+  {
+    id: 302,
+    type: 'video',
+    category: 'commercial',
+    categoryLabel: '커머셜 AI 영상',
+    title: '그로잉버블',
+    desc: '온실을 배경으로 3D 캐릭터가 식물을 키우는 과정을 파스텔 톤으로 담은 브랜드 숏폼. 실제 집행된 광고.',
+    videoSrc: './videos/growing-bubble.mp4',
+    poster: './images/posters/growing-bubble.jpg',
+    thumbnail: './images/posters/growing-bubble.jpg',
+    badge: 'company',
+    badgeLabel: '집행 광고',
+    tools: [],
+    orientation: 'vertical',
+    scenes: [],
+    brief: '브랜드 마스코트 캐릭터와 제품 세계관을 하나의 온실 공간으로 묶어, 제품 사용 결과를 캐릭터의 행동으로 보여주는 구성. 파스텔 톤 아트디렉션으로 제품군 전체의 시각적 일관성을 유지함.',
+    process: []
+  },
+  {
+    id: 303,
+    type: 'video',
+    category: 'commercial',
+    categoryLabel: '커머셜 AI 영상',
+    title: '닥터조 뿌리는 식물영양제',
+    desc: '판타지 숲에서 레몬 정원으로 이어지는 세계관을 만들고, 그 끝에 제품 컷을 배치한 스프레이 영양제 광고.',
+    videoSrc: './videos/drjoe-spray.mp4',
+    poster: './images/posters/drjoe-spray.jpg',
+    thumbnail: './images/posters/drjoe-spray.jpg',
+    badge: 'company',
+    badgeLabel: '제품 광고',
+    tools: [],
+    orientation: 'vertical',
+    scenes: [],
+    brief: '제품의 효능(뿌리면 자란다)을 설명 대신 장면으로 번역함. 어두운 숲에서 빛나는 열매를 거쳐 만개한 레몬 정원으로 이어지는 시퀀스로 변화의 폭을 시각화하고, 마지막에 제품 패키지를 배치해 메시지를 닫음.',
+    process: []
+  },
+  {
+    id: 304,
+    type: 'video',
+    category: 'commercial',
+    categoryLabel: '커머셜 AI 영상',
+    title: '버그올킬',
+    desc: '젤리 질감의 벌레 캐릭터로 이루어진 월드를 만들고, 스프레이 사용 장면으로 이어지는 살충제 광고. 실제 집행된 광고.',
+    videoSrc: './videos/bug-all-kill.mp4',
+    poster: './images/posters/bug-all-kill.jpg',
+    thumbnail: './images/posters/bug-all-kill.jpg',
+    badge: 'company',
+    badgeLabel: '집행 광고',
+    tools: [],
+    orientation: 'vertical',
+    scenes: [],
+    brief: '살충제 광고에서 거부감을 만드는 요소인 벌레를, 반투명 젤리 질감의 캐릭터로 재해석해 시청 이탈을 낮춤. 제품 사용 장면을 세계관 안의 사건처럼 배치해 광고 톤을 유지함.',
     process: []
   }
 ];
@@ -537,7 +612,7 @@ const dashboardProjects = [
     desc: '유튜브 스튜디오 기본 제공 지표의 한계를 넘어, VPH(시간당 조회수)와 아웃라이어(Outlier) 등 핵심 성장 지표를 수치화하고 타 채널 비교 및 키워드 분석까지 통합한 데이터 기반의 콘텐츠 기획 환경.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/웹앱/유튜브 성과지표 01.png',
     badge: 'company',
-    badgeLabel: '📊 Web App',
+    badgeLabel: 'Web App',
     tools: ['YouTube API', 'Claude OPUS'],
     images: [
       'https://nahyun1993.github.io/portfolio3/images/웹앱/유튜브 성과지표 01.png',
@@ -561,7 +636,7 @@ const dashboardProjects = [
     desc: 'YouTube Data API 기반 크리에이터/채널 성장 지표 분석 웹앱. 채널 URL 하나만으로 VPH, 참여율, 아웃라이어 등 핵심 성장 지표를 원클릭으로 추출하고 시각화.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/웹앱/채널분석01.png',
     badge: 'personal',
-    badgeLabel: '📊 Web App',
+    badgeLabel: 'Web App',
     tools: ['YouTube Data API v3', 'Claude OPUS'],
     images: [
       'https://nahyun1993.github.io/portfolio3/images/웹앱/채널분석01.png',
@@ -586,7 +661,7 @@ const dashboardProjects = [
     desc: '단 번의 클릭으로 원하는 프롬프트를 입력창에 즉시 주입하는 브라우저 확장 프로그램.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/웹앱/챗봇01.png',
     badge: 'personal',
-    badgeLabel: '🚀 Extension',
+    badgeLabel: 'Extension',
     tools: ['Claude OPUS'],
     images: [
       'https://nahyun1993.github.io/portfolio3/images/웹앱/챗봇01.png',
@@ -612,7 +687,7 @@ const dashboardProjects = [
     desc: 'Gemini API를 두뇌로, Oracle Cloud를 서버로, Discord를 인터페이스로, Notion을 데이터베이스로 연결하여 구축한 개인 맞춤형 AI 비서 시스템.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/웹앱/AI 개인 비서 시스템01.png',
     badge: 'personal',
-    badgeLabel: '🤖 AI Agent',
+    badgeLabel: 'AI Agent',
     tools: ['Claude OPUS', 'Gemini API', 'Oracle Cloud', 'Discord API', 'Notion API'],
     images: [
       'https://nahyun1993.github.io/portfolio3/images/웹앱/AI 개인 비서 시스템01.png',
@@ -630,675 +705,605 @@ const dashboardProjects = [
 
 /* ── Tech Stack ── */
 const techStack = [
-  { icon: '🍌', name: 'Nano Banana' },
-  { icon: '🎨', name: 'Midjourney' },
-  { icon: '⚙️', name: 'ComfyUI' },
-  { icon: '🎬', name: 'Kling' },
-  { icon: '🎙️', name: 'ElevenLabs' },
-  { icon: '🎞️', name: 'Premiere Pro' },
-  { icon: '📷', name: 'SONY A7M4' },
-  { icon: '🌅', name: 'Lightroom' },
-  { icon: '🌌', name: 'Antigravity' },
-  { icon: '🎥', name: 'VEO' },
-  { icon: '🎵', name: 'SUNO' },
-  { icon: '✨', name: 'Claude' },
-  { icon: '📓', name: 'Obsidian' }
+  'Nano Banana',
+  'Midjourney',
+  'ComfyUI',
+  'Kling',
+  'ElevenLabs',
+  'Premiere Pro',
+  'SONY A7M4',
+  'Lightroom',
+  'Antigravity',
+  'VEO',
+  'SUNO',
+  'Claude',
+  'Obsidian'
 ];
 
-/* ── Section Config ── */
+/* ── Config ── */
 const SECTIONS = [
-  { id: 'about',      label: 'ABOUT',            num: null },
-  { id: 'cinematic',  label: 'AI 영상 — 시네마틱',  num: '01', count: 3 },
-  { id: 'artfilm',    label: 'AI 영상 — 아트필름',  num: '02', count: 1 },
-  { id: 'commercial', label: 'AI 영상 — 커머셜',   num: '03', count: 7 },
-  { id: 'liveaction', label: '오리지널 영상 — 실사',  num: '04', count: 7 },
-  { id: 'subtitle',   label: '자막디자인',          num: '05' },
-  { id: 'ai-image',   label: 'AI 이미지',          num: '06' },
-  { id: 'photography',label: '오리지널 이미지 — 실사',  num: '07' },
-  { id: 'dashboard',  label: '대시보드 & 웹앱',     num: '08', count: 4 }
+  { id: 'work',   label: '작업' },
+  { id: 'images', label: '이미지' },
+  { id: 'motion', label: '자막디자인' },
+  { id: 'tools',  label: '웹앱' },
+  { id: 'about',  label: '소개' }
 ];
+
+/* 구 URL 앵커 호환: 예전 섹션 id로 들어와도 새 섹션으로 보냄 */
+const ANCHOR_ALIAS = {
+  cinematic: 'work', artfilm: 'work', commercial: 'work', liveaction: 'work',
+  subtitle: 'motion', 'ai-image': 'images', photography: 'images', dashboard: 'tools'
+};
+
+const FEATURED_IDS = [301, 207, 302];
+
+const WORK_FILTERS = [
+  { key: 'all',        label: '전체' },
+  { key: 'commercial', label: '커머셜' },
+  { key: 'cinematic',  label: '시네마틱' },
+  { key: 'artfilm',    label: '아트필름' },
+  { key: 'liveaction', label: '실사' }
+];
+
+const IMAGE_FILTERS = [
+  { key: 'all',           label: '전체' },
+  { key: 'character',     label: '캐릭터 일관성' },
+  { key: 'concept-art',   label: '컨셉 아트' },
+  { key: 'portrait',      label: '인물' },
+  { key: 'product-image', label: '제품' },
+  { key: 'photography',   label: '실사 사진' }
+];
+
+const CDN = 'https://nahyun1993.github.io/portfolio3/images/';
 
 /* ── State ── */
-let currentImageFilter = 'all';
-let currentModal = null;
+let workFilter = 'all';
+let imageFilter = 'all';
+let imageLimit = 24;
+let lastFocused = null;
 
-/* ═══════════════════════════════════════════════
-   RENDER: Sidebar Navigation
-═══════════════════════════════════════════════ */
-function renderSidebar() {
-  const nav = document.getElementById('sidebar-nav');
-  const mobileNav = document.getElementById('mobile-nav');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const finePointer = window.matchMedia('(pointer: fine)').matches;
 
-  const makeItem = (s) => `
-    <li>
-      <a href="#${s.id}" data-section="${s.id}" onclick="scrollToSection('${s.id}');return false;">
-        ${s.num ? `<span class="nav-num">${s.num}</span>` : '<span style="width:20px;display:inline-block;"></span>'}
-        <span class="nav-label">${s.label}</span>
-      </a>
-    </li>
-  `;
+/* ── Utils ── */
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const byId = (id) => document.getElementById(id);
+const allProjects = () => projects.concat(dashboardProjects);
 
-  nav.innerHTML = `<ul>${SECTIONS.map(makeItem).join('')}</ul>`;
-
-  if (mobileNav) {
-    mobileNav.innerHTML = `<ul>${SECTIONS.map(s => `
-      <li>
-        <a href="#${s.id}" data-section="${s.id}" onclick="scrollToSection('${s.id}');return false;">
-          <span class="m-nav-dot"></span>
-          ${s.label}
-        </a>
-      </li>
-    `).join('')}</ul>`;
-  }
-}
-
-function scrollToSection(id) {
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: 'smooth' });
+function findProject(id) {
+  return allProjects().find(p => String(p.id) === String(id));
 }
 
 /* ═══════════════════════════════════════════════
-   RENDER: About Section
+   NAV
 ═══════════════════════════════════════════════ */
-function renderAbout() {
-  const section = document.getElementById('about');
-  section.innerHTML = `
-    <div class="section-header">
-      <div class="section-title">ABOUT</div>
-    </div>
-    <div class="about-layout">
-      <div class="about-left">
-        <div class="about-name">LEE NAHYUN</div>
-        <div class="about-role">AI Creator & Visual Director</div>
-        <p class="about-intro">
-          AI 생성 기술과 영상 연출의 교차점에서 작업합니다.<br><br>
-          실사 콘텐츠부터 AI 워크플로우 설계까지
-          하이브리드 자동화 크리에이티브 워크플로를 설계합니다.
-        </p>
-        <div class="showreel-wrap">
-          <div class="showreel-label">▶ SHOW REEL</div>
-          <div class="showreel-frame">
-            <iframe
-              src="https://drive.google.com/file/d/1J0VQY8UWf6KQcn3aoOCcj0l2zfmb7ptr/preview"
-              allow="autoplay"
-              allowfullscreen>
-            </iframe>
-          </div>
-        </div>
-      </div>
-      <div class="about-right">
-        <div class="about-stack-title">TECH STACK</div>
-        <div class="tech-grid">
-          ${techStack.map(t => `
-            <div class="tech-item">
-              <span class="tech-icon">${t.icon}</span>
-              <span>${t.name}</span>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-    </div>
-  `;
-}
+function renderNav() {
+  const links = SECTIONS.map(s => `<a href="#${s.id}" data-nav="${s.id}">${s.label}</a>`).join('');
+  byId('nav-links').innerHTML = links;
+  byId('menu-links').innerHTML = links;
 
-/* ═══════════════════════════════════════════════
-   RENDER: Video Section (commercial / cinematic / liveaction)
-═══════════════════════════════════════════════ */
-function renderVideoSection(sectionId, num, title, subtitle, projectList) {
-  const section = document.getElementById(sectionId);
-  if (!section) return;
-
-  section.innerHTML = `
-    <div class="section-header">
-      ${num ? `<div class="section-num">${num}</div>` : ''}
-      <div>
-        <div class="section-title">${title}</div>
-        <div class="section-subtitle">${subtitle}</div>
-      </div>
-    </div>
-    <div class="cards-grid">
-      ${projectList.map(p => createVideoCard(p)).join('')}
-    </div>
-  `;
-
-  section.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => openModal(parseInt(card.dataset.id)));
-  });
-}
-
-function createVideoCard(p) {
-  const badgeHtml = `<span class="badge badge-${p.badge}">${p.badgeLabel}</span>`;
-  const thumbHtml = p.thumbnail
-    ? `<img class="card-thumbnail" src="${p.thumbnail}" alt="${p.title}" loading="lazy">`
-    : `<div class="card-thumbnail-placeholder" style="background:linear-gradient(135deg,rgba(30,40,80,0.8),rgba(20,60,50,0.6));">🎬</div>`;
-
-  return `
-    <div class="card" data-id="${p.id}">
-      ${thumbHtml}
-      <div class="card-body">
-        <div class="card-header-row">
-          <div class="card-title">${p.title}</div>
-          ${badgeHtml}
-        </div>
-        <div class="card-desc">${p.desc}</div>
-        <div class="card-tools">
-          ${p.tools.map(t => `<span class="tool-tag">${t}</span>`).join('')}
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-/* ═══════════════════════════════════════════════
-   RENDER: Subtitle Section
-═══════════════════════════════════════════════ */
-function renderSubtitleSection() {
-  const section = document.getElementById('subtitle');
-  if (!section) return;
-
-  const B = './';
-  section.innerHTML = `
-    <div class="section-header">
-      <div class="section-num">05</div>
-      <div>
-        <div class="section-title">자막디자인</div>
-        <div class="section-subtitle">Subtitle Design</div>
-      </div>
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 32px; align-items: start;">
-      <img src="${B}images/자막/자막디자인01.png" style="width:100%; height:auto; border-radius:12px; border:1px solid rgba(255,255,255,0.06);" loading="lazy">
-      <img src="${B}images/자막/자막디자인02.png" style="width:100%; height:auto; border-radius:12px; border:1px solid rgba(255,255,255,0.06);" loading="lazy">
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px;">
-      <video src="${B}images/자막/제목.mp4" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover; border-radius:12px; background:#0a0f1a; border:1px solid rgba(255,255,255,0.06);"></video>
-      <video src="${B}images/자막/연참.mp4" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover; border-radius:12px; background:#0a0f1a; border:1px solid rgba(255,255,255,0.06);"></video>
-      <video src="${B}images/자막/그래프.mp4" autoplay loop muted playsinline style="width:100%; height:100%; object-fit:cover; border-radius:12px; background:#0a0f1a; border:1px solid rgba(255,255,255,0.06);"></video>
-    </div>
-  `;
-}
-
-/* ═══════════════════════════════════════════════
-   RENDER: AI Image Section
-═══════════════════════════════════════════════ */
-function renderImageSection() {
-  const section = document.getElementById('ai-image');
-  if (!section) return;
-
-  const allImages = [
-    ...characterFiles.map(f => ({ src: `https://nahyun1993.github.io/portfolio3/images/AI Image/character/${f}`, cat: 'character', label: '캐릭터 일관성' })),
-    ...conceptArtFiles.map(f => ({ src: `https://nahyun1993.github.io/portfolio3/images/AI Image/Concept Art/${f}`, cat: 'concept-art', label: '컨셉 아트' })),
-    ...portraitFiles.map(f => ({ src: `https://nahyun1993.github.io/portfolio3/images/AI Image/Portrait/${f}`, cat: 'portrait', label: '인물 이미지' })),
-    ...productImageFiles.map(f => ({ src: `https://nahyun1993.github.io/portfolio3/images/AI Image/Product Image/${f}`, cat: 'product-image', label: '제품 이미지' }))
-  ];
-
-  const filters = [
-    { key: 'all', label: '전체' },
-    { key: 'character', label: '캐릭터 일관성' },
-    { key: 'concept-art', label: '컨셉 아트' },
-    { key: 'portrait', label: '인물 이미지' },
-    { key: 'product-image', label: '제품 이미지' }
-  ];
-
-  section.innerHTML = `
-    <div class="section-header">
-      <div class="section-num">06</div>
-      <div>
-        <div class="section-title">AI 이미지</div>
-        <div class="section-subtitle">AI Image Generation</div>
-      </div>
-    </div>
-    <div class="filter-tabs">
-      ${filters.map(f => `
-        <button class="filter-tab${currentImageFilter === f.key ? ' active' : ''}" data-filter="${f.key}">${f.label}</button>
-      `).join('')}
-    </div>
-    <div class="image-grid" id="image-grid-content">
-      ${renderImageGridItems(allImages, currentImageFilter)}
-    </div>
-  `;
-
-  section.querySelectorAll('.filter-tab').forEach(btn => {
-    btn.addEventListener('click', () => {
-      currentImageFilter = btn.dataset.filter;
-      section.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('image-grid-content').innerHTML = renderImageGridItems(allImages, currentImageFilter);
-      attachImageGridEvents();
+  document.querySelectorAll('[data-nav]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeMenu();
+      goTo(a.dataset.nav);
     });
   });
 
-  attachImageGridEvents();
+  byId('menu-toggle').addEventListener('click', () => {
+    document.body.classList.contains('menu-open') ? closeMenu() : openMenu();
+  });
 }
 
-function renderImageGridItems(allImages, filter) {
-  const filtered = filter === 'all' ? allImages : allImages.filter(img => img.cat === filter);
-  return filtered.map(img => `
-    <img class="image-grid-item" src="${img.src}" alt="${img.label}" loading="lazy" data-src="${img.src}">
+function openMenu() {
+  document.body.classList.add('menu-open');
+  byId('menu-toggle').setAttribute('aria-expanded', 'true');
+}
+function closeMenu() {
+  document.body.classList.remove('menu-open');
+  byId('menu-toggle').setAttribute('aria-expanded', 'false');
+}
+
+function goTo(id) {
+  const target = byId(ANCHOR_ALIAS[id] || id);
+  if (!target) return;
+  target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  history.replaceState(null, '', '#' + (ANCHOR_ALIAS[id] || id));
+}
+
+function watchActiveSection() {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      document.querySelectorAll('[data-nav]').forEach(a => {
+        a.classList.toggle('is-active', a.dataset.nav === en.target.id);
+      });
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  SECTIONS.forEach(s => { const el = byId(s.id); if (el) io.observe(el); });
+}
+
+/* ═══════════════════════════════════════════════
+   REVEAL (IntersectionObserver, no scroll listeners)
+═══════════════════════════════════════════════ */
+let revealIO = null;
+function observeReveals(root) {
+  if (reduceMotion) {
+    (root || document).querySelectorAll('.reveal').forEach(el => el.classList.add('is-in'));
+    return;
+  }
+  if (!revealIO) {
+    revealIO = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) { en.target.classList.add('is-in'); revealIO.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+  }
+  (root || document).querySelectorAll('.reveal:not(.is-in)').forEach(el => revealIO.observe(el));
+}
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+function renderHero() {
+  /* 히어로는 대표작 3편과 겹치지 않는 영상을 쓴다 */
+  const lead = findProject(304);
+  byId('hero').innerHTML = `
+    <div class="hero-copy">
+      <p class="hero-role">AI Creator &amp; Visual Director</p>
+      <h1 class="hero-name">LEE<br>NAHYUN</h1>
+      <p class="hero-lead">AI로 생성한 영상부터 카메라로 찍은 실사까지, 브랜드가 파는 장면을 만듭니다.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" data-nav="work">작업 보기</button>
+        <a class="btn btn-ghost" href="mailto:yk6838@gmail.com">yk6838@gmail.com</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="hero-frame" data-open="${lead ? lead.id : ''}">
+        <img src="${lead ? lead.poster : ''}" alt="${lead ? esc(lead.title) : ''} 광고 스틸" fetchpriority="high" width="720" height="1280">
+        ${lead && lead.videoSrc ? `<video src="${lead.videoSrc}" muted loop playsinline preload="none" aria-hidden="true"></video>` : ''}
+      </div>
+    </div>
+  `;
+  byId('hero').querySelector('[data-nav]').addEventListener('click', () => goTo('work'));
+  const frame = byId('hero').querySelector('.hero-frame');
+  frame.addEventListener('click', () => openModal(304));
+  if (!reduceMotion) {
+    const v = frame.querySelector('video');
+    if (v) {
+      const io = new IntersectionObserver((en) => {
+        en.forEach(e => {
+          if (e.isIntersecting) { v.preload = 'auto'; v.play().then(() => frame.classList.add('is-playing')).catch(() => {}); }
+          else { v.pause(); }
+        });
+      }, { threshold: 0.4 });
+      io.observe(frame);
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   FEATURED (asymmetric 1 + 2)
+═══════════════════════════════════════════════ */
+function renderFeatured() {
+  const picks = FEATURED_IDS.map(findProject).filter(Boolean);
+  if (!picks.length) return;
+  byId('featured').innerHTML = `
+    <h2 class="sr-only">주요 작업</h2>
+    <div class="featured-grid">
+      ${picks.map((p, i) => `
+        <article class="feat reveal ${i === 0 ? 'feat-lead' : ''}" style="--i:${i}" data-open="${p.id}" tabindex="0" role="button">
+          <div class="feat-media ${p.orientation === 'vertical' ? 'is-vertical' : 'is-horizontal'}">
+            <img src="${p.thumbnail}" alt="${esc(p.title)}" loading="${i === 0 ? 'eager' : 'lazy'}">
+            ${p.videoSrc ? `<video src="${p.videoSrc}" muted loop playsinline preload="none" aria-hidden="true"></video>` : ''}
+          </div>
+          <div class="feat-info">
+            ${p.badgeLabel ? `<span class="tag tag-strong">${esc(p.badgeLabel)}</span>` : ''}
+            <h3>${esc(p.title)}</h3>
+            <p>${esc(p.desc)}</p>
+          </div>
+        </article>
+      `).join('')}
+    </div>
+  `;
+  wireCards(byId('featured'));
+}
+
+/* ═══════════════════════════════════════════════
+   WORK
+═══════════════════════════════════════════════ */
+function renderWork() {
+  const section = byId('work');
+  section.innerHTML = `
+    <header class="sec-head">
+      <h2>작업</h2>
+      <p>AI 생성 영상과 실사 촬영물 ${projects.length}편. 카드를 열면 기획 의도와 제작 과정이 나옵니다.</p>
+    </header>
+    <div class="chips" id="work-chips" role="tablist">
+      ${WORK_FILTERS.map(f => `<button class="chip${workFilter === f.key ? ' is-on' : ''}" data-filter="${f.key}" role="tab" aria-selected="${workFilter === f.key}">${f.label}</button>`).join('')}
+    </div>
+    <div class="work-grid" id="work-grid">${workCards()}</div>
+  `;
+  section.querySelectorAll('#work-chips .chip').forEach(b => {
+    b.addEventListener('click', () => {
+      workFilter = b.dataset.filter;
+      section.querySelectorAll('#work-chips .chip').forEach(x => {
+        const on = x.dataset.filter === workFilter;
+        x.classList.toggle('is-on', on);
+        x.setAttribute('aria-selected', on);
+      });
+      byId('work-grid').innerHTML = workCards();
+      wireCards(byId('work-grid'));
+      observeReveals(byId('work-grid'));
+      watchWorkGrid();
+    });
+  });
+  wireCards(section);
+  watchWorkGrid();
+}
+
+function workCards() {
+  const list = workFilter === 'all' ? projects : projects.filter(p => p.category === workFilter);
+  if (!list.length) return `<p class="empty">이 분류에는 아직 공개한 작업이 없습니다.</p>`;
+  return list.map((p, i) => `
+    <article class="card reveal" style="--i:${i % 8}" data-open="${p.id}" tabindex="0" role="button" aria-label="${esc(p.title)} 자세히 보기">
+      <div class="card-media ${p.orientation === 'vertical' ? 'is-vertical' : 'is-horizontal'}">
+        ${p.thumbnail
+          ? `<img src="${p.thumbnail}" alt="${esc(p.title)}" loading="lazy">`
+          : `<div class="card-blank"></div>`}
+        ${p.videoSrc ? `<video src="${p.videoSrc}" muted loop playsinline preload="none" aria-hidden="true"></video>` : ''}
+      </div>
+      <div class="card-info">
+        <h3>${esc(p.title)}</h3>
+        <p>${esc(p.desc)}</p>
+        <div class="card-foot">
+          <span class="tag">${esc(p.categoryLabel || '')}</span>
+          ${p.badgeLabel ? `<span class="tag tag-strong">${esc(p.badgeLabel)}</span>` : ''}
+        </div>
+      </div>
+    </article>
   `).join('');
 }
 
-function attachImageGridEvents() {
-  document.querySelectorAll('.image-grid-item').forEach(img => {
-    img.addEventListener('click', () => openLightbox(img.dataset.src || img.src));
+/* 카드 높이를 8px 행 단위 span으로 환산 (메이슨리) */
+function layoutWorkGrid() {
+  const grid = byId('work-grid');
+  if (!grid) return;
+  const gap = parseFloat(getComputedStyle(grid).rowGap) || 0;
+  grid.querySelectorAll('.card').forEach(card => {
+    card.style.setProperty('--span', Math.ceil((card.getBoundingClientRect().height + gap) / 8));
+  });
+}
+
+let gridRO = null;
+function watchWorkGrid() {
+  const grid = byId('work-grid');
+  if (!grid) return;
+  layoutWorkGrid();
+  grid.querySelectorAll('img').forEach(img => {
+    if (!img.complete) img.addEventListener('load', layoutWorkGrid, { once: true });
+  });
+  if (!gridRO) {
+    gridRO = new ResizeObserver(() => layoutWorkGrid());
+    gridRO.observe(document.body);
+  }
+}
+
+function wireCards(root) {
+  root.querySelectorAll('[data-open]').forEach(el => {
+    if (el.dataset.wired) return;
+    el.dataset.wired = '1';
+    const id = el.dataset.open;
+    const open = () => (String(id).length === 3 && String(id)[0] === '4') ? openDashboardModal(parseInt(id)) : openModal(parseInt(id));
+    el.addEventListener('click', open);
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+    });
+    const v = el.querySelector('video');
+    if (v && finePointer && !reduceMotion) {
+      el.addEventListener('mouseenter', () => { v.preload = 'auto'; v.play().then(() => el.classList.add('is-playing')).catch(() => {}); });
+      el.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; el.classList.remove('is-playing'); });
+    }
   });
 }
 
 /* ═══════════════════════════════════════════════
-   RENDER: Photography Section
+   IMAGES
 ═══════════════════════════════════════════════ */
-function renderPhotoSection() {
-  const section = document.getElementById('photography');
-  if (!section) return;
+function imageItems() {
+  return [
+    ...characterFiles.map(f => ({ src: CDN + 'AI Image/character/' + f, cat: 'character', label: '캐릭터 일관성' })),
+    ...conceptArtFiles.map(f => ({ src: CDN + 'AI Image/Concept Art/' + f, cat: 'concept-art', label: '컨셉 아트' })),
+    ...portraitFiles.map(f => ({ src: CDN + 'AI Image/Portrait/' + f, cat: 'portrait', label: '인물 이미지' })),
+    ...productImageFiles.map(f => ({ src: CDN + 'AI Image/Product Image/' + f, cat: 'product-image', label: '제품 이미지' })),
+    ...photographyFiles.map(f => ({ src: CDN + 'AI Image/Photography/' + f, cat: 'photography', label: '실사 사진' }))
+  ];
+}
 
+function renderImages() {
+  const section = byId('images');
+  const items = imageItems();
   section.innerHTML = `
-    <div class="section-header">
-      <div class="section-num">07</div>
-      <div>
-        <div class="section-title">오리지널 이미지 - 실사</div>
-        <div class="section-subtitle">SONY A7M4 & Lightroom</div>
-      </div>
+    <header class="sec-head">
+      <h2>이미지</h2>
+      <p>AI로 생성한 캐릭터와 제품 이미지, 그리고 SONY A7M4로 찍은 실사 사진.</p>
+    </header>
+    <div class="chips" id="image-chips" role="tablist">
+      ${IMAGE_FILTERS.map(f => `<button class="chip${imageFilter === f.key ? ' is-on' : ''}" data-filter="${f.key}" role="tab" aria-selected="${imageFilter === f.key}">${f.label}</button>`).join('')}
     </div>
-    <div class="photo-grid">
-      ${photographyFiles.map(f => `
-        <img class="photo-grid-item" src="https://nahyun1993.github.io/portfolio3/images/AI Image/Photography/${f}" alt="Photography" loading="lazy" data-src="https://nahyun1993.github.io/portfolio3/images/AI Image/Photography/${f}">
+    <div class="mosaic" id="mosaic">${mosaicItems(items)}</div>
+    <div class="more-wrap" id="more-wrap">${moreButton(items)}</div>
+  `;
+  section.querySelectorAll('#image-chips .chip').forEach(b => {
+    b.addEventListener('click', () => {
+      imageFilter = b.dataset.filter;
+      section.querySelectorAll('#image-chips .chip').forEach(x => {
+        const on = x.dataset.filter === imageFilter;
+        x.classList.toggle('is-on', on);
+        x.setAttribute('aria-selected', on);
+      });
+      imageLimit = 24;
+      byId('mosaic').innerHTML = mosaicItems(items);
+      byId('more-wrap').innerHTML = moreButton(items);
+      wireMosaic();
+      wireMore(items);
+    });
+  });
+  wireMosaic();
+  wireMore(items);
+}
+
+function filteredImages(items) {
+  return imageFilter === 'all' ? items : items.filter(i => i.cat === imageFilter);
+}
+
+function moreButton(items) {
+  const total = filteredImages(items).length;
+  if (total <= imageLimit) return '';
+  return `<button class="btn btn-ghost" id="more-btn">이미지 더 보기 (${total - imageLimit})</button>`;
+}
+
+function wireMore(items) {
+  const btn = byId('more-btn');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    imageLimit += 24;
+    byId('mosaic').innerHTML = mosaicItems(items);
+    byId('more-wrap').innerHTML = moreButton(items);
+    wireMosaic();
+    wireMore(items);
+  });
+}
+
+function mosaicItems(items) {
+  const list = filteredImages(items).slice(0, imageLimit);
+  return list.map(i => `
+    <button class="mos" data-src="${i.src}" aria-label="${esc(i.label)} 크게 보기">
+      <img src="${i.src}" alt="${esc(i.label)}" loading="lazy">
+    </button>
+  `).join('');
+}
+
+function wireMosaic() {
+  document.querySelectorAll('.mos').forEach(b => {
+    if (b.dataset.wired) return;
+    b.dataset.wired = '1';
+    b.addEventListener('click', () => openLightbox(b.dataset.src));
+  });
+}
+
+/* ═══════════════════════════════════════════════
+   MOTION (자막디자인)
+═══════════════════════════════════════════════ */
+function renderMotion() {
+  byId('motion').innerHTML = `
+    <header class="sec-head">
+      <h2>자막디자인</h2>
+      <p>정보를 읽히게 만드는 타이포와 모션. 영상 안에서 반복 사용하는 자막 시스템입니다.</p>
+    </header>
+    <div class="motion-strip">
+      <figure class="motion-item reveal" style="--i:0">
+        <video src="./images/자막/제목.mp4" autoplay loop muted playsinline preload="metadata"></video>
+      </figure>
+      <figure class="motion-item reveal" style="--i:1">
+        <video src="./images/자막/연참.mp4" autoplay loop muted playsinline preload="metadata"></video>
+      </figure>
+      <figure class="motion-item reveal" style="--i:2">
+        <video src="./images/자막/그래프.mp4" autoplay loop muted playsinline preload="metadata"></video>
+      </figure>
+    </div>
+    <div class="motion-stills">
+      <img class="reveal" style="--i:0" src="./images/자막/자막디자인01.png" alt="자막 디자인 시안" loading="lazy">
+      <img class="reveal" style="--i:1" src="./images/자막/자막디자인02.png" alt="자막 디자인 시안" loading="lazy">
+    </div>
+  `;
+  if (reduceMotion) {
+    byId('motion').querySelectorAll('video').forEach(v => { v.autoplay = false; v.removeAttribute('autoplay'); v.pause(); });
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   TOOLS (웹앱) - list rows, not cards
+═══════════════════════════════════════════════ */
+function renderTools() {
+  const section = byId('tools');
+  section.innerHTML = `
+    <header class="sec-head">
+      <h2>웹앱</h2>
+      <p>영상 기획에 필요한 데이터를 직접 만들려고 붙인 도구들.</p>
+    </header>
+    <div class="rows">
+      ${dashboardProjects.map((p, i) => `
+        <article class="row reveal" style="--i:${i}" data-open="${p.id}" tabindex="0" role="button" aria-label="${esc(p.title)} 자세히 보기">
+          <div class="row-thumb">${p.thumbnail ? `<img src="${p.thumbnail}" alt="" loading="lazy">` : ''}</div>
+          <div class="row-body">
+            <h3>${esc(p.title)}</h3>
+            <p>${esc(p.desc)}</p>
+          </div>
+          <div class="row-tools">${p.tools.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>
+        </article>
       `).join('')}
     </div>
   `;
-
-  section.querySelectorAll('.photo-grid-item').forEach(img => {
-    img.addEventListener('click', () => openLightbox(img.dataset.src || img.src));
-  });
+  wireCards(section);
 }
 
 /* ═══════════════════════════════════════════════
-   RENDER: Dashboard Section
+   ABOUT
 ═══════════════════════════════════════════════ */
-function renderDashboardSection() {
-  const section = document.getElementById('dashboard');
-  if (!section) return;
-
-  const placeholderIcons = { 401: '📊', 402: '📈', 403: '⚡', 404: '🤖' };
-  const placeholderClasses = { 401: 'placeholder-chart', 402: 'placeholder-chart', 403: 'placeholder-chart', 404: 'placeholder-robot' };
-
-  section.innerHTML = `
-    <div class="section-header">
-      <div class="section-num">08</div>
-      <div>
-        <div class="section-title">대시보드 & 웹앱</div>
-        <div class="section-subtitle">Tools, Dashboards & AI Systems</div>
+function renderAbout() {
+  byId('about').innerHTML = `
+    <div class="about-grid">
+      <div class="about-main">
+        <h2>소개</h2>
+        <p class="about-lead">AI 생성 기술과 영상 연출의 교차점에서 작업합니다.</p>
+        <p>실사 촬영과 편집으로 시작해, 지금은 AI 생성 영상과 이미지를 상업용 품질로 끌어올리는 워크플로를 직접 설계하고 운영합니다. 기획부터 생성, 후반, 성과 측정까지 한 사람이 이어붙이는 방식으로 일합니다.</p>
+        <p class="about-contact">
+          <a href="mailto:yk6838@gmail.com">yk6838@gmail.com</a>
+        </p>
+      </div>
+      <div class="about-side">
+        <h3>사용 도구</h3>
+        <ul class="stack">
+          ${techStack.map(t => `<li>${esc(t)}</li>`).join('')}
+        </ul>
       </div>
     </div>
-    <div class="cards-grid">
-      ${dashboardProjects.map(p => {
-        const thumbHtml = p.thumbnail
-          ? `<img class="card-thumbnail" src="${p.thumbnail}" alt="${p.title}" loading="lazy">`
-          : `<div class="card-placeholder ${placeholderClasses[p.id] || 'placeholder-chart'}"><span style="font-size:3rem;">${placeholderIcons[p.id] || '📊'}</span></div>`;
-
-        return `
-          <div class="card" data-id="d${p.id}">
-            ${thumbHtml}
-            <div class="card-body">
-              <div class="card-header-row">
-                <div class="card-title">${p.title}</div>
-                <div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end;flex-shrink:0;">
-                  <span class="badge badge-${p.badge}">${p.badgeLabel}</span>
-                </div>
-              </div>
-              <div class="card-desc">${p.desc}</div>
-              <div class="card-tools">
-                ${p.tools.map(t => `<span class="tool-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-          </div>
-        `;
-      }).join('')}
-    </div>
   `;
-
-  section.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => {
-      const rawId = card.dataset.id;
-      const numId = parseInt(rawId.replace('d', ''));
-      openDashboardModal(numId);
-    });
-  });
 }
 
 /* ═══════════════════════════════════════════════
-   MODAL: Video Projects
+   MODAL
 ═══════════════════════════════════════════════ */
-function openModal(projectId) {
-  const project = projects.find(p => p.id === projectId);
-  if (!project) return;
-
-  const isVertical = project.orientation === 'vertical';
-  const modal = document.getElementById('modal');
-  const inner = document.getElementById('modal-inner');
-
-  let mediaHtml = '';
-  if (project.youtubeId) {
-    const aspectClass = isVertical ? ' vertical' : '';
-    mediaHtml = `
-      <div class="modal-video${aspectClass}">
-        <iframe src="https://www.youtube.com/embed/${project.youtubeId}" allow="autoplay; fullscreen" allowfullscreen></iframe>
-      </div>
-    `;
-  } else if (project.driveId) {
-    const aspectClass = isVertical ? ' vertical' : '';
-    mediaHtml = `
-      <div class="modal-video${aspectClass}">
-        <iframe src="https://drive.google.com/file/d/${project.driveId}/preview" allow="autoplay" allowfullscreen></iframe>
-      </div>
-    `;
+function mediaBlock(p) {
+  const vertical = p.orientation === 'vertical';
+  const cls = vertical ? 'modal-media is-vertical' : 'modal-media';
+  if (p.videoSrc) {
+    return `<div class="${cls}"><video src="${p.videoSrc}" poster="${p.poster || ''}" controls autoplay muted playsinline preload="metadata"></video></div>`;
   }
-
-  let scenesHtml = '';
-  if (project.scenes && project.scenes.length > 0) {
-    const gridClass = isVertical ? ' vertical' : '';
-    scenesHtml = `
-      <div class="modal-section">
-        <div class="modal-scenes-title">EXTRACT · SCENES</div>
-        <div class="modal-scene-grid${gridClass}">
-          ${project.scenes.map((s, i) => `<img src="${s}" alt="${project.title} 장면 ${i+1}" loading="lazy">`).join('')}
-        </div>
-      </div>
-    `;
+  if (p.youtubeId) {
+    return `<div class="${cls}"><iframe src="https://www.youtube.com/embed/${p.youtubeId}" title="${esc(p.title)}" allow="autoplay; fullscreen" allowfullscreen></iframe></div>`;
   }
-
-  let processHtml = '';
-  if (project.process && project.process.length > 0) {
-    processHtml = `
-      <div class="modal-section">
-        <div class="modal-section-title">WORKFLOW · PROCESS</div>
-        <div class="process-steps">
-          ${project.process.map((step, i) => `
-            <div class="process-step">
-              <div class="step-num">${String(i + 1).padStart(2, '0')}</div>
-              <div class="step-content">
-                <div class="step-title">${step.title}</div>
-                <div class="step-desc">${step.desc}</div>
-                ${step.image ? `<img class="step-image" src="${step.image}" alt="${step.title}">` : ''}
-              </div>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-    `;
+  if (p.driveId) {
+    return `<div class="${cls}"><iframe src="https://drive.google.com/file/d/${p.driveId}/preview" title="${esc(p.title)}" allow="autoplay" allowfullscreen></iframe></div>`;
   }
-
-  inner.innerHTML = `
-    <button class="modal-back" id="modal-back-btn">← 돌아가기</button>
-    <div class="modal-project-num">${project.categoryLabel}</div>
-    <h2 class="modal-title">${project.title}</h2>
-    <div class="modal-badges">
-      <span class="badge badge-${project.badge}">${project.badgeLabel}</span>
-    </div>
-
-    ${mediaHtml}
-
-    ${project.brief ? `
-    <div class="modal-section">
-      <div class="modal-section-title">PROJECT · BRIEF</div>
-      <p class="modal-brief">${project.brief}</p>
-    </div>
-    ` : ''}
-
-    ${scenesHtml}
-    ${processHtml}
-
-    ${project.tools && project.tools.length > 0 ? `
-    <div class="modal-section">
-      <div class="modal-section-title">TOOLS USED</div>
-      <div class="modal-tools">
-        ${project.tools.map(t => `<span class="modal-tool-badge">${t}</span>`).join('')}
-      </div>
-    </div>
-    ` : ''}
-  `;
-
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-
-  document.getElementById('modal-back-btn').addEventListener('click', closeModal);
+  return '';
 }
 
-/* ── Dashboard Modal ── */
-function openDashboardModal(projectId) {
-  const project = dashboardProjects.find(p => p.id === projectId);
-  if (!project) return;
-
-  const modal = document.getElementById('modal');
-  const inner = document.getElementById('modal-inner');
-
-  let galleryHtml = '';
-  if (project.images && project.images.length > 0) {
-    galleryHtml = `
-      <div class="modal-gallery${project.images.length === 1 ? ' single' : ''}">
-        ${project.images.map(img => `<img src="${img}" alt="${project.title}" loading="lazy">`).join('')}
+function detailBlock(p) {
+  const scenes = (p.scenes && p.scenes.length) ? `
+    <section class="modal-block">
+      <h4>주요 장면</h4>
+      <div class="scene-grid ${p.orientation === 'vertical' ? 'is-vertical' : ''}">
+        ${p.scenes.map(s => `<img src="${s}" alt="${esc(p.title)} 장면" loading="lazy" data-lb="${s}">`).join('')}
       </div>
-    `;
-  } else {
-    galleryHtml = `
-      <div style="width:100%;aspect-ratio:16/7;border-radius:12px;background:linear-gradient(135deg,rgba(106,59,170,0.2),rgba(43,87,204,0.15));display:flex;align-items:center;justify-content:center;margin-bottom:32px;font-size:4rem;">🤖</div>
-    `;
-  }
+    </section>` : '';
 
-  let processHtml = '';
-  if (project.process && project.process.length > 0) {
-    processHtml = `
-      <div class="modal-section">
-        <div class="modal-section-title">WORKFLOW · PROCESS</div>
-        <div class="process-steps">
-          ${project.process.map((step, i) => `
-            <div class="process-step">
-              <div class="step-num">${String(i + 1).padStart(2, '0')}</div>
-              <div class="step-content">
-                <div class="step-title">${step.title}</div>
-                <div class="step-desc">${step.desc}</div>
-              </div>
-            </div>
-          `).join('')}
-        </div>
+  const shots = (p.images && p.images.length) ? `
+    <section class="modal-block">
+      <h4>화면</h4>
+      <div class="scene-grid">
+        ${p.images.map(s => `<img src="${s}" alt="${esc(p.title)} 화면" loading="lazy" data-lb="${s}">`).join('')}
       </div>
-    `;
-  }
+    </section>` : '';
 
-  inner.innerHTML = `
-    <button class="modal-back" id="modal-back-btn">← 돌아가기</button>
-    <div class="modal-project-num">${project.categoryLabel}</div>
-    <h2 class="modal-title">${project.title}</h2>
-    <div class="modal-badges">
-      <span class="badge badge-${project.badge}">${project.badgeLabel}</span>
-    </div>
+  const proc = (p.process && p.process.length) ? `
+    <section class="modal-block">
+      <h4>제작 과정</h4>
+      <ol class="process">
+        ${p.process.map(s => `<li><strong>${esc(s.title)}</strong><span>${esc(s.desc)}</span></li>`).join('')}
+      </ol>
+    </section>` : '';
 
-    ${galleryHtml}
-
-    <div class="modal-section">
-      <div class="modal-section-title">PROJECT · BRIEF</div>
-      <p class="modal-brief">${project.brief}</p>
-    </div>
-
-    ${processHtml}
-
-    <div class="modal-section">
-      <div class="modal-section-title">TOOLS USED</div>
-      <div class="modal-tools">
-        ${project.tools.map(t => `<span class="modal-tool-badge">${t}</span>`).join('')}
+  return `
+    <header class="modal-head">
+      <div class="modal-tags">
+        <span class="tag">${esc(p.categoryLabel || '')}</span>
+        ${p.badgeLabel ? `<span class="tag tag-strong">${esc(p.badgeLabel)}</span>` : ''}
       </div>
-    </div>
+      <h3>${esc(p.title)}</h3>
+      ${p.tools && p.tools.length ? `<div class="modal-tools">${p.tools.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}
+    </header>
+    ${p.brief ? `<section class="modal-block"><h4>기획 의도</h4><p>${esc(p.brief)}</p></section>` : ''}
+    ${proc}
+    ${scenes}
+    ${shots}
   `;
-
-  inner.querySelectorAll('.modal-gallery img').forEach(img => {
-    img.addEventListener('click', () => openLightbox(img.src));
-  });
-
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-
-  document.getElementById('modal-back-btn').addEventListener('click', closeModal);
 }
+
+function openModal(id) {
+  const p = findProject(id);
+  if (!p) return;
+  lastFocused = document.activeElement;
+  const inner = byId('modal-inner');
+  inner.innerHTML = `
+    <button id="modal-close" class="modal-close" aria-label="닫기">닫기</button>
+    ${mediaBlock(p)}
+    <div class="modal-body">${detailBlock(p)}</div>
+  `;
+  const modal = byId('modal');
+  modal.classList.add('is-open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('no-scroll');
+  byId('modal-close').focus();
+  byId('modal-close').addEventListener('click', closeModal);
+  inner.querySelectorAll('[data-lb]').forEach(img => img.addEventListener('click', () => openLightbox(img.dataset.lb)));
+}
+
+function openDashboardModal(id) { openModal(id); }
 
 function closeModal() {
-  const modal = document.getElementById('modal');
-  modal.classList.remove('open');
-  document.body.style.overflow = '';
-  setTimeout(() => {
-    document.getElementById('modal-inner').innerHTML = '';
-  }, 300);
+  const modal = byId('modal');
+  modal.classList.remove('is-open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+  byId('modal-inner').innerHTML = '';
+  if (lastFocused) lastFocused.focus();
 }
 
-/* ═══════════════════════════════════════════════
-   LIGHTBOX
-═══════════════════════════════════════════════ */
+/* ── Lightbox ── */
 function openLightbox(src) {
-  const lb = document.getElementById('lightbox');
-  const img = lb.querySelector('img');
-  img.src = src;
-  lb.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  const lb = byId('lightbox');
+  lb.querySelector('img').src = src;
+  lb.classList.add('is-open');
+  lb.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('no-scroll');
 }
-
 function closeLightbox() {
-  const lb = document.getElementById('lightbox');
-  lb.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-/* ═══════════════════════════════════════════════
-   INTERSECTION OBSERVER — Active Nav Link
-═══════════════════════════════════════════════ */
-function initScrollSpy() {
-  const sectionEls = SECTIONS.map(s => document.getElementById(s.id)).filter(Boolean);
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        document.querySelectorAll('#sidebar-nav a, #mobile-nav a').forEach(a => {
-          a.classList.toggle('active', a.dataset.section === id);
-        });
-      }
-    });
-  }, { rootMargin: '-20% 0px -70% 0px' });
-
-  sectionEls.forEach(el => observer.observe(el));
-}
-
-/* ═══════════════════════════════════════════════
-   STAR CANVAS
-═══════════════════════════════════════════════ */
-function initStarCanvas() {
-  const canvas = document.getElementById('stars');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const STAR_COUNT = 220;
-  let stars = [];
-
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  for (let i = 0; i < STAR_COUNT; i++) {
-    stars.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 1.5 + 0.3,
-      alpha: Math.random(),
-      speed: Math.random() * 0.02 + 0.005,
-      phase: Math.random() * Math.PI * 2
-    });
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const t = Date.now() * 0.001;
-    stars.forEach(s => {
-      const a = (Math.sin(t * s.speed * 10 + s.phase) + 1) * 0.5 * 0.7 + 0.3;
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(220,230,255,${a * s.alpha})`;
-      ctx.fill();
-    });
-    requestAnimationFrame(draw);
-  }
-  draw();
-}
-
-/* ═══════════════════════════════════════════════
-   NEBULA PARALLAX
-═══════════════════════════════════════════════ */
-function initParallax() {
-  const blobs = document.querySelectorAll('.nebula-blob');
-  let rafId = null;
-
-  document.addEventListener('mousemove', (e) => {
-    const mx = (e.clientX / window.innerWidth - 0.5) * 2;
-    const my = (e.clientY / window.innerHeight - 0.5) * 2;
-    if (!rafId) {
-      rafId = requestAnimationFrame(() => {
-        rafId = null;
-        blobs.forEach((blob, i) => {
-          const factor = (i + 1) * 8;
-          blob.style.marginLeft = (mx * factor) + 'px';
-          blob.style.marginTop = (my * factor) + 'px';
-        });
-      });
-    }
-  });
+  const lb = byId('lightbox');
+  lb.classList.remove('is-open');
+  lb.setAttribute('aria-hidden', 'true');
+  lb.querySelector('img').src = '';
+  if (!byId('modal').classList.contains('is-open')) document.body.classList.remove('no-scroll');
 }
 
 /* ═══════════════════════════════════════════════
    INIT
 ═══════════════════════════════════════════════ */
 function init() {
-  renderSidebar();
+  renderNav();
+  renderHero();
+  renderFeatured();
+  renderWork();
+  renderImages();
+  renderMotion();
+  renderTools();
   renderAbout();
+  observeReveals();
+  watchActiveSection();
 
-  const cinematicList  = projects.filter(p => p.category === 'cinematic');
-  const artfilmList    = projects.filter(p => p.category === 'artfilm');
-  const commercialList = projects.filter(p => p.category === 'commercial');
-  const liveActionList = projects.filter(p => p.category === 'liveaction');
-
-  renderVideoSection('cinematic',  '01', 'AI 영상 — 시네마틱', 'Cinematic & Short Films', cinematicList);
-  renderVideoSection('artfilm',    '02', 'AI 영상 — 아트필름', 'Art Films', artfilmList);
-  renderVideoSection('commercial', '03', 'AI 영상 — 커머셜', 'Brand & Commercial AI Films', commercialList);
-  renderVideoSection('liveaction', '04', '오리지널 영상 — 실사', 'Live-Action Contents', liveActionList);
-  renderSubtitleSection();
-  renderImageSection();
-  renderPhotoSection();
-  renderDashboardSection();
-
-  initStarCanvas();
-  initParallax();
-  initScrollSpy();
-
-  /* Modal close on backdrop click */
-  document.getElementById('modal').addEventListener('click', (e) => {
-    if (e.target === document.getElementById('modal')) closeModal();
-  });
-
-  /* ESC key */
+  byId('modal').addEventListener('click', (e) => { if (e.target.id === 'modal') closeModal(); });
+  byId('lightbox').addEventListener('click', closeLightbox);
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if (document.getElementById('lightbox').classList.contains('open')) {
-        closeLightbox();
-      } else {
-        closeModal();
-      }
-    }
+    if (e.key !== 'Escape') return;
+    if (byId('lightbox').classList.contains('is-open')) return closeLightbox();
+    if (byId('modal').classList.contains('is-open')) return closeModal();
+    if (document.body.classList.contains('menu-open')) return closeMenu();
   });
 
-  /* Lightbox close */
-  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-  document.getElementById('lightbox').addEventListener('click', (e) => {
-    if (e.target === document.getElementById('lightbox')) closeLightbox();
-  });
+  /* 앵커로 들어온 경우 첫 페인트 전에 위치를 잡아 상단이 번쩍이지 않게 한다 */
+  const hash = location.hash.replace('#', '');
+  if (hash) goTo(hash);
 }
 
 document.addEventListener('DOMContentLoaded', init);
-
-
-
