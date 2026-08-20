@@ -703,7 +703,7 @@ const SECTIONS = [
   { id: 'images', label: '이미지' },
   { id: 'motion', label: '자막디자인' },
   { id: 'tools',  label: '웹앱' },
-  { id: 'about',  label: '소개' }
+  { id: 'about',  label: '사용 도구' }
 ];
 
 /* 구 URL 앵커 호환: 예전 섹션 id로 들어와도 새 섹션으로 보냄 */
@@ -855,7 +855,7 @@ function renderHero() {
     <div class="hero-copy">
       <p class="hero-role">AI Creator &amp; Visual Director</p>
       <h1 class="hero-name">LEE<br>NAHYUN</h1>
-      <p class="hero-lead">AI로 생성한 영상부터 카메라로 찍은 실사까지, 브랜드에 필요한 장면을 만듭니다.</p>
+      <p class="hero-lead">카메라로 담을 수 있는 것에서, 카메라로 담을 수 없는 것까지 만듭니다.</p>
       <div class="hero-cta">
         <button class="btn btn-primary" data-nav="work">작업 보기</button>
         <a class="btn btn-ghost" href="mailto:yk6838@gmail.com">yk6838@gmail.com</a>
@@ -1170,21 +1170,12 @@ function renderTools() {
 ═══════════════════════════════════════════════ */
 function renderAbout() {
   byId('about').innerHTML = `
-    <div class="about-grid">
-      <div class="about-main">
-        <h2>소개</h2>
-        <p class="about-lead">카메라로 담을 수 있는 것에서, 카메라로 담을 수 없는 것까지 만듭니다.</p>
-        <p class="about-contact">
-          <a href="mailto:yk6838@gmail.com">yk6838@gmail.com</a>
-        </p>
-      </div>
-      <div class="about-side">
-        <h3>사용 도구</h3>
-        <ul class="stack">
-          ${techStack.map(t => `<li>${esc(t)}</li>`).join('')}
-        </ul>
-      </div>
-    </div>
+    <header class="sec-head">
+      <h2>사용 도구</h2>
+    </header>
+    <ul class="stack">
+      ${techStack.map(t => `<li>${esc(t)}</li>`).join('')}
+    </ul>
   `;
 }
 

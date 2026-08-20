@@ -466,34 +466,14 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 
 /* ── About ── */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 0.8fr;
-  gap: clamp(28px, 5vw, 80px);
-  padding-top: clamp(28px, 4vw, 48px);
-  border-top: 1px solid var(--line);
-}
-.about-main h2 {
-  font-family: var(--font-display);
-  font-size: clamp(30px, 5vw, 52px);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 20px;
-}
-.about-lead { font-size: clamp(19px, 2.4vw, 27px); font-weight: 600; line-height: 1.5; margin-bottom: 26px; letter-spacing: -0.015em; max-width: 24ch; }
-.about-main p { color: var(--ink-2); max-width: 56ch; margin-bottom: 14px; }
-.about-contact a { color: var(--accent); border-bottom: 1px solid currentColor; }
-.about-side h3 { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 14px; }
-.stack { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+.stack { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
 .stack li {
-  padding: 5px 12px;
+  padding: 6px 14px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  font-size: 12.5px;
+  font-size: 13px;
   color: var(--ink-2);
 }
-
-@media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
 
 /* ── Footer ── */
 #footer {
