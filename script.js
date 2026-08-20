@@ -429,7 +429,7 @@ const projects = [
     thumbnail: './images/posters/lg-youth-festival.jpg',
     badge: 'award',
     badgeLabel: '우수상',
-    tools: [],
+    tools: ['ChatGPT', 'Higgsfield Soul', 'Kling', 'Seedance 2.0'],
     orientation: 'vertical',
     scenes: [],
     brief: `공모전 주제는 「AI로 표현하는 가장 '나다운' 순간」.
@@ -437,7 +437,11 @@ const projects = [
 모순을 좋아하는 게 아니라 모순으로 만들어진 사람이라는 걸 그때 알았음. 한여름의 눈사람 같은 이미지에 마음이 가는 것도 예뻐서가 아니라 남 일 같지 않아서였음.
 그래서 이 작품은 장점을 보여주지 않음. 커피 향은 좋아하지만 커피는 못 마시고, 책은 사지만 읽지는 않고, 앞장서면서 주목받으면 부끄러워하고, 꼭 잘하다가 마지막에 무너트리고.
 가장 나다운 부분은 마지막 문장. '무너지면 주워 먹는 사람.' 앞의 셋은 전부 못 하는 것으로 끝나는데 이것만 방향이 바뀜. 극복하겠다는 것도 다시 쌓겠다는 것도 아니고, 무너진 걸 그냥 주워 먹는 것. 그게 내가 나를 대하고 인생을 대하는 방식.`,
-    process: []
+    process: [
+      { title: '인물 생성', desc: '챗지피티로 프롬프트를 설계하고 힉스필드 소울 모델로 인물 이미지를 생성함.' },
+      { title: '셀피 POV 앵글 설계', desc: '광고 톤을 걷어내고 인스타그램에 직접 올리는 셀피처럼 보이도록 전체 컷을 구성함. 화면 밖 팔 각도와 시선 처리로 찍는 사람과 찍히는 사람이 같다는 감각을 유지함.' },
+      { title: '컷 전환과 카메라 무빙', desc: '클링과 씨댄스 2.0으로 영상화. 짧은 러닝타임에서 늘어지지 않도록 컷 전환과 무빙에 변화를 줌.' }
+    ]
   },
   {
     id: 302,
@@ -451,11 +455,13 @@ const projects = [
     thumbnail: './images/posters/growing-bubble.jpg',
     badge: 'company',
     badgeLabel: '제품 광고',
-    tools: [],
+    tools: ['Nano Banana', 'Kling'],
     orientation: 'vertical',
     scenes: [],
     brief: '브랜드 마스코트 캐릭터와 제품 세계관을 하나의 온실 공간으로 묶어, 제품 사용 결과를 캐릭터의 행동으로 보여주는 구성. 파스텔 톤 아트디렉션으로 제품군 전체의 시각적 일관성을 유지함.',
-    process: []
+    process: [
+      { title: '제작', desc: '나노바나나로 이미지를 생성하고 클링으로 영상화함.' }
+    ]
   },
   {
     id: 303,
@@ -469,11 +475,15 @@ const projects = [
     thumbnail: './images/posters/drjoe-spray.jpg',
     badge: 'company',
     badgeLabel: '제품 광고',
-    tools: [],
+    tools: ['Nano Banana', 'Kling'],
     orientation: 'vertical',
     scenes: [],
-    brief: '제품의 효능(뿌리면 자란다)을 설명 대신 장면으로 번역함. 어두운 숲에서 빛나는 열매를 거쳐 만개한 레몬 정원으로 이어지는 시퀀스로 변화의 폭을 시각화하고, 마지막에 제품 패키지를 배치해 메시지를 닫음.',
-    process: []
+    brief: '유행하는 레몬코어 무드를 제품 세계관에 얹음. 성분과 사용법을 설명하는 대신 쉽고 간편하고 효과가 좋다는 감각만 남기는 것을 목표로 함.',
+    process: [
+      { title: '레몬코어 무드 차용', desc: '레몬 톤의 색과 질감을 세계관 전체에 깔아, 설명을 읽기 전에 화면부터 눈에 붙도록 함.' },
+      { title: '변화 폭의 시각화', desc: '어두운 숲에서 빛나는 열매를 거쳐 만개한 레몬 정원으로 이어지는 시퀀스로, 뿌린 뒤의 변화를 한 흐름 안에서 보여 줌.' },
+      { title: '제작', desc: '나노바나나로 이미지를 생성하고 클링으로 영상화함.' }
+    ]
   },
   {
     id: 304,
@@ -487,11 +497,15 @@ const projects = [
     thumbnail: './images/posters/bug-all-kill.jpg',
     badge: 'company',
     badgeLabel: '제품 광고',
-    tools: [],
+    tools: ['Nano Banana', 'Kling', 'Seedance 2.0'],
     orientation: 'vertical',
     scenes: [],
-    brief: '살충제 광고에서 거부감을 만드는 요소인 벌레를, 반투명 젤리 질감의 캐릭터로 재해석해 시청 이탈을 낮춤. 제품 사용 장면을 세계관 안의 사건처럼 배치해 광고 톤을 유지함.',
-    process: []
+    brief: '살충제 광고에서 거부감을 만드는 요소인 벌레를 반투명 젤리 질감의 캐릭터로 재해석해 시청 이탈을 낮춤. 제품 사용 장면을 세계관 안의 사건처럼 배치해 광고 톤을 유지함.',
+    process: [
+      { title: '세계관 이미지 생성', desc: '나노바나나로 젤리 질감의 벌레와 배경을 만들어 하나의 월드로 묶음.' },
+      { title: '스펙타클 연출', desc: '클링과 씨댄스 2.0으로 영상화. 터지고 흩어지는 파티클을 넣어 짧은 길이에서도 볼거리가 끊기지 않게 함.' },
+      { title: '제품 컷의 무게 조절', desc: '앞 구간을 화려하게 쓴 만큼 제품이 등장하는 컷에서는 리듬을 눌러, 카메라를 천천히 붙이고 시선이 제품에 멈추도록 연출함. 세계관의 말랑한 질감과 제품의 무게감을 대비시킴.' }
+    ]
   }
 ];
 
@@ -667,6 +681,9 @@ const dashboardProjects = [
 const techStack = [
   'Nano Banana',
   'Midjourney',
+  'Higgsfield Soul',
+  'Seedance 2.0',
+  'ChatGPT',
   'ComfyUI',
   'Kling',
   'ElevenLabs',
@@ -1157,7 +1174,7 @@ function renderAbout() {
       <div class="about-main">
         <h2>소개</h2>
         <p class="about-lead">AI 생성 기술과 영상 연출의 교차점에서 작업합니다.</p>
-        <p>실사 촬영과 편집으로 시작해, 지금은 AI 생성 영상과 이미지를 상업용 품질로 끌어올리는 워크플로를 직접 설계하고 운영합니다. 기획부터 생성, 후반, 성과 측정까지 한 사람이 이어붙이는 방식으로 일합니다.</p>
+        <p>실사 촬영과 편집으로 시작해, 지금은 AI로 영상과 이미지를 만듭니다.</p>
         <p class="about-contact">
           <a href="mailto:yk6838@gmail.com">yk6838@gmail.com</a>
         </p>
