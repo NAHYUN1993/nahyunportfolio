@@ -393,25 +393,28 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .empty { color: var(--ink-2); padding: 40px 0; }
 
 /* ── Image mosaic ── */
+/* 영상 그리드와 같은 행 기반 메이슨리. 컬럼 방식과 달리 순서가 왼쪽에서 오른쪽으로 읽힌다. */
 .mosaic {
-  columns: 4;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(150px, 15vw, 230px), 1fr));
   column-gap: clamp(10px, 1.2vw, 16px);
+  row-gap: 0;
+  grid-auto-rows: 8px;
+  align-items: start;
 }
 .mos {
   display: block;
   width: 100%;
   padding: 0;
   margin: 0 0 clamp(10px, 1.2vw, 16px);
-  break-inside: avoid;
+  grid-row: span var(--span, 30);
   background: var(--paper-2);
   overflow: hidden;
 }
 .mos img { width: 100%; height: auto; transition: transform 0.5s var(--ease), opacity 0.3s var(--ease); }
 .mos:hover img { transform: scale(1.02); opacity: 0.9; }
 
-@media (max-width: 1100px) { .mosaic { columns: 3; } }
-@media (max-width: 760px)  { .mosaic { columns: 2; } }
-@media (max-width: 420px)  { .mosaic { columns: 1; } }
+
 
 /* ── Motion strip ── */
 .motion-strip {
@@ -590,3 +593,5 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 
 .more-wrap { display: flex; justify-content: center; margin-top: clamp(20px, 3vw, 32px); }
 .more-wrap:empty { display: none; }
+
+.modal-block p + p { margin-top: 12px; }

@@ -8,30 +8,6 @@ const projects = [
   /* ─────────────────────────────────────────────────────────
      AI 영상 아트필름
   ───────────────────────────────────────────────────────── */
-  {
-    id: 105,
-    type: 'video',
-    category: 'artfilm',
-    categoryLabel: '아트필름',
-    title: '내면세계',
-    desc: '치열하게 노력하고 연대하며 살아가고 있지만, 마음 깊은 곳에서는 햇살 좋은 잔디밭에서 걱정 없이 쉬는 평화로운 삶을 꿈꾸고 있습니다',
-    thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/내면세계_썸네일.png',
-    badge: 'personal',
-    badgeLabel: '',  // no badge
-    tools: ['Midjourney', 'Nano Banana', 'Kling'],
-    driveId: '1lPxq8sHWjQTRwpkS9FEqfsgCi_zoY83V',
-    orientation: 'horizontal',
-    scenes: [
-      'https://nahyun1993.github.io/portfolio3/images/주요장면/내면세계/내면세계01.png',
-      'https://nahyun1993.github.io/portfolio3/images/주요장면/내면세계/내면세계02.png',
-      'https://nahyun1993.github.io/portfolio3/images/주요장면/내면세계/내면세계03.png',
-      'https://nahyun1993.github.io/portfolio3/images/주요장면/내면세계/내면세계04.png',
-      'https://nahyun1993.github.io/portfolio3/images/주요장면/내면세계/내면세계05.png',
-      'https://nahyun1993.github.io/portfolio3/images/주요장면/내면세계/내면세계06.png'
-    ],
-    brief: '기획의도: 뮈에르 커뮤니티 과제. 치열하게 노력하고 연대하며 살아가고 있지만, 마음 깊은 곳에서는 햇살 좋은 잔디밭에서 걱정 없이 쉬는 평화로운 삶을 꿈꾸는 내면세계를 표현함.',
-    process: []
-  },
   /* ─────────────────────────────────────────────────────────
      AI 영상 커머셜
   ───────────────────────────────────────────────────────── */
@@ -124,13 +100,13 @@ const projects = [
   {
     id: 4,
     type: 'video',
-    category: 'commercial',
-    categoryLabel: '광고 AI 영상',
+    category: 'artfilm',
+    categoryLabel: '공모전',
     title: 'AI로 다시 태어난 한복, 그리고 한식',
     desc: '브랜드 이름(이도 식당)의 모티브인 세종대왕(이도)을 화자로 등장시켜 드라마틱한 스토리텔링을 부여. "이름을 도용당해 화가 난 왕이 맛을 보고 감동한다"는 반전 서사 영상.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/공모전_한복한식.png',
     badge: 'contest',
-    badgeLabel: '공모전 출품작',
+    badgeLabel: '',
     tools: ['Midjourney', 'Nano Banana', 'Photoshop', 'Kling'],
     driveId: '1lDDOm36ZfYtygXeCRUZEDgXU_cjzabI0',
     orientation: 'horizontal',
@@ -178,37 +154,15 @@ const projects = [
     ]
   },
   {
-    id: 102,
-    type: 'video',
-    category: 'commercial',
-    categoryLabel: '인스타 밈 콘텐츠',
-    title: '오션아이 밈 챌린지 (AI 커버)',
-    desc: '인스타그램 바이럴 오션아이 밈을 AI 숏폼 영상으로 완벽하게 재현. 손가락의 해부학적 구조와 자연스러운 윙크 모션을 왜곡 없이 구현함.',
-    thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/오션아이.png',
-    badge: 'personal',
-    badgeLabel: '숏폼 프로젝트',
-    tools: ['ComfyUI', 'Kling', 'Premiere Pro'],
-    driveId: '1vkH7IVE0fJ6ya444eaZ3OcL1wX1Ak6uX',
-    orientation: 'vertical',
-    scenes: [
-      'https://nahyun1993.github.io/portfolio3/images/주요장면/오션아이/Gemini_Generated_Image_ksq91hksq91hksq9.png',
-      'https://nahyun1993.github.io/portfolio3/images/주요장면/오션아이/막컷_upscayl_2x_upscayl-standard-4x.png'
-    ],
-    brief: '인스타그램 릴스 등에서 바이럴되는 오션아이(손을 모아 만든 틈 사이로 윙크하는 모습) 밈을 AI 생성 기술로 완벽하게 재현하여 숏폼 시청자들의 자연스러운 인게이지먼트를 유도함.',
-    process: [
-      { title: '숏폼 타겟팅 기획', desc: '기존 실사 위주의 밈 챌린지 틈새에서 시각적 차별화를 주기 위해 매력적인 AI 가상 모델 기획. 스크롤을 멈추게 하는 9:16 모바일 풀사이즈 클로즈업 앵글을 설정함.' }
-    ]
-  },
-  {
     id: 7,
     type: 'video',
-    category: 'commercial',
-    categoryLabel: '광고 AI 영상',
+    category: 'artfilm',
+    categoryLabel: '공모전',
     title: '토너패드 광고 메디힐 공모전',
     desc: '기존 뷰티 광고의 감성적 클리셰를 배제하고, 1mm의 빈틈도 허락하지 않는 완벽주의자의 시선에서 네모 패드가 얼굴 굴곡에 완벽히 밀착되는 시각적 카타르시스와 3-Step 루틴을 직관적으로 연출한 브랜드 필름.',
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/공모전_메디힐.png',
     badge: 'contest',
-    badgeLabel: '공모전 출품작',
+    badgeLabel: '',
     tools: ['Midjourney', 'Nano Banana', 'ComfyUI', 'Kling'],
     driveId: '1eSSpwG9XS92l4zofZlsaio4MO2V_PiHY',
     orientation: 'horizontal',
@@ -467,9 +421,9 @@ const projects = [
     id: 301,
     type: 'video',
     category: 'artfilm',
-    categoryLabel: '아트필름',
+    categoryLabel: '공모전',
     title: 'LG 유쓰 AI 쇼츠 페스티벌 우수상',
-    desc: 'AI로 생성한 인물이 스스로를 소개하는 형식. 서로 모순되는 자기 인식을 짧은 문장과 셀피 앵글로 이어 붙여 한 사람의 결을 보여준 숏폼.',
+    desc: '주제 「AI로 표현하는 가장 나다운 순간」. 서로 짝이 맞지 않는 취향을 나열해, 모순으로 만들어진 사람을 그린 숏폼.',
     videoSrc: './videos/lg-youth-festival.mp4',
     poster: './images/posters/lg-youth-festival.jpg',
     thumbnail: './images/posters/lg-youth-festival.jpg',
@@ -478,7 +432,10 @@ const projects = [
     tools: [],
     orientation: 'vertical',
     scenes: [],
-    brief: 'LG 유쓰 AI 쇼츠 페스티벌 출품작. 커피 향은 좋아하지만 커피는 못 마시는 사람, 앞장서는 사람이지만 주목받으면 부끄러운 사람. 한 인물 안의 상반된 면을 병렬로 나열하는 구조로 짧은 러닝타임 안에서 캐릭터를 각인시킴.',
+    brief: `공모전 주제는 「AI로 표현하는 가장 '나다운' 순간」이었다. '나다움'을 정의하려고 취향을 나열해보니 전부 짝이 맞지 않았다. 하늘색을 좋아하는데 사는 건 늘 빨간색이고, 게으른데 좋아하는 게 생기면 왕복 여덟 시간을 운전하고, 평범하지 않은 걸 좋아하면서 정작 나는 지극히 평범하다.
+모순을 좋아하는 게 아니라 모순으로 만들어진 사람이라는 걸 그때 알았다. 한여름의 눈사람 같은 이미지에 마음이 가는 것도 예뻐서가 아니라 남 일 같지 않아서였다.
+그래서 이 작품은 장점을 보여주지 않는다. 커피 향은 좋아하지만 커피는 못 마시고, 책은 사지만 읽지는 않고, 앞장서면서 주목받으면 부끄러워하고, 하나만 더 올리다 무너뜨린다. 전부 실제 이야기다.
+가장 나다운 부분은 마지막 문장이다. '무너지면 주워 먹는 사람.' 앞의 셋은 전부 못 하는 것으로 끝나는데 이것만 방향이 바뀐다. 극복하겠다는 것도 다시 쌓겠다는 것도 아니고, 무너진 걸 그냥 주워 먹는 것. 그게 내가 나를 대하는 방식이었다.`,
     process: []
   },
   {
@@ -580,20 +537,22 @@ const portraitFiles = [
 ];
 
 const productImageFiles = [
-  "dan_asa_Extreme_close-up_macro_shot_of_fingers_spreading_a_th_da1b01db-46dc-4189-b9d9-686358d9f531_2 (1).png",
-  "u4162569224_A_round_yellow_skincare_product_in_a_transparent__1019f9b1-edac-4697-a52f-cf01d5c8152f_0.png",
-  "u4162569224_A_transparent_glass_jar_of_cream_with_light_pink__ec4a9f45-5dc6-4bd9-a9c2-8cc5a7ccb476_2.png",
-  "u4162569224_Close-up_of_a_hand_with_clear_essence_dripping_on_d8131e6c-9416-4c20-ba19-51ec1d38e99e_1.png",
-  "u4162569224_The_image_shows_a_girl_sitting_on_the_lid_of_a_ro_6753e44c-62a8-4b9a-9ac3-0fcedd282a9a_1.png",
-  "u4162569224_httpss.mj.runY8YVPJb6k0Y_A_tube-shaped_cream_prod_02780557-9b1f-480e-8cec-bfbdc1b78a94_3.png",
-  "분갈이흙.png",
-  "이지코트.png",
-  "자산 1.png",
+  /* 닥터조 · 홈앤가든 제품 */
   "자산 2.png",
+  "자산 1.png",
   "자산 3.png",
   "퓨어솔루션.png",
+  "이지코트.png",
+  "분갈이흙.png",
   "프리미엄 고형비료.png",
-  "프리미엄 복합비료.png"
+  "프리미엄 복합비료.png",
+  /* 일반 제품 컷 */
+  "u4162569224_The_image_shows_a_girl_sitting_on_the_lid_of_a_ro_6753e44c-62a8-4b9a-9ac3-0fcedd282a9a_1.png",
+  "u4162569224_A_transparent_glass_jar_of_cream_with_light_pink__ec4a9f45-5dc6-4bd9-a9c2-8cc5a7ccb476_2.png",
+  "u4162569224_A_round_yellow_skincare_product_in_a_transparent__1019f9b1-edac-4697-a52f-cf01d5c8152f_0.png",
+  "u4162569224_httpss.mj.runY8YVPJb6k0Y_A_tube-shaped_cream_prod_02780557-9b1f-480e-8cec-bfbdc1b78a94_3.png",
+  "dan_asa_Extreme_close-up_macro_shot_of_fingers_spreading_a_th_da1b01db-46dc-4189-b9d9-686358d9f531_2 (1).png",
+  "u4162569224_Close-up_of_a_hand_with_clear_essence_dripping_on_d8131e6c-9416-4c20-ba19-51ec1d38e99e_1.png"
 ];
 
 const photographyFiles = [
@@ -722,7 +681,7 @@ const techStack = [
 
 /* ── Config ── */
 const SECTIONS = [
-  { id: 'work',   label: '작업' },
+  { id: 'work',   label: '영상' },
   { id: 'images', label: '이미지' },
   { id: 'motion', label: '자막디자인' },
   { id: 'tools',  label: '웹앱' },
@@ -737,20 +696,37 @@ const ANCHOR_ALIAS = {
 
 const FEATURED_IDS = [301, 207, 302];
 
+/* 표시 순서(최신 작업이 먼저). 여기 없는 id는 뒤에 원래 순서대로 붙는다. */
+const WORK_ORDER = [
+  302, 304, 303,          // 2026 커머셜 (그로잉버블 · 버그올킬 · 닥터조)
+  301, 4, 7,              // 공모전 (LG · 한복 · 메디힐)
+  1, 2, 3, 101,           // 커머셜
+  6, 103,                 // 시네마틱
+  207, 201, 202, 203, 204, 205, 206  // 실사
+];
+
+function orderedProjects() {
+  const rank = (p) => {
+    const i = WORK_ORDER.indexOf(p.id);
+    return i === -1 ? WORK_ORDER.length : i;
+  };
+  return projects.slice().sort((a, b) => rank(a) - rank(b));
+}
+
 const WORK_FILTERS = [
   { key: 'all',        label: '전체' },
   { key: 'commercial', label: '커머셜' },
+  { key: 'artfilm',    label: '공모전' },
   { key: 'cinematic',  label: '시네마틱' },
-  { key: 'artfilm',    label: '아트필름' },
   { key: 'liveaction', label: '실사' }
 ];
 
 const IMAGE_FILTERS = [
   { key: 'all',           label: '전체' },
-  { key: 'character',     label: '캐릭터 일관성' },
+  { key: 'product-image', label: '제품' },
+  { key: 'character',     label: '캐릭터' },
   { key: 'concept-art',   label: '컨셉 아트' },
   { key: 'portrait',      label: '인물' },
-  { key: 'product-image', label: '제품' },
   { key: 'photography',   label: '실사 사진' }
 ];
 
@@ -852,7 +828,7 @@ function renderHero() {
     <div class="hero-copy">
       <p class="hero-role">AI Creator &amp; Visual Director</p>
       <h1 class="hero-name">LEE<br>NAHYUN</h1>
-      <p class="hero-lead">AI로 생성한 영상부터 카메라로 찍은 실사까지, 브랜드가 파는 장면을 만듭니다.</p>
+      <p class="hero-lead">AI로 생성한 영상부터 카메라로 찍은 실사까지, 브랜드에 필요한 장면을 만듭니다.</p>
       <div class="hero-cta">
         <button class="btn btn-primary" data-nav="work">작업 보기</button>
         <a class="btn btn-ghost" href="mailto:yk6838@gmail.com">yk6838@gmail.com</a>
@@ -916,8 +892,8 @@ function renderWork() {
   const section = byId('work');
   section.innerHTML = `
     <header class="sec-head">
-      <h2>작업</h2>
-      <p>AI 생성 영상과 실사 촬영물 ${projects.length}편. 카드를 열면 기획 의도와 제작 과정이 나옵니다.</p>
+      <h2>영상</h2>
+      <p>AI 영상과 실사 촬영물 ${projects.length}편.</p>
     </header>
     <div class="chips" id="work-chips" role="tablist">
       ${WORK_FILTERS.map(f => `<button class="chip${workFilter === f.key ? ' is-on' : ''}" data-filter="${f.key}" role="tab" aria-selected="${workFilter === f.key}">${f.label}</button>`).join('')}
@@ -943,7 +919,8 @@ function renderWork() {
 }
 
 function workCards() {
-  const list = workFilter === 'all' ? projects : projects.filter(p => p.category === workFilter);
+  const all = orderedProjects();
+  const list = workFilter === 'all' ? all : all.filter(p => p.category === workFilter);
   if (!list.length) return `<p class="empty">이 분류에는 아직 공개한 작업이 없습니다.</p>`;
   return list.map((p, i) => `
     <article class="card reveal" style="--i:${i % 8}" data-open="${p.id}" tabindex="0" role="button" aria-label="${esc(p.title)} 자세히 보기">
@@ -965,29 +942,38 @@ function workCards() {
   `).join('');
 }
 
-/* 카드 높이를 8px 행 단위 span으로 환산 (메이슨리) */
-function layoutWorkGrid() {
-  const grid = byId('work-grid');
+/* 항목 높이를 8px 행 단위 span으로 환산 (메이슨리) */
+function layoutMasonry(gridId, itemSel) {
+  const grid = byId(gridId);
   if (!grid) return;
-  const gap = parseFloat(getComputedStyle(grid).rowGap) || 0;
-  grid.querySelectorAll('.card').forEach(card => {
-    card.style.setProperty('--span', Math.ceil((card.getBoundingClientRect().height + gap) / 8));
+  grid.querySelectorAll(itemSel).forEach(el => {
+    /* 아래 여백까지 span에 포함해야 아래 항목과 겹치지 않는다 */
+    const mb = parseFloat(getComputedStyle(el).marginBottom) || 0;
+    el.style.setProperty('--span', Math.ceil((el.getBoundingClientRect().height + mb) / 8));
   });
 }
 
+function layoutAllGrids() {
+  layoutMasonry('work-grid', '.card');
+  layoutMasonry('mosaic', '.mos');
+}
+
 let gridRO = null;
-function watchWorkGrid() {
-  const grid = byId('work-grid');
+function watchMasonry(gridId, itemSel) {
+  const grid = byId(gridId);
   if (!grid) return;
-  layoutWorkGrid();
+  layoutMasonry(gridId, itemSel);
   grid.querySelectorAll('img').forEach(img => {
-    if (!img.complete) img.addEventListener('load', layoutWorkGrid, { once: true });
+    if (!img.complete) img.addEventListener('load', () => layoutMasonry(gridId, itemSel), { once: true });
   });
   if (!gridRO) {
-    gridRO = new ResizeObserver(() => layoutWorkGrid());
+    gridRO = new ResizeObserver(() => layoutAllGrids());
     gridRO.observe(document.body);
   }
 }
+
+function watchWorkGrid() { watchMasonry('work-grid', '.card'); }
+function watchMosaic() { watchMasonry('mosaic', '.mos'); }
 
 function wireCards(root) {
   root.querySelectorAll('[data-open]').forEach(el => {
@@ -1012,10 +998,10 @@ function wireCards(root) {
 ═══════════════════════════════════════════════ */
 function imageItems() {
   return [
-    ...characterFiles.map(f => ({ src: CDN + 'AI Image/character/' + f, cat: 'character', label: '캐릭터 일관성' })),
+    ...productImageFiles.map(f => ({ src: CDN + 'AI Image/Product Image/' + f, cat: 'product-image', label: '제품 이미지' })),
+    ...characterFiles.map(f => ({ src: CDN + 'AI Image/character/' + f, cat: 'character', label: '캐릭터' })),
     ...conceptArtFiles.map(f => ({ src: CDN + 'AI Image/Concept Art/' + f, cat: 'concept-art', label: '컨셉 아트' })),
     ...portraitFiles.map(f => ({ src: CDN + 'AI Image/Portrait/' + f, cat: 'portrait', label: '인물 이미지' })),
-    ...productImageFiles.map(f => ({ src: CDN + 'AI Image/Product Image/' + f, cat: 'product-image', label: '제품 이미지' })),
     ...photographyFiles.map(f => ({ src: CDN + 'AI Image/Photography/' + f, cat: 'photography', label: '실사 사진' }))
   ];
 }
@@ -1026,7 +1012,7 @@ function renderImages() {
   section.innerHTML = `
     <header class="sec-head">
       <h2>이미지</h2>
-      <p>AI로 생성한 캐릭터와 제품 이미지, 그리고 SONY A7M4로 찍은 실사 사진.</p>
+      <p>AI 이미지, 실사 사진(SONY A7M4).</p>
     </header>
     <div class="chips" id="image-chips" role="tablist">
       ${IMAGE_FILTERS.map(f => `<button class="chip${imageFilter === f.key ? ' is-on' : ''}" data-filter="${f.key}" role="tab" aria-selected="${imageFilter === f.key}">${f.label}</button>`).join('')}
@@ -1047,10 +1033,12 @@ function renderImages() {
       byId('more-wrap').innerHTML = moreButton(items);
       wireMosaic();
       wireMore(items);
+      watchMosaic();
     });
   });
   wireMosaic();
   wireMore(items);
+  watchMosaic();
 }
 
 function filteredImages(items) {
@@ -1072,6 +1060,7 @@ function wireMore(items) {
     byId('more-wrap').innerHTML = moreButton(items);
     wireMosaic();
     wireMore(items);
+    watchMosaic();
   });
 }
 
@@ -1099,7 +1088,7 @@ function renderMotion() {
   byId('motion').innerHTML = `
     <header class="sec-head">
       <h2>자막디자인</h2>
-      <p>정보를 읽히게 만드는 타이포와 모션. 영상 안에서 반복 사용하는 자막 시스템입니다.</p>
+      <p>방송과 온라인 콘텐츠 타이포 모션.</p>
     </header>
     <div class="motion-strip">
       <figure class="motion-item reveal" style="--i:0">
@@ -1190,6 +1179,12 @@ function mediaBlock(p) {
   return '';
 }
 
+/* 줄바꿈이 들어간 기획 의도는 문단으로 나눠 렌더 */
+function briefParagraphs(text) {
+  return String(text).split('\n').map(t => t.trim()).filter(Boolean)
+    .map(t => `<p>${esc(t)}</p>`).join('');
+}
+
 function detailBlock(p) {
   const scenes = (p.scenes && p.scenes.length) ? `
     <section class="modal-block">
@@ -1224,7 +1219,7 @@ function detailBlock(p) {
       <h3>${esc(p.title)}</h3>
       ${p.tools && p.tools.length ? `<div class="modal-tools">${p.tools.map(t => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}
     </header>
-    ${p.brief ? `<section class="modal-block"><h4>기획 의도</h4><p>${esc(p.brief)}</p></section>` : ''}
+    ${p.brief ? `<section class="modal-block"><h4>기획 의도</h4>${briefParagraphs(p.brief)}</section>` : ''}
     ${proc}
     ${scenes}
     ${shots}
