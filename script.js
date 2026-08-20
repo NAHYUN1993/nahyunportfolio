@@ -432,10 +432,11 @@ const projects = [
     tools: [],
     orientation: 'vertical',
     scenes: [],
-    brief: `공모전 주제는 「AI로 표현하는 가장 '나다운' 순간」이었다. '나다움'을 정의하려고 취향을 나열해보니 전부 짝이 맞지 않았다. 하늘색을 좋아하는데 사는 건 늘 빨간색이고, 게으른데 좋아하는 게 생기면 왕복 여덟 시간을 운전하고, 평범하지 않은 걸 좋아하면서 정작 나는 지극히 평범하다.
-모순을 좋아하는 게 아니라 모순으로 만들어진 사람이라는 걸 그때 알았다. 한여름의 눈사람 같은 이미지에 마음이 가는 것도 예뻐서가 아니라 남 일 같지 않아서였다.
-그래서 이 작품은 장점을 보여주지 않는다. 커피 향은 좋아하지만 커피는 못 마시고, 책은 사지만 읽지는 않고, 앞장서면서 주목받으면 부끄러워하고, 하나만 더 올리다 무너뜨린다. 전부 실제 이야기다.
-가장 나다운 부분은 마지막 문장이다. '무너지면 주워 먹는 사람.' 앞의 셋은 전부 못 하는 것으로 끝나는데 이것만 방향이 바뀐다. 극복하겠다는 것도 다시 쌓겠다는 것도 아니고, 무너진 걸 그냥 주워 먹는 것. 그게 내가 나를 대하는 방식이었다.`,
+    brief: `공모전 주제는 「AI로 표현하는 가장 '나다운' 순간」.
+'나다움'을 정의하려고 취향을 나열해보니 전부 짝이 맞지 않았음. 하늘색을 좋아하는데 사는 건 늘 빨간색이고, 게으른데 좋아하는 게 생기면 왕복 여덟 시간을 운전하고, 평범하지 않은 걸 좋아하면서 정작 나는 지극히 평범함.
+모순을 좋아하는 게 아니라 모순으로 만들어진 사람이라는 걸 그때 알았음. 한여름의 눈사람 같은 이미지에 마음이 가는 것도 예뻐서가 아니라 남 일 같지 않아서였음.
+그래서 이 작품은 장점을 보여주지 않음. 커피 향은 좋아하지만 커피는 못 마시고, 책은 사지만 읽지는 않고, 앞장서면서 주목받으면 부끄러워하고, 꼭 잘하다가 마지막에 무너트리고.
+가장 나다운 부분은 마지막 문장. '무너지면 주워 먹는 사람.' 앞의 셋은 전부 못 하는 것으로 끝나는데 이것만 방향이 바뀜. 극복하겠다는 것도 다시 쌓겠다는 것도 아니고, 무너진 걸 그냥 주워 먹는 것. 그게 내가 나를 대하고 인생을 대하는 방식.`,
     process: []
   },
   {
@@ -696,19 +697,28 @@ const ANCHOR_ALIAS = {
 
 const FEATURED_IDS = [301, 207, 302];
 
-/* 표시 순서(최신 작업이 먼저). 여기 없는 id는 뒤에 원래 순서대로 붙는다. */
+/* 전체 보기 순서 */
 const WORK_ORDER = [
-  302, 304, 303,          // 2026 커머셜 (그로잉버블 · 버그올킬 · 닥터조)
-  301, 4, 7,              // 공모전 (LG · 한복 · 메디힐)
-  1, 2, 3, 101,           // 커머셜
-  6, 103,                 // 시네마틱
-  207, 201, 202, 203, 204, 205, 206  // 실사
+  301,  // LG 유쓰 우수상
+  304,  // 버그올킬
+  302,  // 그로잉버블
+  303,  // 닥터조 뿌리는 식물영양제
+  7,    // 메디힐 토너패드
+  3,    // 크리스마스 시즌 캠페인
+  4, 1, 2, 101, 6, 103, 207, 201, 202, 203, 204, 205, 206
 ];
 
-function orderedProjects() {
+/* 필터별 순서. 없으면 WORK_ORDER를 따른다. */
+const CATEGORY_ORDER = {
+  commercial: [304, 303, 302, 3],
+  artfilm: [301, 4, 7]
+};
+
+function orderedProjects(order) {
+  const list = order || WORK_ORDER;
   const rank = (p) => {
-    const i = WORK_ORDER.indexOf(p.id);
-    return i === -1 ? WORK_ORDER.length : i;
+    const i = list.indexOf(p.id);
+    return i === -1 ? list.length + WORK_ORDER.indexOf(p.id) : i;
   };
   return projects.slice().sort((a, b) => rank(a) - rank(b));
 }
@@ -893,7 +903,7 @@ function renderWork() {
   section.innerHTML = `
     <header class="sec-head">
       <h2>영상</h2>
-      <p>AI 영상과 실사 촬영물 ${projects.length}편.</p>
+      <p>AI 영상과 실사 촬영물.</p>
     </header>
     <div class="chips" id="work-chips" role="tablist">
       ${WORK_FILTERS.map(f => `<button class="chip${workFilter === f.key ? ' is-on' : ''}" data-filter="${f.key}" role="tab" aria-selected="${workFilter === f.key}">${f.label}</button>`).join('')}
@@ -919,8 +929,9 @@ function renderWork() {
 }
 
 function workCards() {
-  const all = orderedProjects();
-  const list = workFilter === 'all' ? all : all.filter(p => p.category === workFilter);
+  const list = workFilter === 'all'
+    ? orderedProjects()
+    : orderedProjects(CATEGORY_ORDER[workFilter]).filter(p => p.category === workFilter);
   if (!list.length) return `<p class="empty">이 분류에는 아직 공개한 작업이 없습니다.</p>`;
   return list.map((p, i) => `
     <article class="card reveal" style="--i:${i % 8}" data-open="${p.id}" tabindex="0" role="button" aria-label="${esc(p.title)} 자세히 보기">
@@ -1088,7 +1099,7 @@ function renderMotion() {
   byId('motion').innerHTML = `
     <header class="sec-head">
       <h2>자막디자인</h2>
-      <p>방송과 온라인 콘텐츠 타이포 모션.</p>
+      <p>방송·웹 콘텐츠 타이포 모션.</p>
     </header>
     <div class="motion-strip">
       <figure class="motion-item reveal" style="--i:0">
