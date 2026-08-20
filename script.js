@@ -855,7 +855,7 @@ function renderHero() {
     <div class="hero-copy">
       <p class="hero-role">AI Creator &amp; Visual Director</p>
       <h1 class="hero-name">LEE<br>NAHYUN</h1>
-      <p class="hero-lead">카메라로 담을 수 있는 것에서, 카메라로 담을 수 없는 것까지 만듭니다.</p>
+      <p class="hero-lead">카메라로 담을 수 있는 것에서,<br>카메라로 담을 수 없는 것까지 만듭니다.</p>
       <div class="hero-cta">
         <button class="btn btn-primary" data-nav="work">작업 보기</button>
         <a class="btn btn-ghost" href="mailto:yk6838@gmail.com">yk6838@gmail.com</a>
