@@ -1174,7 +1174,7 @@ function renderAbout() {
       <div class="about-main">
         <h2>소개</h2>
         <p class="about-lead">AI 생성 기술과 영상 연출의 교차점에서 작업합니다.</p>
-        <p>실사 촬영과 편집으로 시작해, 지금은 AI로 영상과 이미지를 만듭니다.</p>
+        <p>실사 촬영으로 시작해, 지금은 카메라로 찍을 수 없는 장면을 만듭니다.</p>
         <p class="about-contact">
           <a href="mailto:yk6838@gmail.com">yk6838@gmail.com</a>
         </p>
