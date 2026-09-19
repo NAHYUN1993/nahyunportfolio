@@ -10,13 +10,13 @@ const projects = [
   "type": "video",
   "category": "commercial",
   "categoryLabel": "커머셜 AI 영상",
-  "title": "넌마늘 · 납작이",
-  "desc": "넌마늘·납작이 제품 특성과 작물 재배 장면을 연계한 세로형 제품 광고.",
-  "brief": "넌마늘·납작이 제품 특성과 작물 재배 장면을 연계한 세로형 제품 광고.",
+  "title": "넌마늘난양파",
+  "desc": "넌마늘난양파·납작이 제품 특성과 작물 재배 장면을 연계한 세로형 제품 광고.",
+  "brief": "넌마늘난양파·납작이 제품 특성과 작물 재배 장면을 연계한 세로형 제품 광고.",
   "orientation": "vertical",
   "videoSrc": "videos/garlic-flat.mp4",
-  "poster": "images/posters/garlic-flat.jpg",
-  "thumbnail": "images/posters/garlic-flat.jpg",
+  "poster": "images/posters/garlic-flat-v6.jpg",
+  "thumbnail": "images/posters/garlic-flat-v6.jpg",
   "tools": [],
   "badgeLabel": "NEW"
 },
@@ -315,7 +315,7 @@ const projects = [
     desc: "외부 섭외의 한계를 보완하기 위해 제작자가 직접 농사에 참여하는 오리지널 리얼리티 포맷 기획. 단일 영상 최고 조회수 40만 회 달성 및 전사 '도전왕' 1위를 수상한 채널 턴어라운드 프로젝트.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/농사짓기프로젝트_썸네일.png',
     badge: 'company',
-    badgeLabel: '40만 조회 · 도전왕 1위',
+    badgeLabel: '사내 도전왕 1위',
     tools: ['iPhone 13', 'Premiere Pro'],
     youtubeId: 'ucorOvw9rcc',
     orientation: 'horizontal',
@@ -772,25 +772,19 @@ const ANCHOR_ALIAS = {
   subtitle: 'motion', 'ai-image': 'images', photography: 'images', dashboard: 'tools'
 };
 
-const FEATURED_IDS = [301, 207, 307];
+const FEATURED_IDS = [301, 207, 305];
 
 /* 전체 보기 순서 */
 const WORK_ORDER = [
-  305, 306, 307, 308,
   301,  // LG 유쓰 우수상
   304,  // 버그올킬
   302,  // 그로잉버블
   303,  // 닥터조 뿌리는 식물영양제
+  305, 306, 307, 308, // 신규 작품
   7,    // 메디힐 토너패드
   3,    // 크리스마스 시즌 캠페인
   4, 1, 2, 101, 6, 103, 207, 201, 202, 203, 204, 205, 206
 ];
-
-/* 필터별 순서. 없으면 WORK_ORDER를 따른다. */
-const CATEGORY_ORDER = {
-  commercial: [305, 306, 307, 308, 304, 303, 302, 3],
-  artfilm: [301, 4, 7]
-};
 
 function orderedProjects(order) {
   const list = order || WORK_ORDER;
@@ -802,11 +796,9 @@ function orderedProjects(order) {
 }
 
 const WORK_FILTERS = [
-  { key: 'all',        label: '전체' },
-  { key: 'commercial', label: '커머셜' },
-  { key: 'artfilm',    label: '공모전' },
-  { key: 'cinematic',  label: '시네마틱' },
-  { key: 'liveaction', label: '실사' }
+  { key: 'all', label: '전체' },
+  { key: 'ai', label: 'AI 영상' },
+  { key: 'liveaction', label: '실사 촬영' }
 ];
 
 const IMAGE_FILTERS = [
@@ -837,7 +829,7 @@ const allProjects = () => projects.concat(dashboardProjects);
 function findProject(id) {
   if (String(id) === '900') return {
     id: 900, title: 'LEE NAHYUN · SHOWREEL', categoryLabel: 'AI 영상 쇼릴',
-    orientation: 'horizontal', videoSrc: 'videos/showreel-play.mp4?v=5', poster: 'images/posters/showreel.jpg'
+    orientation: 'horizontal', videoSrc: 'videos/showreel-play.mp4?v=6', poster: 'images/posters/showreel.jpg'
   };
   return allProjects().find(p => String(p.id) === String(id));
 }
@@ -916,13 +908,13 @@ function observeReveals(root) {
 function renderHero() {
   byId('hero').innerHTML = `
     <div class="reel-stage">
-      <video id="hero-video" src="videos/showreel-hero.mp4?v=5" poster="images/posters/showreel.jpg" muted loop playsinline preload="metadata" aria-label="이나현의 AI 영상 쇼릴"></video>
+      <video id="hero-video" src="videos/showreel-hero.mp4?v=6" poster="images/posters/showreel.jpg" muted loop playsinline preload="metadata" aria-label="이나현의 AI 영상 쇼릴"></video>
       <div class="reel-title"><p>AI CREATOR &amp; VISUAL DIRECTOR</p><h1>현실을 담고,<br>상상을 만듭니다.</h1></div>
+      <button class="reel-play" id="showreel-open" aria-haspopup="dialog"><span class="reel-play-icon" aria-hidden="true">▶</span><span>쇼릴 전체 보기</span><span class="reel-runtime">00:25</span></button>
       <button id="hero-toggle" class="reel-toggle" aria-label="배경 영상 재생">재생</button>
     </div>
     <div class="reel-caption">
       <div><span class="status-dot" aria-hidden="true"></span><span>LEE NAHYUN</span><span class="reel-caption-detail">AI 영상 · 실사 촬영</span></div>
-      <button class="reel-play" id="showreel-open"><span aria-hidden="true">▶</span> 쇼릴 전체 보기 <span class="reel-runtime">00:28</span></button>
     </div>`;
   const v = byId('hero-video'), toggle = byId('hero-toggle');
   let manuallyPaused = reduceMotion;
@@ -955,7 +947,7 @@ function renderFeatured() {
   const picks = FEATURED_IDS.map(findProject).filter(Boolean);
   if (!picks.length) return;
   byId('featured').innerHTML = `
-    <header class="featured-head"><h2>Selected works<span>.</span></h2><p>수상작부터 현장에서 만든 이야기까지.</p></header>
+    <header class="featured-head"><h2>Selected works<span>.</span></h2><p>실사 촬영부터 AI 영상 제작까지.</p></header>
     <div class="featured-grid">
       ${picks.map((p, i) => `
         <article class="feat reveal ${i === 0 ? 'feat-lead' : ''}" style="--i:${i}" data-open="${p.id}" tabindex="0" role="button">
@@ -982,8 +974,8 @@ function renderWork() {
   const section = byId('work');
   section.innerHTML = `
     <header class="sec-head">
-      <h2>영상</h2>
-      <p>AI 영상과 실사 촬영물.</p>
+      <h2>전체 영상</h2>
+      <p>제작 방식별로 살펴보는 영상 포트폴리오.</p>
     </header>
     <div class="chips" id="work-chips" role="tablist">
       ${WORK_FILTERS.map(f => `<button class="chip${workFilter === f.key ? ' is-on' : ''}" data-filter="${f.key}" role="tab" aria-selected="${workFilter === f.key}">${f.label}</button>`).join('')}
@@ -1009,9 +1001,8 @@ function renderWork() {
 }
 
 function workCards() {
-  const list = workFilter === 'all'
-    ? orderedProjects()
-    : orderedProjects(CATEGORY_ORDER[workFilter]).filter(p => p.category === workFilter);
+  const list = orderedProjects().filter(p => workFilter === 'all' ||
+    (workFilter === 'ai' ? p.category !== 'liveaction' : p.category === 'liveaction'));
   if (!list.length) return `<p class="empty">이 분류에는 아직 공개한 작업이 없습니다.</p>`;
   return list.map((p, i) => `
     <article class="card reveal" style="--i:${i % 8}" data-open="${p.id}" tabindex="0" role="button" aria-label="${esc(p.title)} 자세히 보기">
