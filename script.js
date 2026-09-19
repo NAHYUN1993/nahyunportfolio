@@ -11,8 +11,8 @@ const projects = [
   "category": "commercial",
   "categoryLabel": "커머셜 AI 영상",
   "title": "넌마늘 · 납작이",
-  "desc": "넌마늘·납작이 제품을 작물과 농사 장면에 연결한 세로 광고.",
-  "brief": "넌마늘·납작이 제품을 작물과 농사 장면에 연결한 세로 광고.",
+  "desc": "넌마늘·납작이 제품 특성과 작물 재배 장면을 연계한 세로형 제품 광고.",
+  "brief": "넌마늘·납작이 제품 특성과 작물 재배 장면을 연계한 세로형 제품 광고.",
   "orientation": "vertical",
   "videoSrc": "videos/garlic-flat.mp4",
   "poster": "images/posters/garlic-flat.jpg",
@@ -26,8 +26,8 @@ const projects = [
   "category": "commercial",
   "categoryLabel": "커머셜 AI 영상",
   "title": "해충박살",
-  "desc": "온실 속 벌레 캐릭터의 인터뷰로 풀어낸 제품 광고.",
-  "brief": "온실 속 벌레 캐릭터의 인터뷰로 풀어낸 제품 광고.",
+  "desc": "온실을 배경으로 벌레 캐릭터의 인터뷰 형식을 적용한 제품 광고.",
+  "brief": "온실을 배경으로 벌레 캐릭터의 인터뷰 형식을 적용한 제품 광고.",
   "orientation": "vertical",
   "videoSrc": "videos/pest-buster.mp4",
   "poster": "images/posters/pest-buster.jpg",
@@ -41,8 +41,8 @@ const projects = [
   "category": "commercial",
   "categoryLabel": "커머셜 AI 영상",
   "title": "효소아미노",
-  "desc": "밭에서 나누는 대화로 제품 이야기를 풀고, 노을 속 제품 컷으로 마무리한 광고.",
-  "brief": "밭에서 나누는 대화로 제품 이야기를 풀고, 노을 속 제품 컷으로 마무리한 광고.",
+  "desc": "농사 현장의 대화형 서사와 노을 배경의 제품 컷을 결합한 커머셜 영상.",
+  "brief": "농사 현장의 대화형 서사와 노을 배경의 제품 컷을 결합한 커머셜 영상.",
   "orientation": "horizontal",
   "videoSrc": "videos/enzyme-amino.mp4",
   "poster": "images/posters/enzyme-amino.jpg",
@@ -56,8 +56,8 @@ const projects = [
   "category": "commercial",
   "categoryLabel": "커머셜 AI 영상",
   "title": "분갈이흙",
-  "desc": "일상 속 낯선 공간에 식물을 배치하고, 모종삽과 제품 컷으로 연결한 짧은 광고.",
-  "brief": "일상 속 낯선 공간에 식물을 배치하고, 모종삽과 제품 컷으로 연결한 짧은 광고.",
+  "desc": "초록색 톤의 공간별 식물 연출과 모종삽·제품 컷을 연결한 숏폼 광고.",
+  "brief": "초록색 톤의 공간별 식물 연출과 모종삽·제품 컷을 연결한 숏폼 광고.",
   "orientation": "vertical",
   "videoSrc": "videos/potting-soil.mp4",
   "poster": "images/posters/potting-soil.jpg",
@@ -77,7 +77,7 @@ const projects = [
     category: 'commercial',
     categoryLabel: '커머셜 AI 영상',
     title: '작물 영양제 기능 홍보 · 네이버 숏클립 커머셜',
-    desc: "작물 영양제의 핵심 성분과 효능을 시각화한 커머스 영상. 프롬프트를 설계해 한글 텍스트 깨짐을 막고 후반 리터칭 없이 상업용 숏폼 에셋을 제작함.",
+    desc: "작물 영양제의 핵심 성분과 효능을 시각화한 네이버 숏클립 커머셜. 프롬프트 설계를 통한 한글 텍스트 왜곡 방지 및 후반 리터칭 없는 상업용 숏폼 에셋 제작.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/작물영양제 기능 홍보.png',
     badge: 'company',
     badgeLabel: '커머스 프로젝트',
@@ -96,7 +96,7 @@ const projects = [
     process: [
       { title: '핵심 기능 및 셀링 포인트 기획', desc: '작물 영양제의 특정 영양분과 그것이 작물에 미치는 긍정적 효과를, 네이버 숏클립 시청자의 구매 전환으로 직관적으로 유도할 수 있도록 스토리보드를 구성함.' },
       { title: '한글 왜곡 방어 및 최적화 프롬프트 설계', desc: 'AI 생성 시 필연적으로 발생하는 한글 텍스트 왜곡 및 패키지 형태 일그러짐 현상을 방어하기 위해 안티그래비티 환경에서 심층 리서치를 진행함. 제품 패키지의 비율과 한글 타이포그래피를 고정할 수 있는 최적의 프롬프트 구문과 네거티브 프롬프트를 자체 설계함.' },
-      { title: '후반 작업 없는 고품질 에셋 생성', desc: "자체 설계한 프롬프트를 나노바나나2 모델에 적용함. 한글 텍스트 및 패키지 왜곡이 전혀 없는 상업용 수준의 고품질 제품 이미지를 한 번에 추출함. 별도의 포토샵 리터칭 없이 상업용 숏폼 에셋으로 즉시 활용 가능하게 하여 제작 효율을 높임." }
+      { title: '후반 작업 없는 고품질 에셋 생성', desc: "자체 설계한 프롬프트를 나노바나나2 모델에 적용함. 한글 텍스트 및 패키지 왜곡이 전혀 없는 상업용 수준의 고품질 제품 이미지를 한 번에 추출함. 별도의 포토샵 리터칭 없이 상업용 숏폼 에셋으로 즉시 활용 가능하게 하여 제작 효율 개선." }
     ]
   },
   {
@@ -105,7 +105,7 @@ const projects = [
     category: 'commercial',
     categoryLabel: '커머셜 AI 영상',
     title: '5분 분갈이 챌린지 · 올인원 원예 제품 사용 가이드',
-    desc: "복잡한 분갈이 공정을 5분 미션으로 구성한 숏폼 영상. 게이미피케이션 요소로 초보자의 부담을 낮추고 올인원 제품의 편의성을 보여줌.",
+    desc: "분갈이 공정에 5분 미션 형식의 게이미피케이션을 적용한 숏폼 영상. 초보자의 심리적 진입 장벽 완화 및 올인원 제품의 사용 편의성 전달.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/분갈이흙2.png',
     badge: 'company',
     badgeLabel: '커머스 프로젝트',
@@ -120,7 +120,7 @@ const projects = [
       'https://nahyun1993.github.io/portfolio3/images/주요장면/5분분갈이챌린지/5분분갈이챌린지 주요장면_05.png',
       'https://nahyun1993.github.io/portfolio3/images/주요장면/5분분갈이챌린지/5분분갈이챌린지 주요장면_06.png'
     ],
-    brief: "가드닝 입문자들은 분갈이를 취미가 아닌 복잡하고 실패하기 쉬운 노동으로 인식하는 경향이 있어 이를 해소할 이를 바꿀 계기가 필요함. 제품의 USP인 간편함을 텍스트가 아닌 영상 언어로 증명하기 위해 시간 제한 챌린지 형식을 차용함.",
+    brief: "가드닝 입문자들은 분갈이를 취미가 아닌 복잡하고 실패하기 쉬운 노동으로 인식하는 경향이 있어 이를 해소할 인식 전환을 위한 기획적 접근 필요. 제품의 USP인 간편함을 텍스트가 아닌 영상 언어로 증명하기 위해 시간 제한 챌린지 형식을 차용함.",
     process: [
       { title: '일관성 확보 및 컷 생성', desc: '캐릭터 시트를 우선 제작하여 컷마다 인물 생김새가 달라지는 AI의 무작위성을 통제함. 확정된 캐릭터 페르소나를 기반으로 분갈이 공정별 주요 장면을 생성함.' },
       { title: '디테일 보정', desc: "생성형 AI 특성상 제품 패키지의 로고나 텍스트가 왜곡되는 현상이 발생해 포토샵을 활용해 리터칭하고 왜곡된 제품 영역에 실제 고화질 제품 이미지를 합성함." },
@@ -133,7 +133,7 @@ const projects = [
     category: 'commercial',
     categoryLabel: '시즌 캠페인',
     title: '크리스마스 시즌 캠페인',
-    desc: "자사 마스코트 토끼 캐릭터에 크리스마스 산타 코스튬을 입히고 실제 자사 제품을 합성해 제작한 시즌 숏폼 캠페인.",
+    desc: "자사 마스코트 토끼 캐릭터의 산타 코스튬 변형과 실제 제품 합성을 결합한 크리스마스 시즌 캠페인.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/시즌캠페인_크리스마스.png',
     badge: 'company',
     badgeLabel: '회사 프로젝트',
@@ -163,7 +163,7 @@ const projects = [
     category: 'artfilm',
     categoryLabel: '공모전',
     title: 'AI로 다시 태어난 한복, 그리고 한식',
-    desc: "브랜드 이름(이도 식당)의 모티브인 세종대왕(이도)을 화자로 등장시킨 영상. \"이름을 도용당해 화가 난 왕이 맛을 보고 감동한다\"는 반전 서사를 담음.",
+    desc: "브랜드 이름(이도 식당)의 모티브인 세종대왕(이도)을 화자로 설정한 공모전 영상. \"이름을 도용당해 화가 난 왕이 맛을 보고 감동한다\"는 반전 서사 구성.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/공모전_한복한식.png',
     badge: 'contest',
     badgeLabel: '',
@@ -180,9 +180,9 @@ const projects = [
     ],
     brief: '브랜드 네이밍에서 출발한 세종대왕 페르소나와 조선 시대 배경을 통해 한복과 한식의 문화적 가치를 현대적 영상 언어로 재해석함. 왕이 식당 이름에 분노하다가 맛에 감동한다는 반전 내러티브를 중심으로, 시청자의 흥미를 유발하면서 브랜드 메시지를 자연스럽게 전달하는 구조를 설계함.',
     process: [
-      { title: '컨셉 아트 및 톤앤매너 기획', desc: "미드저니를 활용해 사극 특유의 웅장하고 고전적인 시대적 배경과 인물 베이스 이미지를 생성함. 시각적 기준을 정하고 시안을 제작함." },
+      { title: '컨셉 아트 및 톤앤매너 기획', desc: "미드저니를 활용해 사극 특유의 웅장하고 고전적인 시대적 배경과 인물 베이스 이미지를 생성함. 시각적 기준 수립 및 시안 제작." },
       { title: '스토리보드 기반 씬 생성', desc: "기획한 스토리보드에 맞춰 나노바나나 모델로 세부 컷을 생성함. 인물의 앵글과 씬의 연속성을 안정적으로 유지함." },
-      { title: 'AI 한계 극복 및 에셋 합성', desc: "주최측이 요구한 특정 한복 패턴과 디테일 구현을 위해 포토샵 활용. 마스킹과 이미지 합성 작업을 진행하고 의상을 제공 에셋으로 치환하여 일관된 화면을 유지함." },
+      { title: 'AI 한계 극복 및 에셋 합성', desc: "주최측이 요구한 특정 한복 패턴과 디테일 구현을 위해 포토샵 활용. 마스킹과 이미지 합성 작업을 진행하고 의상을 제공 에셋으로 치환하여 화면의 시각적 일관성 유지." },
       { title: '모션 부여 및 최종 편집', desc: "프리픽 Kling 모델로 영상화하고 프리미어 프로에서 오디오 믹싱 등 최종 마스터." }
     ]
   },
@@ -192,7 +192,7 @@ const projects = [
     category: 'commercial',
     categoryLabel: '브랜드 커머셜',
     title: '나노바나나',
-    desc: "인공지능 이미지 생성 기술인 나노바나나로 다양한 스타일 베리에이션을 보여주는 테크 커머셜 필름.",
+    desc: "인공지능 이미지 생성 기술인 나노바나나의 스타일 베리에이션을 시각화한 테크 커머셜 필름.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/나노바나나.png',
     badge: 'company',
     badgeLabel: '커머스 프로젝트',
@@ -219,7 +219,7 @@ const projects = [
     category: 'artfilm',
     categoryLabel: '공모전',
     title: '토너패드 광고 메디힐 공모전',
-    desc: "1mm의 빈틈도 허락하지 않는 완벽주의자의 시선으로 만든 브랜드 필름. 기존 뷰티 광고의 감성적 클리셰 대신, 네모 패드가 얼굴 굴곡에 완벽히 밀착되는 순간의 카타르시스와 3-Step 루틴을 연출함.",
+    desc: "1mm의 빈틈도 허락하지 않는 완벽주의자 관점의 브랜드 필름. 기존 뷰티 광고의 감성적 클리셰를 배제하고, 네모 패드의 얼굴 굴곡 밀착 장면과 3-Step 루틴을 중심으로 시각적 카타르시스 연출.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/공모전_메디힐.png',
     badge: 'contest',
     badgeLabel: '',
@@ -236,11 +236,11 @@ const projects = [
     ],
     brief: "주 타겟인 토너패드 입문자들은 정확한 활용법을 인지하지 못해 제품의 효능을 100% 누리지 못하고 있음. 또한, 얼굴의 넓은 면적을 빈틈없이 커버할 수 있는 구조적 형태에 대한 니즈가 존재함. 팩토 → 닦토 → 흡토로 이어지는 3단계 루틴을 직관적 연출하고 네모 패드의 직각 형태가 곡선의 얼굴 면적에 빈틈없이 맞물리는 순간을 강조함.",
     process: [
-      { title: '데이터 분석 및 키워드 충돌 아이데이션', desc: "뷰티 시장 리서치 자료를 NotebookLM에 학습시켜 인사이트를 빠르게 분석함. 도출된 핵심 키워드를 바탕으로 상충되는 개념을 의도적으로 충돌시키는 크리에이티브 방법론을 통해 완벽주의자의 뷰티 오브제라는 차별화된 메인 컨셉을 발전시킴." },
-      { title: '톤앤무드 기획 및 캐릭터 페르소나 구축', desc: "미드저니를 활용하여 프로젝트의 톤앤무드를 결정하는 고해상도 컨셉 아트를 생성함. 완벽주의자 캐릭터의 시각적 페르소나를 정하고 레퍼런스를 마련함." },
+      { title: '데이터 분석 및 키워드 충돌 아이데이션', desc: "뷰티 시장 리서치 자료를 NotebookLM에 학습시켜 인사이트를 신속하게 분석. 도출된 핵심 키워드를 바탕으로 상충되는 개념을 의도적으로 충돌시키는 크리에이티브 방법론을 통해 완벽주의자의 뷰티 오브제라는 차별화된 메인 컨셉을 발전시킴." },
+      { title: '톤앤무드 기획 및 캐릭터 페르소나 구축', desc: "미드저니를 활용하여 프로젝트의 톤앤무드를 결정하는 고해상도 컨셉 아트를 생성함. 완벽주의자 캐릭터의 시각적 페르소나를 정하고 레퍼런스 정립." },
       { title: '시각적 일관성 확보 및 씬 생성', desc: '나노바나나를 활용하여 스토리보드의 주요 장면들을 생김새·복장·조명 톤 일관성을 유지하며 생성함.' },
       { title: '다각도 시퀀스 자동화 및 일괄 생성', desc: 'qwen_Multiple_angle 워크플로우로 단일 프롬프트 입력만으로 다양한 카메라 앵글 시퀀스를 자동 출력하는 일괄 처리 기능을 구현함.' },
-      { title: 'AI 한계 보정 및 브랜드 에셋 합성', desc: "제품 로고 및 텍스트 왜곡 문제를 해결하기 위해 AI 생성 이미지 내 왜곡된 영역에 실제 고화질 제품 에셋을 완벽하게 합성하여 왜곡을 바로잡음." },
+      { title: 'AI 한계 보정 및 브랜드 에셋 합성', desc: "제품 로고 및 텍스트 왜곡 문제를 해결하기 위해 AI 생성 이미지 내 왜곡된 영역에 실제 고화질 제품 에셋을 완벽하게 합성하여 왜곡 보정." },
       { title: '이미지 영상화 및 마스터 편집', desc: '이미지를 프리픽 Kling 모델로 영상화. 프리미어 프로에서 컷 연결, 오디오 믹싱, 자막 작업을 진행함.' }
     ]
   },
@@ -299,7 +299,7 @@ const projects = [
     brief: '기후 위기로 인해 얼어붙어버린 아마존이라는 디스토피아적 세계관과, 인류 생존의 열쇠인 코어를 고치기 위한 여정, 그리고 이것이 모두 시뮬레이션이었다는 극적 반전을 담은 단편 영화 기획.',
     process: [
       { title: '시네마틱 내러티브 및 극적 반전 기획', desc: '열대우림의 빙하기라는 시각적 모순을 통해 낯설고도 웅장한 디스토피아 배경을 설계함. 최후의 순간 디지털 글리치 효과와 함께 현실로 전환되는 반전 스토리보드를 밀도 있게 구성함.' },
-      { title: '프롬프트 기반 장엄한 스케일 연출', desc: "SF 장르 특유의 스케일과 디테일 묘사를 위해, 렌즈 구경, 조명, 색감 등을 제어하는 전문적인 촬영/카메라 룩다운 프롬프트를 설계함." }
+      { title: '프롬프트 기반 장엄한 스케일 연출', desc: "SF 장르 특유의 스케일과 디테일 묘사를 위해, 렌즈 구경, 조명, 색감 등을 제어하는 전문적인 촬영/카메라 룩다운 프롬프트 설계." }
     ]
   },
 
@@ -312,7 +312,7 @@ const projects = [
     category: 'liveaction',
     categoryLabel: '오리지널 영상 - 실사',
     title: '비료 회사 직원의 농사짓기 프로젝트',
-    desc: "외부 섭외의 한계로 제작자가 직접 농사에 참여하는 오리지널 리얼리티 포맷을 기획함. 단일 영상 최고 조회수 40만 회 달성 및 전사 '도전왕' 1위를 수상한 채널 턴어라운드 프로젝트.",
+    desc: "외부 섭외의 한계를 보완하기 위해 제작자가 직접 농사에 참여하는 오리지널 리얼리티 포맷 기획. 단일 영상 최고 조회수 40만 회 달성 및 전사 '도전왕' 1위를 수상한 채널 턴어라운드 프로젝트.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/농사짓기프로젝트_썸네일.png',
     badge: 'company',
     badgeLabel: '40만 조회 · 도전왕 1위',
@@ -322,8 +322,8 @@ const projects = [
     scenes: [],
     brief: `외부 섭외의 한계를 돌파하기 위해 제작자가 직접 농사에 참여하는 오리지널 리얼리티 포맷을 기획해 단일 영상 최고 조회수 40만 회 달성 및 전사 '도전왕' 1위을 수상한 채널 턴어라운드 프로젝트. 제품의 실제 효능을 날것의 스토리텔링과 세대 간의 유쾌한 티키타카로 풀어내어 콘텐츠의 오락성과 신뢰도를 동시에 극대화함. 단일 콘텐츠 기준 최고 조회수 40만회 돌파. 압도적인 채널 기여도를 인정받아 전사 혁신 및 성과 평가 '도전왕' 부문 1등 수상.`,
     process: [
-      { title: '01 오리지널 IP 기획', desc: "기존 외부 인력 섭외 방식의 제품 실증 영상은 스케줄링의 한계와 작위적인 연출로 인해 시청자의 지속적인 공감대 형성과 채널 충성도를 높이기 어려웠음. 프로 농사꾼 아빠와 함께 직접 농사를 짓는 '리얼리티 다큐·예능 포맷'으로 전환함." },
-      { title: '02 세대 간 티키타카 서사 설계', desc: "새로운 방식을 추구하는 비료 회사 직원 딸과 전통만을 고집하는 아빠의 유쾌한 충돌을 이야기의 중심으로 삼음. 시청자의 방어심리를 낮췄음." },
+      { title: '01 오리지널 IP 기획', desc: "기존 외부 인력 섭외 방식의 제품 실증 영상은 스케줄링의 한계와 작위적인 연출로 인해 시청자의 지속적인 공감대 형성과 채널 충성도 제고에 한계 발생. 프로 농사꾼 아빠와 함께 직접 농사를 짓는 '리얼리티 다큐·예능 포맷'으로 전환함." },
+      { title: '02 세대 간 티키타카 서사 설계', desc: "새로운 방식을 추구하는 비료 회사 직원 딸과 전통만을 고집하는 아빠의 유쾌한 충돌을 핵심 서사로 활용. 시청자의 심리적 진입 장벽 완화." },
       { title: "03 채널 성장과 시청자 반응", desc: "제품 홍보와 함께 시청자와의 강한 정서적 유대감을 형성함. 브랜드 유튜브 채널의 구독자 급증과 고관여 시청자의 자발적인 자사 제품 문의로 이어지도록 유도함." }
     ]
   },
@@ -333,7 +333,7 @@ const projects = [
     category: 'liveaction',
     categoryLabel: '오리지널 영상 - 실사',
     title: '블루밍버블',
-    desc: "식물과 교감하는 일상을 따뜻하게 담아 식집사의 공감을 이끌어낸 콘텐츠.",
+    desc: "식물과 교감하는 일상을 따뜻한 영상 톤으로 표현하고, 핵심 타겟인 식집사의 공감대를 형성한 실사 콘텐츠.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/블루밍버블.png',
     badge: 'company',
     badgeLabel: '실사 콘텐츠',
@@ -357,7 +357,7 @@ const projects = [
     category: 'liveaction',
     categoryLabel: '오리지널 영상 - 실사',
     title: 'HOW TO 뿌리영양제',
-    desc: "제품의 올바른 사용법을 따라 하기 쉬운 앵글로 담은 가이드 영상.",
+    desc: "제품의 올바른 사용법을 직관적인 촬영 앵글로 전달한 사용 가이드 영상.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/뿌리영양제.png',
     badge: 'company',
     badgeLabel: '가이드',
@@ -372,7 +372,7 @@ const projects = [
       'https://nahyun1993.github.io/portfolio3/images/주요장면/뿌리영양제/시퀀스 01.00_03_37_22.스틸 037.png',
       'https://nahyun1993.github.io/portfolio3/images/주요장면/뿌리영양제/시퀀스 01.00_03_44_11.스틸 038.png'
     ],
-    brief: "제품의 올바른 사용법을 따라 하기 쉬운 앵글로 담은 가이드 영상.",
+    brief: "제품의 올바른 사용법을 직관적인 촬영 앵글로 전달한 사용 가이드 영상.",
     process: []
   },
   {
@@ -381,7 +381,7 @@ const projects = [
     category: 'liveaction',
     categoryLabel: '오리지널 영상 - 실사',
     title: '다이소 식물 아이템 리뷰',
-    desc: "SNS 트렌드를 반영해 화제가 된 다이소 아이템을 직접 구매하고 활용하는 모습을 기획한 바이럴 콘텐츠.",
+    desc: "SNS 트렌드를 반영한 다이소 아이템 직접 구매 및 활용 과정 중심의 바이럴 콘텐츠 기획.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/다이소.png',
     badge: 'company',
     badgeLabel: '바이럴',
@@ -405,7 +405,7 @@ const projects = [
     category: 'liveaction',
     categoryLabel: '오리지널 영상 - 실사',
     title: '식물살리기 60일 프로젝트',
-    desc: '죽어가는 식물에 제품을 투여하여 60일간 소생하는 과정을 기록한 리얼리티 다큐멘터리.',
+    desc: "제품 투여 후 식물이 회복되는 60일간의 과정을 기록한 리얼리티 다큐멘터리.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/식물살리기.png',
     badge: 'company',
     badgeLabel: '다큐멘터리',
@@ -420,10 +420,10 @@ const projects = [
       'https://nahyun1993.github.io/portfolio3/images/주요장면/식물살리기/시퀀스 01.00_00_57_19.스틸 024.png',
       'https://nahyun1993.github.io/portfolio3/images/주요장면/식물살리기/시퀀스 01.00_01_07_20.스틸 026.png'
     ],
-    brief: "죽어가는 식물에 자사 제품을 투여하여 60일간 소생하는 과정을 파트별로 기록하고 사내 연구진원(박사)의 식물학적 자문을 더해 효능을 과학적 근거와 실제 기록으로 증명함.",
+    brief: "죽어가는 식물에 자사 제품을 투여하여 60일간 소생하는 과정을 파트별로 기록하고 사내 연구진원(박사)의 식물학적 자문을 더해 효능을 과학적 근거와 실제 기록으로 검증.",
     process: [
-      { title: '사내 전문가 자문 (R&D Collaboration)', desc: "단순한 시각적 관찰에 그치지 않고 박사 연구진과의 소통을 통해 생장 상태를 진단하여 텍스트와 내러티브의 전문성을 높임." },
-      { title: '비주얼 스토리텔링 및 교차 편집', desc: "60일이라는 장기를 전후(Before & After)의 극적 컷으로 교차시켜 변화에서 오는 시각적 카타르시스를 담음." }
+      { title: '사내 전문가 자문 (R&D Collaboration)', desc: "단순한 시각적 관찰에 그치지 않고 박사 연구진과의 소통을 통해 생장 상태를 진단하여 텍스트와 내러티브의 전문성 강화." },
+      { title: '비주얼 스토리텔링 및 교차 편집', desc: "60일이라는 장기를 전후(Before & After)의 극적 컷으로 교차시켜 전후 대비를 통한 시각적 카타르시스 연출." }
     ]
   },
   {
@@ -432,7 +432,7 @@ const projects = [
     category: 'liveaction',
     categoryLabel: '오리지널 영상 - 실사',
     title: '식물편집샵 대표 인터뷰',
-    desc: "업계 전문가의 인사이트를 담아 브랜드의 권위와 전문성을 강조한 인터뷰 영상.",
+    desc: "업계 전문가의 인사이트를 바탕으로 브랜드의 권위와 전문성을 전달한 인터뷰 영상.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/유니크플랜트.png',
     badge: 'company',
     badgeLabel: '인터뷰',
@@ -456,7 +456,7 @@ const projects = [
     category: 'liveaction',
     categoryLabel: '오리지널 영상 - 실사',
     title: '이지코트 제품 소개 ASMR',
-    desc: "제품 특유의 질감과 소리를 백색소음으로 활용해 보고 듣는 즐거움을 담은 ASMR 홍보 영상.",
+    desc: "제품 고유의 질감과 소리를 백색소음으로 활용한 시청각 중심의 ASMR 홍보 영상.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/Thumbnails/이지코트.png',
     badge: 'company',
     badgeLabel: 'ASMR',
@@ -471,7 +471,7 @@ const projects = [
       'https://nahyun1993.github.io/portfolio3/images/주요장면/이지코트/시퀀스 01.00_00_24_16.스틸 015.png',
       'https://nahyun1993.github.io/portfolio3/images/주요장면/이지코트/시퀀스 01.00_00_29_11.스틸 017.png'
     ],
-    brief: "제품 특유의 질감과 소리를 백색소음으로 활용해 보고 듣는 즐거움을 담은 ASMR 홍보 영상.",
+    brief: "제품 고유의 질감과 소리를 백색소음으로 활용한 시청각 중심의 ASMR 홍보 영상.",
     process: []
   },
   /* ─────────────────────────────────────────────────────────
@@ -483,7 +483,7 @@ const projects = [
     category: 'artfilm',
     categoryLabel: '공모전',
     title: 'LG 유쓰 AI 쇼츠 페스티벌 우수상',
-    desc: '주제 「AI로 표현하는 가장 나다운 순간」. 서로 짝이 맞지 않는 취향을 나열해, 모순으로 만들어진 사람을 그린 숏폼.',
+    desc: "「AI로 표현하는 가장 나다운 순간」을 주제로 상반된 취향과 모순적인 자아를 시각화한 숏폼. LG 유쓰 AI 쇼츠 페스티벌 우수상 수상.",
     videoSrc: './videos/lg-youth-festival.mp4',
     poster: './images/posters/lg-youth-festival.jpg',
     thumbnail: './images/posters/lg-youth-festival.jpg',
@@ -509,7 +509,7 @@ const projects = [
     category: 'commercial',
     categoryLabel: '커머셜 AI 영상',
     title: '그로잉버블',
-    desc: '온실을 배경으로 3D 캐릭터가 식물을 키우는 과정을 파스텔 톤으로 담은 브랜드 숏폼.',
+    desc: "온실 공간과 3D 캐릭터의 식물 재배 과정을 파스텔 톤으로 구성한 브랜드 숏폼.",
     videoSrc: './videos/growing-bubble.mp4',
     poster: './images/posters/growing-bubble.jpg',
     thumbnail: './images/posters/growing-bubble.jpg',
@@ -518,7 +518,7 @@ const projects = [
     tools: ['Nano Banana', 'Kling'],
     orientation: 'vertical',
     scenes: [],
-    brief: '브랜드 마스코트 캐릭터와 제품 세계관을 하나의 온실 공간으로 묶어, 제품 사용 결과를 캐릭터의 행동으로 보여주는 구성. 파스텔 톤 아트디렉션으로 제품군 전체의 시각적 일관성을 유지함.',
+    brief: "브랜드 마스코트 캐릭터와 제품 세계관을 하나의 온실 공간으로 묶어, 제품 사용 결과를 캐릭터 행동으로 시각화한 구성. 파스텔 톤 아트디렉션으로 제품군 전체의 시각적 일관성을 유지함.",
     process: [
       { title: '제작', desc: '나노바나나로 이미지를 생성하고 클링으로 영상화함.' }
     ]
@@ -529,7 +529,7 @@ const projects = [
     category: 'commercial',
     categoryLabel: '커머셜 AI 영상',
     title: '닥터조 뿌리는 식물영양제',
-    desc: "판타지 숲에서 레몬 정원으로 이어지는 세계관을 만들고 그 끝에 제품 컷을 배치한 스프레이 영양제 광고.",
+    desc: "판타지 숲에서 레몬 정원으로 이어지는 세계관과 제품 컷을 연계한 스프레이 영양제 광고.",
     videoSrc: './videos/drjoe-spray.mp4',
     poster: './images/posters/drjoe-spray.jpg',
     thumbnail: './images/posters/drjoe-spray.jpg',
@@ -538,9 +538,9 @@ const projects = [
     tools: ['Nano Banana', 'Kling'],
     orientation: 'vertical',
     scenes: [],
-    brief: '유행하는 레몬코어 무드를 제품 세계관에 얹음. 성분과 사용법을 설명하는 대신 쉽고 간편하고 효과가 좋다는 감각만 남기는 것을 목표로 함.',
+    brief: "레몬코어 트렌드를 제품 세계관에 적용. 성분·사용법 설명보다 사용 편의성과 효능에 대한 직관적 인상 전달을 목표로 설정.",
     process: [
-      { title: '레몬코어 무드 차용', desc: '레몬 톤의 색과 질감을 세계관 전체에 깔아, 설명을 읽기 전에 화면부터 눈에 붙도록 함.' },
+      { title: '레몬코어 무드 차용', desc: "세계관 전반에 레몬 톤의 색감과 질감을 적용하여 시각적 주목도 확보." },
       { title: '변화 폭의 시각화', desc: '어두운 숲에서 빛나는 열매를 거쳐 만개한 레몬 정원으로 이어지는 시퀀스로, 뿌린 뒤의 변화를 한 흐름 안에서 보여 줌.' },
       { title: '제작', desc: '나노바나나로 이미지를 생성하고 클링으로 영상화함.' }
     ]
@@ -551,7 +551,7 @@ const projects = [
     category: 'commercial',
     categoryLabel: '커머셜 AI 영상',
     title: '버그올킬',
-    desc: "젤리 질감의 벌레 캐릭터로 이루어진 월드를 만들고 스프레이 사용 장면으로 이어지는 살충제 광고.",
+    desc: "젤리 질감의 벌레 캐릭터 세계관과 스프레이 사용 장면을 연결한 살충제 광고.",
     videoSrc: './videos/bug-all-kill.mp4',
     poster: './images/posters/bug-all-kill.jpg',
     thumbnail: './images/posters/bug-all-kill.jpg',
@@ -563,8 +563,8 @@ const projects = [
     brief: '살충제 광고에서 거부감을 만드는 요소인 벌레를 반투명 젤리 질감의 캐릭터로 재해석해 시청 이탈을 낮춤. 제품 사용 장면을 세계관 안의 사건처럼 배치해 광고 톤을 유지함.',
     process: [
       { title: '세계관 이미지 생성', desc: '나노바나나로 젤리 질감의 벌레와 배경을 만들어 하나의 월드로 묶음.' },
-      { title: '스펙타클 연출', desc: '클링과 씨댄스 2.0으로 영상화. 터지고 흩어지는 파티클을 넣어 짧은 길이에서도 볼거리가 끊기지 않게 함.' },
-      { title: '제품 컷의 무게 조절', desc: '앞 구간을 화려하게 쓴 만큼 제품이 등장하는 컷에서는 리듬을 눌러, 카메라를 천천히 붙이고 시선이 제품에 멈추도록 연출함. 세계관의 말랑한 질감과 제품의 무게감을 대비시킴.' }
+      { title: '스펙타클 연출', desc: "클링과 씨댄스 2.0으로 영상화. 파티클의 폭발·확산 연출을 적용하여 짧은 러닝타임 내 시각적 밀도 유지." },
+      { title: '제품 컷의 무게 조절', desc: "앞 구간의 역동적인 연출과 대비되도록 제품 등장 컷의 편집 속도를 조절하고, 느린 카메라 접근으로 제품에 시선 집중. 세계관의 말랑한 질감과 제품의 무게감을 대비시킴." }
     ]
   }
 ];
@@ -643,7 +643,7 @@ const dashboardProjects = [
     category: 'dashboard',
     categoryLabel: '대시보드',
     title: '유튜브 채널 분석 대시보드',
-    desc: '유튜브 스튜디오 기본 제공 지표의 한계를 넘어, VPH(시간당 조회수)와 아웃라이어(Outlier) 등 핵심 성장 지표를 수치화하고 타 채널 비교 및 키워드 분석까지 통합한 데이터 기반의 콘텐츠 기획 환경.',
+    desc: "VPH(시간당 조회수), 아웃라이어(Outlier) 등 핵심 성장 지표와 타 채널 비교·키워드 분석을 통합한 데이터 기반 콘텐츠 기획 환경.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/웹앱/유튜브 성과지표 01.png',
     badge: 'company',
     badgeLabel: 'Web App',
@@ -653,7 +653,7 @@ const dashboardProjects = [
       'https://nahyun1993.github.io/portfolio3/images/웹앱/유튜브 성과지표 02.png',
       'https://nahyun1993.github.io/portfolio3/images/웹앱/유튜브 성과지표 03.png'
     ],
-    brief: "단순한 직관이나 감에 의존하는 콘텐츠 기획에서 벗어나, 객관적인 데이터로 채널의 빠른 성장을 도울 자체 분석 시스템이 필요했음. 이에 유튜브 API와 AI를 결합하여 영상의 폭발력과 시청자 반응을 여러 지표로 측정하는 커스텀 대시보드를 개발함.",
+    brief: "단순한 직관이나 감에 의존하는 콘텐츠 기획에서 벗어나, 객관적인 데이터로 채널 성장 지원을 위한 자체 분석 시스템이 필요했음. 이에 유튜브 API와 AI를 결합하여 영상의 폭발력과 시청자 반응을 여러 지표로 측정하는 커스텀 대시보드를 개발함.",
     process: [
       { title: '유튜브 API 연동 및 심층 데이터 추출', desc: '유튜브 스튜디오 고급 모드에서도 직관적으로 확인하기 어려운 로우 데이터(Raw Data)를 API를 통해 직접 연동 및 추출하는 파이프라인을 설계함.' },
       { title: '핵심 성장 지표 및 아웃라이어 수치화', desc: '영상의 초기 폭발력을 증명하는 VPH(Views Per Hour), 채널 평균 대비 성과를 보여주는 아웃라이어(Outlier) 지수, 그리고 실질적인 시청자 참여율 등을 자동으로 계산하는 AI 기반 분석 로직을 구현함.' },
@@ -667,7 +667,7 @@ const dashboardProjects = [
     category: 'dashboard',
     categoryLabel: '대시보드',
     title: 'InsightTube 대시보드',
-    desc: 'YouTube Data API 기반 크리에이터/채널 성장 지표 분석 웹앱. 채널 URL 하나만으로 VPH, 참여율, 아웃라이어 등 핵심 성장 지표를 원클릭으로 추출하고 시각화.',
+    desc: "YouTube Data API 기반 크리에이터·채널 성장 지표 분석 웹앱. 채널 URL 입력을 통한 VPH, 참여율, 아웃라이어 등 핵심 지표 자동 추출 및 시각화.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/웹앱/채널분석01.png',
     badge: 'personal',
     badgeLabel: 'Web App',
@@ -678,11 +678,11 @@ const dashboardProjects = [
       'https://nahyun1993.github.io/portfolio3/images/웹앱/채널분석03.png',
       'https://nahyun1993.github.io/portfolio3/images/웹앱/채널분석04.png'
     ],
-    brief: "감에 의존하는 콘텐츠 기획의 한계: 성공적인 콘텐츠 전략을 세우기 위해 경쟁 채널 분석이 필수적이나, 기존에는 영상마다 일일이 조회수, 업로드 시간, 댓글 수를 확인하고 엑셀로 수작업 계산을 해야 하는 시간이 많이 들었음.",
+    brief: "경쟁 채널 분석을 위한 영상별 조회수·업로드 시간·댓글 수 확인 및 엑셀 수작업 집계에 과도한 시간 소요. 감에 의존한 기획의 한계 보완 및 데이터 기반 콘텐츠 전략 수립을 위한 분석 자동화 추진.",
     process: [
-      { title: '원클릭 데이터 파이프라인', desc: "YouTube Data API v3를 연동하여, 사용자가 채널 URL만 입력하면 채널의 전체 메타데이터를 바로 수집하고 분석하도록 구현." },
-      { title: '콘텐츠 성과 측정', desc: '단순히 총조회수가 아닌, 영상의 폭발력을 보여주는 평균 VPH와 시청자 반응을 나타내는 참여율을 공식화하여 계산.' },
-      { title: '아웃라이어 탐지 로직', desc: "채널의 평균 조회수 대비 유난히 높은 성과를 낸 아웃라이어를 자동으로 필터링하여, 벤치마킹할 핵심 콘텐츠를 빠르게 도출." },
+      { title: '원클릭 데이터 파이프라인', desc: "YouTube Data API v3를 연동하여, 사용자가 채널 URL만 입력하면 채널의 전체 메타데이터를 자동 수집·분석하도록 구현." },
+      { title: '콘텐츠 성과 측정', desc: '총조회수와 함께 초기 확산 속도를 나타내는 평균 VPH 및 시청자 참여율을 산출하여 콘텐츠 성과 측정.' },
+      { title: '아웃라이어 탐지 로직', desc: "채널의 평균 조회수 대비 높은 성과를 낸 아웃라이어를 자동으로 필터링하여, 벤치마킹할 핵심 콘텐츠를 빠르게 도출." },
       { title: '패턴 및 텍스트 분석', desc: '시간대별/요일별 업로드 패턴과 고성과 영상의 제목/콘텐츠 특징을 한눈에 파악할 수 있도록 대시보드 형태로 제공.' }
     ]
   },
@@ -692,7 +692,7 @@ const dashboardProjects = [
     category: 'dashboard',
     categoryLabel: '브라우저 확장',
     title: 'QuickPrompt 브라우저 확장 프로그램',
-    desc: "한 번의 클릭으로 원하는 프롬프트를 입력창에 바로 넣는 브라우저 확장 프로그램.",
+    desc: "등록된 프롬프트를 한 번의 클릭으로 입력창에 삽입하는 브라우저 확장 프로그램.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/웹앱/챗봇01.png',
     badge: 'personal',
     badgeLabel: 'Extension',
@@ -703,13 +703,13 @@ const dashboardProjects = [
       'https://nahyun1993.github.io/portfolio3/images/웹앱/챗봇03.png',
       'https://nahyun1993.github.io/portfolio3/images/웹앱/챗봇04.png'
     ],
-    brief: "반복되는 프롬프트 입력의 번거로움을 없애고 한 번의 클릭으로 원하는 프롬프트를 입력창에 바로 넣는 브라우저 확장 프로그램. 제미나이, 미드저니 등 다양한 생성형 AI 플랫폼 활용이 늘어나면서 자주 쓰는 프롬프트를 매번 복사/붙여넣기 해야 하는 번거로움을 해소함.",
+    brief: "반복되는 프롬프트 입력의 번거로움을 없애고 한 번의 클릭으로 원하는 프롬프트를 입력창에 삽입하는 브라우저 확장 프로그램. 제미나이, 미드저니 등 다양한 생성형 AI 플랫폼 활용이 늘어나면서 자주 쓰는 프롬프트를 매번 복사/붙여넣기 해야 하는 번거로움을 해소함.",
     process: [
       { title: 'AI 에이전트 주도 개발', desc: "직접 코드를 작성하는 대신 구글의 안티그래비티를 활용해 프로젝트를 완성함." },
       { title: '프롬프트 엔지니어링 및 바이브 코딩 적용', desc: 'AI에게 어떤 기능이 필요한지, 플로팅 UI는 어떻게 띄울지, 입력창 타겟팅은 어떻게 할지 등 요구사항을 프롬프트로 지시함.' },
-      { title: "플로팅 UI로 접근성 개선", desc: '화면 어느 곳에서나 즉각적으로 접근할 수 있는 플로팅 버튼을 구현하여 사용자의 동선을 최소화함.' },
+      { title: "플로팅 UI 기반 접근성 개선", desc: '화면 어느 곳에서나 즉각적으로 접근할 수 있는 플로팅 버튼을 구현하여 사용자의 동선을 최소화함.' },
       { title: '원클릭 프롬프트 주입', desc: '플로팅 메뉴에서 사전에 등록해 둔 프롬프트를 선택하면, 현재 활성화된 웹페이지의 입력창에 텍스트가 자동으로 삽입되도록 구현.' },
-      { title: '빠른 실행 환경', desc: "웹페이지 이동 없이 현재 창에서 오버레이 형태로 동작하여 현재 작업 흐름을 유지함." }
+      { title: '빠른 실행 환경', desc: "웹페이지 이동 없이 현재 창에서 오버레이 형태로 동작하여 기존 작업 흐름 유지." }
     ]
   },
   {
@@ -718,7 +718,7 @@ const dashboardProjects = [
     category: 'dashboard',
     categoryLabel: 'AI 에이전트 시스템',
     title: 'AI 개인 비서 시스템',
-    desc: 'Gemini API를 두뇌로, Oracle Cloud를 서버로, Discord를 인터페이스로, Notion을 데이터베이스로 연결하여 구축한 개인 맞춤형 AI 비서 시스템.',
+    desc: "Gemini API의 의도 분석, Oracle Cloud 서버, Discord 인터페이스, Notion 데이터베이스를 연동한 개인 맞춤형 AI 비서 시스템.",
     thumbnail: 'https://nahyun1993.github.io/portfolio3/images/웹앱/AI 개인 비서 시스템01.png',
     badge: 'personal',
     badgeLabel: 'AI Agent',
@@ -836,8 +836,8 @@ const allProjects = () => projects.concat(dashboardProjects);
 
 function findProject(id) {
   if (String(id) === '900') return {
-    id: 900, title: 'LEE NAHYUN · SHOWREEL', categoryLabel: 'AI 영상 & 실사 촬영',
-    orientation: 'horizontal', videoSrc: 'videos/showreel-play.mp4', poster: 'images/posters/showreel.jpg'
+    id: 900, title: 'LEE NAHYUN · SHOWREEL', categoryLabel: 'AI 영상 쇼릴',
+    orientation: 'horizontal', videoSrc: 'videos/showreel-play.mp4?v=3', poster: 'images/posters/showreel.jpg'
   };
   return allProjects().find(p => String(p.id) === String(id));
 }
@@ -916,13 +916,13 @@ function observeReveals(root) {
 function renderHero() {
   byId('hero').innerHTML = `
     <div class="reel-stage">
-      <video id="hero-video" src="videos/showreel-hero.mp4" poster="images/posters/showreel.jpg" muted loop playsinline preload="metadata" aria-label="이나현의 AI 영상과 실사 촬영 쇼릴"></video>
+      <video id="hero-video" src="videos/showreel-hero.mp4?v=3" poster="images/posters/showreel.jpg" muted loop playsinline preload="metadata" aria-label="이나현의 AI 영상 쇼릴"></video>
       <div class="reel-title"><p>AI CREATOR &amp; VISUAL DIRECTOR</p><h1>현실을 담고,<br>상상을 만듭니다.</h1></div>
       <button id="hero-toggle" class="reel-toggle" aria-label="배경 영상 재생">재생</button>
     </div>
     <div class="reel-caption">
       <div><span class="status-dot" aria-hidden="true"></span><span>LEE NAHYUN</span><span class="reel-caption-detail">AI 영상 · 실사 촬영</span></div>
-      <button class="reel-play" id="showreel-open"><span aria-hidden="true">▶</span> 쇼릴 전체 보기 <span class="reel-runtime">00:38</span></button>
+      <button class="reel-play" id="showreel-open"><span aria-hidden="true">▶</span> 쇼릴 전체 보기 <span class="reel-runtime">00:26</span></button>
     </div>`;
   const v = byId('hero-video'), toggle = byId('hero-toggle');
   let manuallyPaused = reduceMotion;
@@ -1206,7 +1206,7 @@ function renderTools() {
   section.innerHTML = `
     <header class="sec-head">
       <h2>웹앱</h2>
-      <p>영상 기획과 반복 작업을 위해 직접 만든 도구들.</p>
+      <p>영상 기획 지원 및 반복 업무 자동화를 위한 자체 개발 도구.</p>
     </header>
     <div class="rows">
       ${dashboardProjects.map((p, i) => `
