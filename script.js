@@ -837,7 +837,7 @@ const allProjects = () => projects.concat(dashboardProjects);
 function findProject(id) {
   if (String(id) === '900') return {
     id: 900, title: 'LEE NAHYUN · SHOWREEL', categoryLabel: 'AI 영상 쇼릴',
-    orientation: 'horizontal', videoSrc: 'videos/showreel-play.mp4?v=3', poster: 'images/posters/showreel.jpg'
+    orientation: 'horizontal', videoSrc: 'videos/showreel-play.mp4?v=4', poster: 'images/posters/showreel.jpg'
   };
   return allProjects().find(p => String(p.id) === String(id));
 }
@@ -916,13 +916,13 @@ function observeReveals(root) {
 function renderHero() {
   byId('hero').innerHTML = `
     <div class="reel-stage">
-      <video id="hero-video" src="videos/showreel-hero.mp4?v=3" poster="images/posters/showreel.jpg" muted loop playsinline preload="metadata" aria-label="이나현의 AI 영상 쇼릴"></video>
+      <video id="hero-video" src="videos/showreel-hero.mp4?v=4" poster="images/posters/showreel.jpg" muted loop playsinline preload="metadata" aria-label="이나현의 AI 영상 쇼릴"></video>
       <div class="reel-title"><p>AI CREATOR &amp; VISUAL DIRECTOR</p><h1>현실을 담고,<br>상상을 만듭니다.</h1></div>
       <button id="hero-toggle" class="reel-toggle" aria-label="배경 영상 재생">재생</button>
     </div>
     <div class="reel-caption">
       <div><span class="status-dot" aria-hidden="true"></span><span>LEE NAHYUN</span><span class="reel-caption-detail">AI 영상 · 실사 촬영</span></div>
-      <button class="reel-play" id="showreel-open"><span aria-hidden="true">▶</span> 쇼릴 전체 보기 <span class="reel-runtime">00:26</span></button>
+      <button class="reel-play" id="showreel-open"><span aria-hidden="true">▶</span> 쇼릴 전체 보기 <span class="reel-runtime">00:28</span></button>
     </div>`;
   const v = byId('hero-video'), toggle = byId('hero-toggle');
   let manuallyPaused = reduceMotion;
@@ -936,6 +936,10 @@ function renderHero() {
     else v.pause();
   }), { threshold: .25 });
   io.observe(v);
+  const headerObserver = new IntersectionObserver(entries => {
+    byId('topbar').classList.toggle('is-scrolled', !entries[0].isIntersecting);
+  }, { rootMargin: '-64px 0px 0px 0px', threshold: 0 });
+  headerObserver.observe(v);
   const resume = () => {
     const r = v.getBoundingClientRect();
     if (!manuallyPaused && !document.hidden && r.bottom > r.height * .25 && r.top < innerHeight * .75) v.play().catch(sync);
