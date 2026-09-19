@@ -837,7 +837,7 @@ const allProjects = () => projects.concat(dashboardProjects);
 function findProject(id) {
   if (String(id) === '900') return {
     id: 900, title: 'LEE NAHYUN · SHOWREEL', categoryLabel: 'AI 영상 쇼릴',
-    orientation: 'horizontal', videoSrc: 'videos/showreel-play.mp4?v=4', poster: 'images/posters/showreel.jpg'
+    orientation: 'horizontal', videoSrc: 'videos/showreel-play.mp4?v=5', poster: 'images/posters/showreel.jpg'
   };
   return allProjects().find(p => String(p.id) === String(id));
 }
@@ -916,7 +916,7 @@ function observeReveals(root) {
 function renderHero() {
   byId('hero').innerHTML = `
     <div class="reel-stage">
-      <video id="hero-video" src="videos/showreel-hero.mp4?v=4" poster="images/posters/showreel.jpg" muted loop playsinline preload="metadata" aria-label="이나현의 AI 영상 쇼릴"></video>
+      <video id="hero-video" src="videos/showreel-hero.mp4?v=5" poster="images/posters/showreel.jpg" muted loop playsinline preload="metadata" aria-label="이나현의 AI 영상 쇼릴"></video>
       <div class="reel-title"><p>AI CREATOR &amp; VISUAL DIRECTOR</p><h1>현실을 담고,<br>상상을 만듭니다.</h1></div>
       <button id="hero-toggle" class="reel-toggle" aria-label="배경 영상 재생">재생</button>
     </div>
