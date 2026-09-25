@@ -5,16 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LEE NAHYUN · AI Creator &amp; Visual Director</title>
   <meta name="description" content="이나현 포트폴리오. AI 생성 영상, 실사 촬영, AI 이미지, 자막디자인, 데이터 웹앱.">
-  <meta name="theme-color" content="#101310">
+  <meta name="theme-color" content="#b4d879">
 
   <meta property="og:title" content="LEE NAHYUN · AI Creator & Visual Director">
   <meta property="og:description" content="현실을 담고, 상상을 만듭니다.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://nahyun1993.github.io/nahyunportfolio/images/posters/showreel.jpg">
+  <meta property="og:image" content="https://nahyun1993.github.io/nahyunportfolio/assets/character/idle.jpg">
 
   <link rel="preload" href="./fonts/CabinetGrotesk-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./fonts/pretendard/pretendard.css">
-  <link rel="stylesheet" href="./styles.css?v=20260920-v6">
+  <link rel="stylesheet" href="./styles.css?v=20260926-hero1">
+  <link rel="stylesheet" href="./hero.css?v=20260926-hero1">
+  <link rel="preload" as="image" href="./assets/character/idle.jpg" fetchpriority="high">
 </head>
 <body>
 
@@ -32,7 +34,7 @@
   <nav id="menu-links" aria-label="모바일 섹션"></nav>
 
   <main id="top">
-    <section id="hero"></section>
+    <section id="hero" aria-label="이나현의 인터랙티브 포트폴리오"></section>
     <section id="featured"></section>
 
     <section id="work" class="sec">
@@ -68,9 +70,11 @@
   </div>
 
   <div id="lightbox" class="overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="이미지 크게 보기">
-    <img src="" alt="">
+
   </div>
 
-  <script src="./script.js?v=20260920-v6"></script>
+  <script src="./hero-config.js?v=20260926-hero1"></script>
+  <script src="./hero.js?v=20260926-hero1"></script>
+  <script src="./script.js?v=20260926-hero1"></script>
 </body>
 </html>

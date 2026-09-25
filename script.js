@@ -838,6 +838,12 @@ function findProject(id) {
    NAV
 ═══════════════════════════════════════════════ */
 function renderNav() {
+  document.querySelector('.brand').addEventListener('click', (e) => {
+    e.preventDefault();
+    closeMenu();
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    history.replaceState(null, '', '#top');
+  });
   const links = SECTIONS.map(s => `<a href="#${s.id}" data-nav="${s.id}">${s.label}</a>`).join('');
   byId('nav-links').innerHTML = links;
   byId('menu-links').innerHTML = links;
@@ -906,38 +912,12 @@ function observeReveals(root) {
    HERO
 ═══════════════════════════════════════════════ */
 function renderHero() {
-  byId('hero').innerHTML = `
-    <div class="reel-stage">
-      <video id="hero-video" src="videos/showreel-hero.mp4?v=6" poster="images/posters/showreel.jpg" muted loop playsinline preload="metadata" aria-label="이나현의 AI 영상 쇼릴"></video>
-      <div class="reel-title"><p>AI CREATOR &amp; VISUAL DIRECTOR</p><h1>현실을 담고,<br>상상을 만듭니다.</h1></div>
-      <button class="reel-play" id="showreel-open" aria-haspopup="dialog"><span class="reel-play-icon" aria-hidden="true">▶</span><span>쇼릴 전체 보기</span><span class="reel-runtime">00:25</span></button>
-      <button id="hero-toggle" class="reel-toggle" aria-label="배경 영상 재생">재생</button>
-    </div>
-    <div class="reel-caption">
-      <div><span class="status-dot" aria-hidden="true"></span><span>LEE NAHYUN</span><span class="reel-caption-detail">AI 영상 · 실사 촬영</span></div>
-    </div>`;
-  const v = byId('hero-video'), toggle = byId('hero-toggle');
-  let manuallyPaused = reduceMotion;
-  const sync = () => { toggle.textContent = v.paused ? '재생' : '일시정지'; toggle.setAttribute('aria-label', '배경 영상 ' + toggle.textContent); };
-  v.addEventListener('play', sync); v.addEventListener('pause', sync);
-  v.addEventListener('timeupdate', () => byId('hero').classList.toggle('reel-title-hidden', v.currentTime > 1.7));
-  toggle.addEventListener('click', () => { manuallyPaused = !v.paused; if (v.paused) v.play().catch(sync); else v.pause(); });
-  byId('showreel-open').addEventListener('click', () => openModal(900));
-  const io = new IntersectionObserver(entries => entries.forEach(e => {
-    if (e.isIntersecting && !manuallyPaused && !document.hidden && !document.body.classList.contains('no-scroll')) v.play().catch(sync);
-    else v.pause();
-  }), { threshold: .25 });
-  io.observe(v);
-  const headerObserver = new IntersectionObserver(entries => {
-    byId('topbar').classList.toggle('is-scrolled', !entries[0].isIntersecting);
-  }, { rootMargin: '-64px 0px 0px 0px', threshold: 0 });
-  headerObserver.observe(v);
-  const resume = () => {
-    const r = v.getBoundingClientRect();
-    if (!manuallyPaused && !document.hidden && r.bottom > r.height * .25 && r.top < innerHeight * .75) v.play().catch(sync);
-  };
-  document.addEventListener('visibilitychange', () => { if (document.hidden) v.pause(); else resume(); });
-  document.addEventListener('reel-resume', resume);
+  const project = findProject(window.PORTFOLIO_HERO?.projectId) || findProject(FEATURED_IDS[0]);
+  window.initPortfolioHero({
+    root: byId('hero'), project, esc,
+    openProject: openModal,
+    openShowreel: () => openModal(900)
+  });
 }
 
 /* ═══════════════════════════════════════════════
@@ -1333,7 +1313,10 @@ function closeModal() {
 /* ── Lightbox ── */
 function openLightbox(src) {
   const lb = byId('lightbox');
-  lb.querySelector('img').src = src;
+  const image = new Image();
+  image.src = src;
+  image.alt = '선택한 포트폴리오 이미지';
+  lb.replaceChildren(image);
   lb.classList.add('is-open');
   lb.setAttribute('aria-hidden', 'false');
   document.body.classList.add('no-scroll');
@@ -1342,7 +1325,7 @@ function closeLightbox() {
   const lb = byId('lightbox');
   lb.classList.remove('is-open');
   lb.setAttribute('aria-hidden', 'true');
-  lb.querySelector('img').src = '';
+  lb.replaceChildren();
   if (!byId('modal').classList.contains('is-open')) document.body.classList.remove('no-scroll');
 }
 
