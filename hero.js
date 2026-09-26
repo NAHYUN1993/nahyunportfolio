@@ -61,7 +61,8 @@
   window.initPortfolioHero = ({ root, project, openProject, openShowreel, esc }) => {
     const config = window.PORTFOLIO_HERO || {};
     const title = config.title || project.title;
-    const thumbnail = config.thumbnail || project.thumbnail;
+    const thumbnail = config.thumbnail || project.thumbnail || project.poster;
+    const isShowreel = String(project.id) === '900';
     root.classList.add('character-hero');
     root.innerHTML = `
       <div class="character-stage">
@@ -72,7 +73,7 @@
           <div class="character-gaze" aria-hidden="true" data-pose="center"></div>
         </div>
         <button class="screen-portal" type="button" aria-label="${esc(title)} 자세히 보기" tabindex="-1" aria-hidden="true" inert>
-          <img src="${esc(thumbnail)}" alt="${esc(title)}" decoding="async">
+          ${isShowreel ? `<video class="screen-showreel" muted loop playsinline preload="none" poster="${esc(thumbnail)}" aria-hidden="true"></video>` : `<img src="${esc(thumbnail)}" alt="${esc(title)}" decoding="async">`}
         </button>
         <div class="character-copy">
           <h1><span>LEE</span><span>NAHYUN</span></h1>
@@ -81,8 +82,8 @@
         <div class="character-role">AI Creator &amp;<br> Visual Director<small>AI 영상 · 실사 촬영<br>이미지 · 자막디자인 · 웹앱</small></div>
         <p class="character-cue">아래로 스크롤해<br> 작업을 만나보세요.<span aria-hidden="true">↓</span></p>
         <div class="character-project" aria-hidden="true" inert>
-          <div><p>Selected work</p><h2>${esc(title)}</h2></div>
-          <button class="character-button" type="button">작품 자세히 보기 <span aria-hidden="true">↗</span></button>
+          <div><p>${isShowreel ? "Showreel" : "Selected work"}</p><h2>${esc(title)}</h2></div>
+          <button class="character-button" type="button">${isShowreel ? "쇼릴 전체 보기" : "작품 자세히 보기"} <span aria-hidden="true">↗</span></button>
         </div>
         <div class="character-controls">
           <div class="character-links">
@@ -99,6 +100,8 @@
     const gazeContainer = root.querySelector('.character-gaze');
     const portal = root.querySelector('.screen-portal');
     const summary = root.querySelector('.character-project');
+    const screenVideo = portal.querySelector('video');
+    let screenPlaying = false;
     const intro = [...root.querySelectorAll('.character-copy, .character-role, .character-cue')];
     const controls = root.querySelector('.character-controls');
     const header = document.getElementById('topbar');
@@ -145,6 +148,20 @@
       intro.forEach(el => { el.style.opacity = introOpacity; el.style.visibility = introOpacity < .01 ? 'hidden' : 'visible'; });
       const portalOpacity = smooth(.73, .79, p);
       portal.style.opacity = portalOpacity;
+      if (screenVideo) {
+        if (p > .55 && !screenVideo.getAttribute('src') && !disabled) {
+          screenVideo.src = project.videoSrc;
+          screenVideo.load();
+        }
+        const shouldPlay = portalOpacity > .05 && !inactive && !disabled;
+        if (shouldPlay && !screenPlaying) {
+          screenPlaying = true;
+          screenVideo.play().catch(() => { screenPlaying = false; });
+        } else if (!shouldPlay && screenPlaying) {
+          screenPlaying = false;
+          screenVideo.pause();
+        }
+      }
       portal.style.pointerEvents = portalOpacity > .95 ? 'auto' : 'none';
       portal.tabIndex = portalOpacity > .95 ? 0 : -1;
       portal.inert = portalOpacity <= .95;
@@ -202,11 +219,15 @@
     video.addEventListener('loadeddata', () => { videoReady = true; schedule(); });
     video.addEventListener('seeked', () => { seek(); schedule(); });
     video.addEventListener('error', fallback);
-    portal.querySelector('img').addEventListener('error', () => { portal.querySelector('img').style.visibility = 'hidden'; });
+    portal.querySelector('img')?.addEventListener('error', () => { portal.querySelector('img').style.visibility = 'hidden'; });
     motionButton.addEventListener('click', fallback);
-    root.querySelector('#showreel-open').addEventListener('click', openShowreel);
-    portal.addEventListener('click', () => openProject(project.id));
-    summary.querySelector('button').addEventListener('click', () => openProject(project.id));
+    const show = callback => {
+      screenVideo?.pause(); screenPlaying = false;
+      callback(); schedule();
+    };
+    root.querySelector('#showreel-open').addEventListener('click', () => show(openShowreel));
+    portal.addEventListener('click', () => show(() => openProject(project.id)));
+    summary.querySelector('button').addEventListener('click', () => show(() => openProject(project.id)));
     root.querySelector('.character-skip').addEventListener('click', e => {
       e.preventDefault();
       document.getElementById('featured').scrollIntoView({ behavior: 'instant', block: 'start' });
