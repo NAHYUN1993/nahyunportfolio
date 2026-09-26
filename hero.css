@@ -34,8 +34,8 @@
 }
 .character-scene > video { opacity: 0; }
 .character-gaze { pointer-events: none; }
-.character-gaze img { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; }
-.character-gaze img.is-active { opacity: 1; }
+.character-gaze video { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; }
+.character-gaze video.is-active { opacity: 1; }
 .character-copy {
   position: absolute;
   z-index: 3;

@@ -7,53 +7,101 @@
     return t * t * (3 - 2 * t);
   };
 
-  // Real rendered head poses, selected by cursor direction. No mesh deformation.
+  // Eight generated three-second clips, scrubbed forward/backward through real frames.
+  // Every route passes through the shared frontal frame; a new target cancels the old one.
   function makeGaze(container, stage) {
     const names = ['up-left', 'up', 'up-right', 'left', 'center', 'right', 'down-left', 'down', 'down-right'];
-    const poses = new Map();
-    let active = true, selected = 'center', x = 0, y = 0, frame = 0;
-    let pointer = null;
+    const clips = new Map();
+    let active = true, target = 'center', current = null, position = 0;
+    let x = 0, y = 0, raf = 0, lastTime = 0, starting = false;
+    container.dataset.mode = 'video';
+    function schedule() {
+      if (!raf && active && !document.hidden) raf = requestAnimationFrame(tick);
+    }
+    function flushSeek() {
+      const clip = clips.get(current);
+      if (!clip || clip.video.seeking || !clip.ready || starting) return;
+      const desired = position * clip.end;
+      if (Math.abs(clip.video.currentTime - desired) > .012) clip.video.currentTime = desired;
+    }
     names.filter(name => name !== 'center').forEach(name => {
-      const img = new Image();
-      img.alt = ''; img.decoding = 'async';
-      img.src = `assets/character/gaze/${name}.webp`;
-      img.onload = () => { poses.set(name, img); schedule(); };
-      container.append(img);
+      const video = document.createElement('video');
+      video.muted = true; video.playsInline = true; video.preload = 'auto';
+      video.setAttribute('aria-hidden', 'true');
+      video.tabIndex = -1;
+      const clip = { video, ready: false, end: 2.95 };
+      clips.set(name, clip);
+      video.addEventListener('loadeddata', () => {
+        clip.ready = true; clip.end = Math.max(.1, video.duration - .08); schedule();
+      });
+      video.addEventListener('seeked', () => {
+        if (current !== name) return;
+        if (starting) { starting = false; lastTime = 0; }
+        container.dataset.videoTime = video.currentTime.toFixed(3);
+        flushSeek(); schedule();
+      });
+      video.addEventListener('error', () => {
+        clip.ready = false;
+        if (current === name) {
+          video.classList.remove('is-active'); current = null; position = 0;
+          container.dataset.pose = 'center';
+        }
+      });
+      video.src = `assets/character/gaze-motion/${name}.mp4`;
+      container.append(video);
     });
-    function select(name) {
-      if (name === selected) return;
-      if (name !== 'center' && !poses.has(name)) return;
-      for (const [key, img] of poses) img.classList.toggle('is-active', key === name);
-      selected = name;
-      container.dataset.pose = name;
+    function tick(now) {
+      raf = 0;
+      if (!active || document.hidden) return;
+      const dt = lastTime ? Math.min(40, now - lastTime) : 16;
+      lastTime = now;
+      if (!current && target !== 'center') {
+        const clip = clips.get(target);
+        if (!clip?.ready) { lastTime = 0; return; }
+        current = target; position = 0;
+        starting = clip.video.currentTime > .015;
+        if (starting) { clip.video.currentTime = 0; return; }
+      }
+      if (!current || starting) { lastTime = 0; return; }
+      const clip = clips.get(current);
+      const goal = target === current ? 1 : 0;
+      const step = dt / 420;
+      position = goal ? Math.min(1, position + step) : Math.max(0, position - step);
+      flushSeek();
+      clip.video.classList.toggle('is-active', position > .001);
+      container.dataset.pose = current;
+      container.dataset.progress = position.toFixed(3);
+      if (!goal && position === 0) {
+        clip.video.classList.remove('is-active'); current = null;
+        container.dataset.pose = 'center';
+      }
+      if ((current && position !== goal) || (!current && target !== 'center')) schedule();
+      else lastTime = 0;
     }
     function axis(value, previous) {
-      // Hysteresis keeps a cursor near a boundary from flickering between poses.
       if (previous === -1 && value < -.20) return -1;
       if (previous === 1 && value > .20) return 1;
       return value < -.34 ? -1 : value > .34 ? 1 : 0;
     }
-    function draw() {
-      frame = 0;
-      if (!active || !pointer || document.hidden) return;
-      const r = container.getBoundingClientRect();
-      const dx = (pointer.x - (r.left + r.width * .487)) / (stage.clientWidth * .42);
-      const dy = (pointer.y - (r.top + r.height * .345)) / (stage.clientHeight * .45);
-      x = axis(dx, x); y = axis(dy, y);
-      select(names[(y + 1) * 3 + x + 1]);
-    }
-    function schedule() { if (!frame && active) frame = requestAnimationFrame(draw); }
     stage.addEventListener('pointermove', e => {
       if (!active || e.pointerType === 'touch') return;
-      pointer = { x: e.clientX, y: e.clientY }; schedule();
+      const r = container.getBoundingClientRect();
+      x = axis((e.clientX - (r.left + r.width * .487)) / (stage.clientWidth * .42), x);
+      y = axis((e.clientY - (r.top + r.height * .345)) / (stage.clientHeight * .45), y);
+      const next = names[(y + 1) * 3 + x + 1];
+      if (next !== target) { target = next; container.dataset.target = target; schedule(); }
     }, { passive: true });
-    stage.addEventListener('pointerleave', () => { pointer = null; x = y = 0; select('center'); });
+    stage.addEventListener('pointerleave', () => { x = y = 0; target = 'center'; schedule(); });
     return {
       setActive(value) {
-        if (active === value) return;
+        if (value === active) return;
         active = value;
-        if (!value) { cancelAnimationFrame(frame); frame = 0; pointer = null; x = y = 0; select('center'); }
-        else schedule();
+        if (!value) {
+          cancelAnimationFrame(raf); raf = 0; lastTime = 0;
+          for (const clip of clips.values()) clip.video.classList.remove('is-active');
+          current = null; target = 'center'; position = x = y = 0; starting = false;
+          container.dataset.pose = 'center';
+        } else schedule();
       }
     };
   }
