@@ -2,7 +2,7 @@
 #hero.character-hero {
   --hero-green: #bddf85;
   position: relative;
-  height: 330svh;
+  height: 185svh;
   margin-bottom: clamp(72px, 9vw, 128px);
   color: #17220f;
   background: linear-gradient(90deg, #bee187, #badd83);
@@ -33,7 +33,9 @@
   max-width: none;
 }
 .character-scene > video { opacity: 0; }
-.character-gaze { opacity: 0; pointer-events: none; }
+.character-gaze { pointer-events: none; }
+.character-gaze img { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; }
+.character-gaze img.is-active { opacity: 1; }
 .character-copy {
   position: absolute;
   z-index: 3;
@@ -147,7 +149,7 @@ body.menu-open #topbar.on-character #menu-toggle span { background: var(--ink); 
 .character-static .character-cue { display: none; }
 .character-static .character-motion { display: none; }
 @media (max-width: 780px) {
-  #hero.character-hero { height: 300svh; }
+  #hero.character-hero { height: 180svh; }
   .character-stage { min-height: 620px; }
   .character-scene { width: calc(63svh * 16 / 9); min-width: 780px; }
   .character-copy { top: 105px; width: auto; right: var(--pad); }

@@ -7,89 +7,52 @@
     return t * t * (3 - 2 * t);
   };
 
-  // Warp only the interiors of the two eyes. Eyelids, hair and head stay fixed.
-  // Positions are measured in the 1920 × 1080 first frame, not viewport pixels.
-  function makeGaze(canvas, source, stage) {
-    let gl;
-    try { gl = canvas.getContext('webgl', { alpha: false, antialias: false }); } catch (_) { return null; }
-    if (!gl) return null;
-    const vertex = `attribute vec2 p; varying vec2 uv;
-      void main(){ uv=vec2((p.x+1.0)*.5,(1.0-p.y)*.5); gl_Position=vec4(p,0.,1.); }`;
-    const fragment = `precision mediump float;
-      uniform sampler2D image; uniform vec2 gaze; varying vec2 uv;
-      float eye(vec2 center, vec2 radius){
-        float d=length((uv*vec2(1920.,1080.)-center)/radius);
-        return 1.-smoothstep(.30,1.,d);
-      }
-      void main(){
-        float m=max(eye(vec2(850.,370.),vec2(53.,28.)),eye(vec2(1020.,377.),vec2(56.,29.)));
-        vec2 offset=gaze*vec2(13./1920.,7./1080.)*m;
-        gl_FragColor=texture2D(image,uv-offset);
-      }`;
-    const shaders = [];
-    function shader(type, code) {
-      const s = gl.createShader(type);
-      gl.shaderSource(s, code); gl.compileShader(s);
-      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error('Eye shader unavailable');
-      shaders.push(s); return s;
+  // Real rendered head poses, selected by cursor direction. No mesh deformation.
+  function makeGaze(container, stage) {
+    const names = ['up-left', 'up', 'up-right', 'left', 'center', 'right', 'down-left', 'down', 'down-right'];
+    const poses = new Map();
+    let active = true, selected = 'center', x = 0, y = 0, frame = 0;
+    let pointer = null;
+    names.filter(name => name !== 'center').forEach(name => {
+      const img = new Image();
+      img.alt = ''; img.decoding = 'async';
+      img.src = `assets/character/gaze/${name}.webp`;
+      img.onload = () => { poses.set(name, img); schedule(); };
+      container.append(img);
+    });
+    function select(name) {
+      if (name === selected) return;
+      if (name !== 'center' && !poses.has(name)) return;
+      for (const [key, img] of poses) img.classList.toggle('is-active', key === name);
+      selected = name;
+      container.dataset.pose = name;
     }
-    let program;
-    try {
-      program = gl.createProgram();
-      gl.attachShader(program, shader(gl.VERTEX_SHADER, vertex));
-      gl.attachShader(program, shader(gl.FRAGMENT_SHADER, fragment));
-      gl.linkProgram(program);
-      if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return null;
-    } catch (_) { return null; }
-    gl.useProgram(program);
-    const buffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
-    const location = gl.getAttribLocation(program, 'p');
-    gl.enableVertexAttribArray(location);
-    gl.vertexAttribPointer(location, 2, gl.FLOAT, false, 0, 0);
-    const texture = gl.createTexture();
-    gl.bindTexture(gl.TEXTURE_2D, texture);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-    const gazeUniform = gl.getUniformLocation(program, 'gaze');
-    let ready = false, active = true, raf = 0;
-    let x = 0, y = 0, tx = 0, ty = 0;
+    function axis(value, previous) {
+      // Hysteresis keeps a cursor near a boundary from flickering between poses.
+      if (previous === -1 && value < -.20) return -1;
+      if (previous === 1 && value > .20) return 1;
+      return value < -.34 ? -1 : value > .34 ? 1 : 0;
+    }
     function draw() {
-      raf = 0;
-      if (!ready || !active || document.hidden) return;
-      x += (tx - x) * .18; y += (ty - y) * .18;
-      gl.uniform2f(gazeUniform, x, y);
-      gl.drawArrays(gl.TRIANGLES, 0, 6);
-      canvas.dataset.gaze = `${x.toFixed(3)},${y.toFixed(3)}`;
-      if (Math.abs(tx - x) + Math.abs(ty - y) > .002) raf = requestAnimationFrame(draw);
+      frame = 0;
+      if (!active || !pointer || document.hidden) return;
+      const r = container.getBoundingClientRect();
+      const dx = (pointer.x - (r.left + r.width * .487)) / (stage.clientWidth * .42);
+      const dy = (pointer.y - (r.top + r.height * .345)) / (stage.clientHeight * .45);
+      x = axis(dx, x); y = axis(dy, y);
+      select(names[(y + 1) * 3 + x + 1]);
     }
-    const schedule = () => { if (!raf && active && ready) raf = requestAnimationFrame(draw); };
-    const img = new Image();
-    img.onload = () => {
-      canvas.width = 1920; canvas.height = 1080;
-      gl.viewport(0, 0, canvas.width, canvas.height);
-      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, img);
-      ready = true; schedule();
-    };
-    img.src = source;
+    function schedule() { if (!frame && active) frame = requestAnimationFrame(draw); }
     stage.addEventListener('pointermove', e => {
       if (!active || e.pointerType === 'touch') return;
-      const r = canvas.getBoundingClientRect();
-      tx = clamp((e.clientX - (r.left + r.width * .487)) / (stage.clientWidth * .42), -1, 1);
-      ty = clamp((e.clientY - (r.top + r.height * .345)) / (stage.clientHeight * .45), -1, 1);
-      schedule();
+      pointer = { x: e.clientX, y: e.clientY }; schedule();
     }, { passive: true });
-    stage.addEventListener('pointerleave', () => { tx = ty = 0; schedule(); });
-    canvas.addEventListener('webglcontextlost', () => { ready = false; canvas.style.opacity = '0'; });
+    stage.addEventListener('pointerleave', () => { pointer = null; x = y = 0; select('center'); });
     return {
-      get ready() { return ready; },
       setActive(value) {
-        if (value === active) return;
+        if (active === value) return;
         active = value;
-        if (!value) { cancelAnimationFrame(raf); raf = 0; tx = ty = x = y = 0; }
+        if (!value) { cancelAnimationFrame(frame); frame = 0; pointer = null; x = y = 0; select('center'); }
         else schedule();
       }
     };
@@ -105,8 +68,8 @@
         <div class="character-scene">
           <img class="character-poster" src="assets/character/idle.jpg" width="1920" height="1080" alt="실버 헤드셋을 쓰고 맥북 앞에 앉은 이나현의 캐릭터" fetchpriority="high">
           <video id="hero-video" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
-          <img class="character-final" src="assets/character/final.jpg" width="1920" height="1080" alt="" aria-hidden="true" style="opacity:0">
-          <canvas class="character-gaze" aria-hidden="true"></canvas>
+          <img class="character-final" src="assets/character/final-5s.jpg" width="1920" height="1080" alt="" aria-hidden="true" style="opacity:0">
+          <div class="character-gaze" aria-hidden="true" data-pose="center"></div>
         </div>
         <button class="screen-portal" type="button" aria-label="${esc(title)} 자세히 보기" tabindex="-1" aria-hidden="true" inert>
           <img src="${esc(thumbnail)}" alt="${esc(title)}" decoding="async">
@@ -133,7 +96,7 @@
     const scene = root.querySelector('.character-scene');
     const video = root.querySelector('video');
     const final = root.querySelector('.character-final');
-    const canvas = root.querySelector('canvas');
+    const gazeContainer = root.querySelector('.character-gaze');
     const portal = root.querySelector('.screen-portal');
     const summary = root.querySelector('.character-project');
     const intro = [...root.querySelectorAll('.character-copy, .character-role, .character-cue')];
@@ -145,7 +108,9 @@
     let disabled = motionQuery.matches || !!navigator.connection?.saveData;
     let videoReady = false, desiredTime = 0, frame = 0, gaze = null;
     let geometry = { width: 1, height: 1, sceneWidth: 1, sceneHeight: 1, left: 0, top: 0 };
-    const endTime = 11.8;
+    const endTime = 4.9;
+    // Measured display interior in the final frame of the new 5-second take.
+    const screen = { x: 620 / 1920, y: 572 / 1080, w: 610 / 1920, h: 350 / 1080 };
     header.classList.add('on-character');
     function seek() {
       if (!videoReady || video.seeking || disabled) return;
@@ -164,18 +129,18 @@
       desiredTime = clamp(p / .72) * endTime;
       if (!inactive) seek();
       const g = geometry;
-      const zoom = smooth(.80, 1, p);
-      const endScale = Math.max(g.width / (g.sceneWidth * .325), g.height / (g.sceneHeight * .338)) * 1.008;
+      const zoom = smooth(.80, .94, p);
+      const endScale = Math.max(g.width / (g.sceneWidth * screen.w), g.height / (g.sceneHeight * screen.h)) * 1.008;
       const scale = 1 + (endScale - 1) * zoom;
-      const tx = -(.4907 - .5) * g.sceneWidth * endScale * zoom;
+      const tx = -(screen.x + screen.w / 2 - .5) * g.sceneWidth * endScale * zoom;
       const mobileLift = g.width <= 780 ? Math.min(90, g.height * .11) * smooth(.06, .22, p) * (1 - zoom) : 0;
-      const ty = (g.height / 2 - (g.top + g.sceneHeight / 2) - (.7152 - .5) * g.sceneHeight * endScale) * zoom - mobileLift;
+      const ty = (g.height / 2 - (g.top + g.sceneHeight / 2) - (screen.y + screen.h / 2 - .5) * g.sceneHeight * endScale) * zoom - mobileLift;
       scene.style.transform = `translate3d(${tx}px,${ty}px,0) scale(${scale})`;
       video.style.opacity = videoReady && p > .001 && p < .723 && !disabled ? '1' : '0';
       final.style.opacity = p >= .72 ? '1' : '0';
       const gazeActive = p < .002 && !disabled && !inactive;
       gaze?.setActive(gazeActive);
-      canvas.style.opacity = gazeActive && gaze?.ready ? '1' : '0';
+      gazeContainer.style.visibility = gazeActive ? 'visible' : 'hidden';
       const introOpacity = 1 - smooth(.005, .11, p);
       intro.forEach(el => { el.style.opacity = introOpacity; el.style.visibility = introOpacity < .01 ? 'hidden' : 'visible'; });
       const portalOpacity = smooth(.73, .79, p);
@@ -186,15 +151,15 @@
       portal.setAttribute('aria-hidden', portalOpacity > .95 ? 'false' : 'true');
       // One live thumbnail grows out of the screen. Its image always fits,
       // including portrait works and narrow mobile viewports.
-      const screenX = g.left + g.sceneWidth * .3282;
-      const screenY = g.top + g.sceneHeight * .5462 - mobileLift;
-      const screenWidth = g.sceneWidth * .325;
-      const screenHeight = g.sceneHeight * .338;
+      const screenX = g.left + g.sceneWidth * screen.x;
+      const screenY = g.top + g.sceneHeight * screen.y - mobileLift;
+      const screenWidth = g.sceneWidth * screen.w;
+      const screenHeight = g.sceneHeight * screen.h;
       portal.style.left = `${screenX * (1 - zoom)}px`;
       portal.style.top = `${screenY * (1 - zoom)}px`;
       portal.style.width = `${screenWidth + (g.width - screenWidth) * zoom}px`;
       portal.style.height = `${screenHeight + (g.height - screenHeight) * zoom}px`;
-      const summaryOpacity = smooth(.94, 1, p);
+      const summaryOpacity = smooth(.88, .94, p);
       summary.style.opacity = summaryOpacity;
       summary.classList.toggle('is-visible', summaryOpacity > .1);
       summary.setAttribute('aria-hidden', summaryOpacity > .1 ? 'false' : 'true');
@@ -225,13 +190,11 @@
       if (!disabled) {
         if (!video.getAttribute('src')) {
           video.preload = 'auto';
-          video.src = 'assets/character/reveal.mp4';
+          video.src = 'assets/character/reveal-5s.mp4';
           video.load();
         }
         if (finePointer && !gaze) {
-          gaze = makeGaze(canvas, 'assets/character/idle.jpg', stage);
-          // Redraw once the image has uploaded to the GPU, without an idle loop.
-          const loaded = new Image(); loaded.onload = schedule; loaded.src = 'assets/character/idle.jpg';
+          gaze = makeGaze(gazeContainer, stage);
         }
       }
       measure();
