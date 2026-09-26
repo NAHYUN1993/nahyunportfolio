@@ -133,6 +133,7 @@
       if (!inactive) seek();
       const g = geometry;
       const zoom = smooth(.80, .94, p);
+      portal.style.background = `color-mix(in srgb, #101310 ${100 - zoom * 100}%, var(--paper))`;
       const endScale = Math.max(g.width / (g.sceneWidth * screen.w), g.height / (g.sceneHeight * screen.h)) * 1.008;
       const scale = 1 + (endScale - 1) * zoom;
       const tx = -(screen.x + screen.w / 2 - .5) * g.sceneWidth * endScale * zoom;

@@ -1,6 +1,6 @@
 /* ============================================================
    LEE NAHYUN Portfolio
-   Cinematic gallery. Dark background and apple green accent.
+   Cinematic gallery. Apple green background and deep green type.
 
    Shape rule (locked): media and containers are square (radius 0).
    Only interactive controls (buttons, chips) are full pill.
@@ -16,13 +16,13 @@
 }
 
 :root {
-  --paper:   #101310;
-  --paper-2: #1b211b;
-  --ink:     #f3f5ee;
-  --ink-2:   #aeb7a9;
-  --line:    rgba(224, 238, 210, .17);
-  --accent:  #b7e66d;
-  --accent-ink: #18220e;
+  --paper:   #bddf85;
+  --paper-2: #cce7a3;
+  --ink:     #17220f;
+  --ink-2:   #40532e;
+  --line:    rgba(23, 34, 15, .24);
+  --accent:  #31521c;
+  --accent-ink: #f1f7e7;
 
   --font-display: 'Cabinet Grotesk', 'Pretendard Variable', system-ui, sans-serif;
   --font-sans: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', system-ui, sans-serif;
@@ -109,6 +109,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 #topbar:not(.is-scrolled) #nav-links a,
 #topbar:not(.is-scrolled) .nav-mail { color: #fff; }
 #topbar.is-scrolled, body.menu-open #topbar {
+  color: var(--ink);
   background: color-mix(in srgb, var(--paper) 92%, transparent);
   backdrop-filter: blur(14px);
   border-bottom-color: var(--line);
@@ -267,7 +268,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .featured-head p { font-size: 14px; color: var(--ink-2); }
 .featured-grid { display: grid; grid-template-columns: .75fr 1.35fr 1fr; gap: var(--gap); align-items: start; }
 .feat { cursor: pointer; min-width: 0; }
-.feat-media { position: relative; height: clamp(260px, 28vw, 440px); overflow: hidden; background: #09100b; }
+.feat-media { position: relative; height: clamp(260px, 28vw, 440px); overflow: hidden; background: var(--paper-2); }
 .feat-media img, .feat-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .feat-media video { opacity: 0; transition: opacity .3s; }
 .feat.is-playing .feat-media video { opacity: 1; }
