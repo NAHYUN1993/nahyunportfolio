@@ -46,7 +46,7 @@
           container.dataset.pose = 'center';
         }
       });
-      video.src = `assets/character/gaze-hd/${name}.mp4`;
+      video.src = `assets/character/gaze-clean/${name}.mp4`;
       container.append(video);
     });
     function tick(now) {
@@ -69,7 +69,8 @@
       position += (goal - position) * (1 - Math.exp(-dt / settling));
       if (Math.abs(goal - position) < .006) position = goal;
       flushSeek();
-      clip.video.style.opacity = smooth(0, .055, position).toFixed(4);
+      // Exactly one opaque character layer: no shoulder/neutral-image crossfade.
+      clip.video.style.opacity = position > 0 ? '1' : '0';
       container.dataset.pose = current;
       container.dataset.progress = position.toFixed(3);
       container.dataset.goal = goal.toFixed(3);
