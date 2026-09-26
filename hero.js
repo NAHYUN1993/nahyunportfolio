@@ -99,8 +99,14 @@
     stage.addEventListener('pointermove', e => {
       if (!active || e.pointerType === 'touch') return;
       const r = container.getBoundingClientRect();
+      const eyeY = r.top + r.height * .345;
+      const headerBottom = document.getElementById('topbar')?.getBoundingClientRect().bottom || 0;
+      // The face is high on desktop: use the actual space above it so looking up
+      // reaches the final pose before the pointer enters the navigation bar.
+      const upwardRange = Math.min(stage.clientHeight * .50,
+        Math.max(48, eyeY - Math.max(stage.getBoundingClientRect().top, headerBottom) - 24));
       pointerX = (e.clientX - (r.left + r.width * .487)) / (stage.clientWidth * .45);
-      pointerY = (e.clientY - (r.top + r.height * .345)) / (stage.clientHeight * .50);
+      pointerY = (e.clientY - eyeY) / (e.clientY < eyeY ? upwardRange : stage.clientHeight * .50);
       const distance = Math.hypot(pointerX, pointerY);
       radius = clamp((distance - .035) / .965);
       if (radius < .008) { target = 'center'; radius = 0; }
