@@ -13,15 +13,15 @@
     const names = ['right', 'down-right', 'down', 'down-left', 'left', 'up-left', 'up', 'up-right'];
     const clips = new Map();
     let active = true, target = 'center', current = null, position = 0;
-    let pointerX = 0, pointerY = 0, radius = 0, raf = 0, lastTime = 0, starting = false;
+    let pointerX = 0, pointerY = 0, radius = 0, raf = 0, lastTime = 0;
     container.dataset.mode = 'continuous-video';
     function schedule() {
       if (!raf && active && !document.hidden) raf = requestAnimationFrame(tick);
     }
     function flushSeek() {
       const clip = clips.get(current);
-      if (!clip || clip.video.seeking || !clip.ready || starting) return;
-      const desired = position < .002 ? 0 : clip.start + position * (clip.end - clip.start);
+      if (!clip || clip.video.seeking || !clip.ready) return;
+      const desired = clip.start * smooth(0, .15, position) + position * (clip.end - clip.start);
       if (Math.abs(clip.video.currentTime - desired) > .016) clip.video.currentTime = desired;
     }
     names.forEach(name => {
@@ -34,10 +34,11 @@
         clip.ready = true; clip.end = Math.min(clip.end, video.duration - .08); schedule();
       });
       video.addEventListener('seeked', () => {
-        if (current !== name) return;
-        if (starting) { starting = false; lastTime = 0; }
-        container.dataset.videoTime = video.currentTime.toFixed(3);
-        flushSeek(); schedule();
+        if (current === name) {
+          container.dataset.videoTime = video.currentTime.toFixed(3);
+          flushSeek();
+        }
+        schedule();
       });
       video.addEventListener('error', () => {
         clip.ready = false;
@@ -54,14 +55,15 @@
       if (!active || document.hidden) return;
       const dt = lastTime ? Math.min(40, now - lastTime) : 16;
       lastTime = now;
-      if (!current && target !== 'center') {
-        const clip = clips.get(target);
+      if (!current) {
+        const first = target === 'center' ? 'right' : target;
+        const clip = clips.get(first);
         if (!clip?.ready) { lastTime = 0; return; }
-        current = target; position = 0;
-        starting = clip.video.currentTime > .015;
-        if (starting) { clip.video.currentTime = 0; return; }
+        if (clip.video.seeking) return;
+        if (clip.video.currentTime > .016) { clip.video.currentTime = 0; return; }
+        current = first; position = 0;
+        clip.video.style.opacity = '1';
       }
-      if (!current || starting) { lastTime = 0; return; }
       const clip = clips.get(current);
       const goal = target === current ? radius : 0;
       // Exponential ease-out follows the latest pointer without a queued animation.
@@ -70,17 +72,30 @@
       if (Math.abs(goal - position) < .006) position = goal;
       flushSeek();
       // Exactly one opaque character layer: no shoulder/neutral-image crossfade.
-      clip.video.style.opacity = position > 0 ? '1' : '0';
+      clip.video.style.opacity = '1';
       container.dataset.pose = current;
       container.dataset.progress = position.toFixed(3);
       container.dataset.goal = goal.toFixed(3);
       if (goal === 0 && position === 0) {
-        clip.video.style.opacity = '0'; current = null;
         container.dataset.pose = 'center';
+        // Keep the current neutral VIDEO frame visible. Never reveal the old photo.
+        // A seek is asynchronous: switch only after both clips have decoded frame zero.
+        if (target !== 'center' && target !== current && !clip.video.seeking && clip.video.currentTime < .016) {
+          const next = clips.get(target);
+          if (next?.ready) {
+            if (!next.video.seeking && next.video.currentTime < .016) {
+              next.video.style.opacity = '1';
+              clip.video.style.opacity = '0';
+              current = target;
+              schedule();
+            } else if (!next.video.seeking) next.video.currentTime = 0;
+          }
+        }
       }
-      if ((current && position !== goal) || (!current && target !== 'center')) schedule();
+      if (position !== goal) schedule();
       else lastTime = 0;
     }
+
     stage.addEventListener('pointermove', e => {
       if (!active || e.pointerType === 'touch') return;
       const r = container.getBoundingClientRect();
@@ -112,7 +127,7 @@
         if (!value) {
           cancelAnimationFrame(raf); raf = 0; lastTime = 0;
           for (const clip of clips.values()) clip.video.style.opacity = '0';
-          current = null; target = 'center'; position = radius = pointerX = pointerY = 0; starting = false;
+          current = null; target = 'center'; position = radius = pointerX = pointerY = 0;
           container.dataset.pose = 'center';
         } else schedule();
       }
@@ -128,7 +143,7 @@
     root.innerHTML = `
       <div class="character-stage">
         <div class="character-scene">
-          <img class="character-poster" src="assets/character/idle.jpg" width="1920" height="1080" alt="실버 헤드셋을 쓰고 맥북 앞에 앉은 이나현의 캐릭터" fetchpriority="high">
+          <img class="character-poster" src="assets/character/gaze-neutral.jpg" width="1920" height="1080" alt="실버 헤드셋을 쓰고 맥북 앞에 앉은 이나현의 캐릭터" fetchpriority="high">
           <video id="hero-video" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
           <img class="character-final" src="assets/character/final-5s.jpg" width="1920" height="1080" alt="" aria-hidden="true" style="opacity:0">
           <div class="character-gaze" aria-hidden="true" data-pose="center"></div>
