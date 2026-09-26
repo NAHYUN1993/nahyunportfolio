@@ -7,32 +7,31 @@
     return t * t * (3 - 2 * t);
   };
 
-  // Eight generated three-second clips, scrubbed forward/backward through real frames.
-  // Every route passes through the shared frontal frame; a new target cancels the old one.
+  // Full-resolution generated head turns. Cursor distance selects a frame, rather
+  // than playing an entire turn whenever it enters one of eight regions.
   function makeGaze(container, stage) {
-    const names = ['up-left', 'up', 'up-right', 'left', 'center', 'right', 'down-left', 'down', 'down-right'];
+    const names = ['right', 'down-right', 'down', 'down-left', 'left', 'up-left', 'up', 'up-right'];
     const clips = new Map();
     let active = true, target = 'center', current = null, position = 0;
-    let x = 0, y = 0, raf = 0, lastTime = 0, starting = false;
-    container.dataset.mode = 'video';
+    let pointerX = 0, pointerY = 0, radius = 0, raf = 0, lastTime = 0, starting = false;
+    container.dataset.mode = 'continuous-video';
     function schedule() {
       if (!raf && active && !document.hidden) raf = requestAnimationFrame(tick);
     }
     function flushSeek() {
       const clip = clips.get(current);
       if (!clip || clip.video.seeking || !clip.ready || starting) return;
-      const desired = position * clip.end;
-      if (Math.abs(clip.video.currentTime - desired) > .012) clip.video.currentTime = desired;
+      const desired = position < .002 ? 0 : clip.start + position * (clip.end - clip.start);
+      if (Math.abs(clip.video.currentTime - desired) > .016) clip.video.currentTime = desired;
     }
-    names.filter(name => name !== 'center').forEach(name => {
+    names.forEach(name => {
       const video = document.createElement('video');
       video.muted = true; video.playsInline = true; video.preload = 'auto';
-      video.setAttribute('aria-hidden', 'true');
-      video.tabIndex = -1;
-      const clip = { video, ready: false, end: 2.95 };
+      video.setAttribute('aria-hidden', 'true'); video.tabIndex = -1;
+      const clip = { video, ready: false, start: .25, end: 2.15 };
       clips.set(name, clip);
       video.addEventListener('loadeddata', () => {
-        clip.ready = true; clip.end = Math.max(.1, video.duration - .08); schedule();
+        clip.ready = true; clip.end = Math.min(clip.end, video.duration - .08); schedule();
       });
       video.addEventListener('seeked', () => {
         if (current !== name) return;
@@ -43,11 +42,11 @@
       video.addEventListener('error', () => {
         clip.ready = false;
         if (current === name) {
-          video.classList.remove('is-active'); current = null; position = 0;
+          video.style.opacity = '0'; current = null; position = 0;
           container.dataset.pose = 'center';
         }
       });
-      video.src = `assets/character/gaze-motion/${name}.mp4`;
+      video.src = `assets/character/gaze-hd/${name}.mp4`;
       container.append(video);
     });
     function tick(now) {
@@ -64,42 +63,55 @@
       }
       if (!current || starting) { lastTime = 0; return; }
       const clip = clips.get(current);
-      const goal = target === current ? 1 : 0;
-      const step = dt / 420;
-      position = goal ? Math.min(1, position + step) : Math.max(0, position - step);
+      const goal = target === current ? radius : 0;
+      // Exponential ease-out follows the latest pointer without a queued animation.
+      const settling = target === current ? 90 : 55;
+      position += (goal - position) * (1 - Math.exp(-dt / settling));
+      if (Math.abs(goal - position) < .006) position = goal;
       flushSeek();
-      clip.video.classList.toggle('is-active', position > .001);
+      clip.video.style.opacity = smooth(0, .055, position).toFixed(4);
       container.dataset.pose = current;
       container.dataset.progress = position.toFixed(3);
-      if (!goal && position === 0) {
-        clip.video.classList.remove('is-active'); current = null;
+      container.dataset.goal = goal.toFixed(3);
+      if (goal === 0 && position === 0) {
+        clip.video.style.opacity = '0'; current = null;
         container.dataset.pose = 'center';
       }
       if ((current && position !== goal) || (!current && target !== 'center')) schedule();
       else lastTime = 0;
     }
-    function axis(value, previous) {
-      if (previous === -1 && value < -.20) return -1;
-      if (previous === 1 && value > .20) return 1;
-      return value < -.34 ? -1 : value > .34 ? 1 : 0;
-    }
     stage.addEventListener('pointermove', e => {
       if (!active || e.pointerType === 'touch') return;
       const r = container.getBoundingClientRect();
-      x = axis((e.clientX - (r.left + r.width * .487)) / (stage.clientWidth * .42), x);
-      y = axis((e.clientY - (r.top + r.height * .345)) / (stage.clientHeight * .45), y);
-      const next = names[(y + 1) * 3 + x + 1];
-      if (next !== target) { target = next; container.dataset.target = target; schedule(); }
+      pointerX = (e.clientX - (r.left + r.width * .487)) / (stage.clientWidth * .45);
+      pointerY = (e.clientY - (r.top + r.height * .345)) / (stage.clientHeight * .50);
+      const distance = Math.hypot(pointerX, pointerY);
+      radius = clamp((distance - .035) / .965);
+      if (radius < .008) { target = 'center'; radius = 0; }
+      else {
+        let angle = Math.atan2(pointerY, pointerX) / (Math.PI / 4);
+        if (angle < 0) angle += 8;
+        const old = names.indexOf(target);
+        let delta = old < 0 ? Infinity : Math.abs(angle - old);
+        delta = Math.min(delta, 8 - delta);
+        // A narrow angular margin prevents boundary chatter, while radius stays continuous.
+        if (old < 0 || delta > .58) target = names[Math.round(angle) % 8];
+      }
+      container.dataset.target = target;
+      container.dataset.radius = radius.toFixed(3);
+      schedule();
     }, { passive: true });
-    stage.addEventListener('pointerleave', () => { x = y = 0; target = 'center'; schedule(); });
+    stage.addEventListener('pointerleave', () => {
+      pointerX = pointerY = radius = 0; target = 'center'; schedule();
+    });
     return {
       setActive(value) {
         if (value === active) return;
         active = value;
         if (!value) {
           cancelAnimationFrame(raf); raf = 0; lastTime = 0;
-          for (const clip of clips.values()) clip.video.classList.remove('is-active');
-          current = null; target = 'center'; position = x = y = 0; starting = false;
+          for (const clip of clips.values()) clip.video.style.opacity = '0';
+          current = null; target = 'center'; position = radius = pointerX = pointerY = 0; starting = false;
           container.dataset.pose = 'center';
         } else schedule();
       }
