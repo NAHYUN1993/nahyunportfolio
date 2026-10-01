@@ -1100,6 +1100,15 @@ function wirePureGallery(root) {
 function layoutMasonry(gridId, itemSel) {
   const grid = byId(gridId);
   if (!grid) return;
+  if (gridId === 'work-grid') {
+    const panorama = grid.querySelector('.pure-film');
+    if (panorama) {
+      const columns = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+      const cards = [...grid.children].filter(el => el !== panorama);
+      const anchor = cards[Math.min(cards.length, columns === 1 ? 4 : columns) - 1];
+      if (anchor && anchor.nextElementSibling !== panorama) anchor.after(panorama);
+    }
+  }
   grid.querySelectorAll(itemSel).forEach(el => {
     /* 아래 여백까지 span에 포함해야 아래 항목과 겹치지 않는다 */
     const mb = parseFloat(getComputedStyle(el).marginBottom) || 0;
