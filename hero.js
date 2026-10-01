@@ -12,7 +12,7 @@
   function makeGaze(container, stage) {
     const names = ['right', 'down-right', 'down', 'down-left', 'left', 'up-left', 'up', 'up-right'];
     const clips = new Map();
-    let active = true, target = 'center', current = null, position = 0;
+    let active = true, target = 'center', current = null, position = 0, handoff = null;
     let pointerX = 0, pointerY = 0, radius = 0, raf = 0, lastTime = 0;
     container.dataset.mode = 'continuous-video';
     function schedule() {
@@ -20,7 +20,7 @@
     }
     function flushSeek() {
       const clip = clips.get(current);
-      if (!clip || clip.video.seeking || !clip.ready) return;
+      if (!clip || clip.video.seeking || !clip.ready || handoff) return;
       const desired = clip.start * smooth(0, .15, position) + position * (clip.end - clip.start);
       if (Math.abs(clip.video.currentTime - desired) > .016) clip.video.currentTime = desired;
     }
@@ -41,7 +41,8 @@
         schedule();
       });
       video.addEventListener('error', () => {
-        clip.ready = false;
+        clip.ready = false; video.style.opacity = '0'; video.style.zIndex = '0';
+        if (handoff?.to === name) { handoff = null; container.dataset.transition = 'idle'; }
         if (current === name) {
           video.style.opacity = '0'; current = null; position = 0;
           container.dataset.pose = 'center';
@@ -64,34 +65,63 @@
         current = first; position = 0;
         clip.video.style.opacity = '1';
       }
+      // Adjacent directions share the current amount of turn. Prepare that frame
+      // offscreen, then hand over directly; only an actual center target returns to zero.
+      if (handoff && handoff.started === null && target !== handoff.to) {
+        const stale = clips.get(handoff.to).video;
+        stale.style.opacity = '0'; stale.style.zIndex = '0';
+        handoff = null;
+      }
+      if (!handoff && target !== 'center' && target !== current) {
+        handoff = { to: target, position, started: null };
+        container.dataset.transition = 'preparing';
+      }
+      if (handoff) {
+        const next = clips.get(handoff.to);
+        if (!next?.ready) { lastTime = 0; return; }
+        const desired = next.start * smooth(0, .15, handoff.position)
+          + handoff.position * (next.end - next.start);
+        if (handoff.started === null) {
+          if (next.video.seeking) { lastTime = 0; return; }
+          if (Math.abs(next.video.currentTime - desired) > .025) {
+            next.video.currentTime = desired; lastTime = 0; return;
+          }
+          handoff.started = now;
+          next.video.style.zIndex = '2';
+          clips.get(current).video.style.zIndex = '1';
+          container.dataset.transition = 'blending';
+        }
+        // Brief full-frame dissolve; no masks, spatial warps, or persistent overlays.
+        const duration = handoff.position < .025 ? 0 : 110;
+        const mix = duration ? smooth(0, duration, now - handoff.started) : 1;
+        next.video.style.opacity = String(mix);
+        container.dataset.handoffTo = handoff.to;
+        if (mix === 1) {
+          const previous = clips.get(current).video;
+          previous.style.opacity = '0'; previous.style.zIndex = '0';
+          current = handoff.to; position = handoff.position; handoff = null;
+          next.video.style.zIndex = '1';
+          container.dataset.pose = current;
+          container.dataset.progress = position.toFixed(3);
+          container.dataset.videoTime = next.video.currentTime.toFixed(3);
+          container.dataset.transition = 'idle';
+          delete container.dataset.handoffTo;
+        }
+        schedule();
+        return;
+      }
       const clip = clips.get(current);
-      const goal = target === current ? radius : 0;
+      const goal = target === 'center' ? 0 : radius;
       // Exponential ease-out follows the latest pointer without a queued animation.
-      const settling = target === current ? 90 : 55;
+      const settling = target === 'center' ? 55 : 90;
       position += (goal - position) * (1 - Math.exp(-dt / settling));
       if (Math.abs(goal - position) < .006) position = goal;
       flushSeek();
-      // Exactly one opaque character layer: no shoulder/neutral-image crossfade.
       clip.video.style.opacity = '1';
-      container.dataset.pose = current;
+      container.dataset.pose = position === 0 ? 'center' : current;
       container.dataset.progress = position.toFixed(3);
       container.dataset.goal = goal.toFixed(3);
-      if (goal === 0 && position === 0) {
-        container.dataset.pose = 'center';
-        // Keep the current neutral VIDEO frame visible. Never reveal the old photo.
-        // A seek is asynchronous: switch only after both clips have decoded frame zero.
-        if (target !== 'center' && target !== current && !clip.video.seeking && clip.video.currentTime < .016) {
-          const next = clips.get(target);
-          if (next?.ready) {
-            if (!next.video.seeking && next.video.currentTime < .016) {
-              next.video.style.opacity = '1';
-              clip.video.style.opacity = '0';
-              current = target;
-              schedule();
-            } else if (!next.video.seeking) next.video.currentTime = 0;
-          }
-        }
-      }
+      container.dataset.transition = 'idle';
       if (position !== goal) schedule();
       else lastTime = 0;
     }
@@ -132,7 +162,9 @@
         active = value;
         if (!value) {
           cancelAnimationFrame(raf); raf = 0; lastTime = 0;
-          for (const clip of clips.values()) clip.video.style.opacity = '0';
+          for (const clip of clips.values()) { clip.video.style.opacity = '0'; clip.video.style.zIndex = '0'; }
+          handoff = null; container.dataset.transition = 'idle';
+          delete container.dataset.handoffTo;
           current = null; target = 'center'; position = radius = pointerX = pointerY = 0;
           container.dataset.pose = 'center';
         } else schedule();
