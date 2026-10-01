@@ -6,6 +6,15 @@
 /* ── Project Data ── */
 const projects = [
 {
+  id: 309, type: 'video', category: 'commercial', categoryLabel: 'AI 영상 · SNS 캐러셀',
+  title: '퓨어솔루션 — 이어지는 초록의 일상',
+  desc: '하나의 파노라마를 네 장으로 나눠, 넘길 때마다 장면이 이어지는 콜라주형 콘텐츠.',
+  brief: '캐러셀 형식의 흐름을 활용해 제품과 식물이 함께하는 일상을 네 장의 연결된 화면으로 구성했습니다. AI 영상과 콜라주를 결합하고, 이미지와 인물이 장의 경계를 넘나들도록 배치해 다음 장으로 이어지는 시각적 흐름을 만들었습니다.',
+  orientation: 'panorama', videoSrc: 'videos/pure-solution.mp4',
+  poster: 'images/pure-solution/panorama.jpg', thumbnail: 'images/pure-solution/panorama.jpg',
+  carousel: [1, 2, 3, 4].map(n => `images/pure-solution/slide-${n}.webp`), tools: []
+},
+{
   "id": 305,
   "type": "video",
   "category": "commercial",
@@ -780,6 +789,7 @@ const WORK_ORDER = [
   304,  // 버그올킬
   302,  // 그로잉버블
   303,  // 닥터조 뿌리는 식물영양제
+  309, // 퓨어솔루션 파노라마 캐러셀
   305, 306, 307, 308, // 신규 작품
   7,    // 메디힐 토너패드
   3,    // 크리스마스 시즌 캠페인
@@ -974,17 +984,19 @@ function renderWork() {
       wireCards(byId('work-grid'));
       observeReveals(byId('work-grid'));
       watchWorkGrid();
+      wirePureFilm();
     });
   });
   wireCards(section);
   watchWorkGrid();
+  wirePureFilm();
 }
 
 function workCards() {
   const list = orderedProjects().filter(p => workFilter === 'all' ||
     (workFilter === 'ai' ? p.category !== 'liveaction' : p.category === 'liveaction'));
   if (!list.length) return `<p class="empty">이 분류에는 아직 공개한 작업이 없습니다.</p>`;
-  return list.map((p, i) => `
+  return list.map((p, i) => p.carousel ? pureFilmCard(p) : `
     <article class="card reveal" style="--i:${i % 8}" data-open="${p.id}" tabindex="0" role="button" aria-label="${esc(p.title)} 자세히 보기">
       <div class="card-media ${p.orientation === 'vertical' ? 'is-vertical' : 'is-horizontal'}">
         ${p.thumbnail
@@ -1002,6 +1014,86 @@ function workCards() {
       </div>
     </article>
   `).join('');
+}
+
+/* One panoramic video remains synchronized while its four mobile panels scroll. */
+function pureFilmCard(p) {
+  return `<article class="card pure-film reveal" id="pure-solution" aria-labelledby="pure-title">
+    <div class="pure-kicker"><span>AI FILM / SNS CAROUSEL</span><span>하나의 장면, 네 장의 이야기</span></div>
+    <div class="pure-viewport" tabindex="0" role="region" aria-label="퓨어솔루션 영상. 모바일에서 좌우로 넘겨 네 장 보기">
+      <div class="pure-track">
+        <video src="${p.videoSrc}" poster="${p.poster}" muted loop playsinline preload="none" aria-label="퓨어솔루션 파노라마 영상"></video>
+        <div class="pure-stops" aria-hidden="true">${p.carousel.map(() => '<span></span>').join('')}</div>
+      </div>
+    </div>
+    <div class="pure-toolbar">
+      <span class="pure-hint">옆으로 넘겨 이어지는 장면을 만나보세요</span>
+      <div class="pure-paging"><button type="button" data-pure-prev aria-label="이전 영상 장면">←</button><span data-pure-count aria-live="polite">01 / 04</span><button type="button" data-pure-next aria-label="다음 영상 장면">→</button></div>
+      <button type="button" class="pure-play">영상 재생</button>
+    </div>
+    <div class="pure-caption"><div><h3 id="pure-title">PURE SOLUTION</h3><p>${esc(p.desc)}</p></div>
+      <button type="button" class="pure-open" data-open="${p.id}">캐러셀로 보기 <span aria-hidden="true">↗</span></button>
+    </div>
+  </article>`;
+}
+let cleanupPureFilm = () => {};
+function wirePureFilm() {
+  cleanupPureFilm();
+  const card = byId('pure-solution');
+  if (!card) return;
+  const abort = new AbortController(), opts = { signal: abort.signal };
+  const viewport = card.querySelector('.pure-viewport'), video = card.querySelector('video');
+  const play = card.querySelector('.pure-play');
+  const previous = card.querySelector('[data-pure-prev]'), next = card.querySelector('[data-pure-next]');
+  let inView = false, wantsPlayback = !reduceMotion && !navigator.connection?.saveData;
+  function updatePlayback() {
+    if (wantsPlayback && inView && !document.hidden && !byId('modal').classList.contains('is-open')) {
+      video.play().catch(() => { play.textContent = '영상 재생'; });
+    } else video.pause();
+  }
+  video.addEventListener('play', () => { play.textContent = '일시정지'; }, opts);
+  video.addEventListener('pause', () => { play.textContent = '영상 재생'; }, opts);
+  play.addEventListener('click', () => { wantsPlayback = video.paused; updatePlayback(); }, opts);
+  const index = () => Math.max(0, Math.min(3, Math.round(viewport.scrollLeft / viewport.clientWidth)));
+  const updatePage = () => {
+    const n = index(); card.querySelector('[data-pure-count]').textContent = `0${n + 1} / 04`;
+    previous.disabled = n === 0; next.disabled = n === 3;
+  };
+  const move = delta => viewport.scrollTo({left: Math.max(0, Math.min(3, index() + delta)) * viewport.clientWidth, behavior: reduceMotion ? 'instant' : 'smooth'});
+  previous.addEventListener('click', () => move(-1), opts);
+  next.addEventListener('click', () => move(1), opts);
+  viewport.addEventListener('scroll', updatePage, { ...opts, passive: true });
+  viewport.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); move(e.key === 'ArrowRight' ? 1 : -1); }
+  }, opts);
+  const io = new IntersectionObserver(entries => { inView = entries[0].isIntersecting; updatePlayback(); }, {threshold: .15});
+  io.observe(viewport);
+  document.addEventListener('visibilitychange', updatePlayback, opts);
+  document.addEventListener('portfolio-modal', updatePlayback, opts);
+  const resize = new ResizeObserver(updatePage); resize.observe(viewport);
+  updatePage();
+  cleanupPureFilm = () => { video.pause(); abort.abort(); io.disconnect(); resize.disconnect(); };
+}
+function pureGallery(p) {
+  return `<section class="pure-gallery" aria-label="퓨어솔루션 실제 게시 캐러셀">
+    <p class="pure-gallery-label">SNS CAROUSEL <span>실제 게시 이미지 · 4:5</span></p>
+    <div class="pure-gallery-track" tabindex="0" role="region" aria-label="캐러셀 이미지. 좌우 방향키 또는 스와이프로 넘기기">
+      ${p.carousel.map((src, i) => `<img src="${src}" width="1080" height="1350" alt="퓨어솔루션 캐러셀 ${i + 1} / 4" loading="${i ? 'lazy' : 'eager'}">`).join('')}
+    </div>
+    <div class="pure-gallery-controls"><button type="button" data-gallery-prev aria-label="이전 캐러셀 이미지">←</button><span aria-live="polite">01 / 04</span><button type="button" data-gallery-next aria-label="다음 캐러셀 이미지">→</button></div>
+  </section>`;
+}
+function wirePureGallery(root) {
+  const gallery = root.querySelector('.pure-gallery'); if (!gallery) return;
+  const track = gallery.querySelector('.pure-gallery-track'), images = [...track.querySelectorAll('img')];
+  const prev = gallery.querySelector('[data-gallery-prev]'), next = gallery.querySelector('[data-gallery-next]');
+  const index = () => images.reduce((best, img, i) => Math.abs(img.offsetLeft - track.scrollLeft) < Math.abs(images[best].offsetLeft - track.scrollLeft) ? i : best, 0);
+  const move = delta => { const img = images[Math.max(0, Math.min(3, index() + delta))]; track.scrollTo({left: img.offsetLeft, behavior: reduceMotion ? 'instant' : 'smooth'}); };
+  const update = () => { const n = index(); gallery.querySelector('.pure-gallery-controls span').textContent = `0${n + 1} / 04`; prev.disabled = n === 0; next.disabled = n === 3; };
+  prev.addEventListener('click', () => move(-1)); next.addEventListener('click', () => move(1));
+  track.addEventListener('scroll', update, {passive:true});
+  track.addEventListener('keydown', e => { if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); move(e.key === 'ArrowRight' ? 1 : -1); } });
+  update();
 }
 
 /* 항목 높이를 8px 행 단위 span으로 환산 (메이슨리) */
@@ -1217,6 +1309,7 @@ function renderAbout() {
    MODAL
 ═══════════════════════════════════════════════ */
 function mediaBlock(p) {
+  if (p.carousel) return pureGallery(p);
   const vertical = p.orientation === 'vertical';
   const cls = vertical ? 'modal-media is-vertical' : 'modal-media';
   if (p.videoSrc) {
@@ -1293,6 +1386,8 @@ function openModal(id) {
   modal.classList.add('is-open');
   modal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('no-scroll');
+  wirePureGallery(inner);
+  document.dispatchEvent(new Event('portfolio-modal'));
   byId('modal-close').focus();
   byId('modal-close').addEventListener('click', closeModal);
   inner.querySelectorAll('[data-lb]').forEach(img => img.addEventListener('click', () => openLightbox(img.dataset.lb)));
@@ -1308,6 +1403,7 @@ function closeModal() {
   byId('modal-inner').innerHTML = '';
   if (lastFocused) lastFocused.focus();
   document.dispatchEvent(new Event('reel-resume'));
+  document.dispatchEvent(new Event('portfolio-modal'));
 }
 
 /* ── Lightbox ── */
