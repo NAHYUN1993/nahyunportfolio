@@ -529,44 +529,19 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 
 .modal-block p + p { margin-top: 12px; }
 
-/* Pure Solution: a continuous panorama, four swipeable mobile panels. */
-.pure-film { grid-column: 1 / -1; cursor: default; margin-block: 0 48px; padding-top: 20px; }
-.pure-kicker, .pure-toolbar, .pure-caption, .pure-gallery-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.pure-kicker { margin-bottom: 12px; font-size: 11px; letter-spacing: .08em; font-weight: 600; }
-.pure-kicker span:last-child { letter-spacing: 0; color: var(--ink-2); }
-.pure-viewport { aspect-ratio: 16 / 5; overflow: hidden; background: #748645; }
-.pure-track { position: relative; width: 100%; height: 100%; }
-.pure-track video { display: block; position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; }
-.pure-stops { display: none; }
-.pure-toolbar { min-height: 42px; justify-content: flex-end; }
-.pure-play { font-size: 12px; padding: 8px 0 8px 16px; text-decoration: underline; text-underline-offset: 4px; }
-.pure-hint, .pure-paging { display: none; }
-.pure-caption { align-items: flex-start; padding: 5px 0 12px; }
-.pure-caption h3 { font-family: var(--font-display); font-size: clamp(30px, 4vw, 54px); line-height: 1.05; font-weight: 700; letter-spacing: -.025em; }
-.pure-caption p { color: var(--ink-2); margin-top: 12px; font-size: 14px; line-height: 1.7; max-width: 640px; }
-.pure-open { white-space: nowrap; border: 1px solid var(--ink); border-radius: 999px; padding: 13px 20px; font-size: 13px; }
-.pure-open:hover { color: var(--paper); background: var(--ink); }
+/* Panoramic work uses the same card and detail layout as the other films. */
+.pure-film { grid-column: 1 / -1; }
+.card-media.is-panorama, .modal-media.is-panorama video { aspect-ratio: 16 / 5; }
 .pure-gallery { padding-top: 32px; margin-bottom: 28px; }
 .pure-gallery-label { font-size: 12px; margin-bottom: 14px; font-weight: 600; }
 .pure-gallery-label span { color: var(--ink-2); margin-left: 12px; font-weight: 400; }
 .pure-gallery-track { position: relative; display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; padding-bottom: 12px; overscroll-behavior-x: contain; }
 .pure-gallery-track img { flex: 0 0 min(85%, 460px); width: min(85%, 460px); height: auto; aspect-ratio: 4 / 5; object-fit: contain; scroll-snap-align: start; }
 .pure-gallery-track::after { content: ''; flex: 0 0 max(calc(15% - 12px), calc(100% - 472px)); }
-.pure-gallery-controls { justify-content: center; margin-top: 12px; }
-.pure-gallery-controls button, .pure-paging button { width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; }
-.pure-gallery-controls button:disabled, .pure-paging button:disabled { opacity: .3; cursor: default; }
-.pure-gallery-controls span, .pure-paging span { font-size: 12px; font-variant-numeric: tabular-nums; }
+.pure-gallery-controls { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 12px; }
+.pure-gallery-controls button { width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; }
+.pure-gallery-controls button:disabled { opacity: .3; cursor: default; }
+.pure-gallery-controls span { font-size: 12px; font-variant-numeric: tabular-nums; }
 @media (max-width: 700px) {
-  .pure-film { margin-block: 0 30px; padding-top: 16px; }
-  .pure-kicker span:last-child { display: none; }
-  .pure-viewport { aspect-ratio: 4 / 5; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
-  .pure-track { width: 400%; }
-  .pure-stops { position: absolute; inset: 0; display: flex; }
-  .pure-stops span { flex: 0 0 25%; scroll-snap-align: start; }
-  .pure-toolbar { flex-wrap: wrap; justify-content: space-between; gap: 2px 8px; padding: 10px 0 18px; }
-  .pure-hint { display: block; flex-basis: 100%; font-size: 11px; color: var(--ink-2); margin-bottom: 6px; }
-  .pure-paging { display: flex; align-items: center; gap: 12px; }
-  .pure-caption { flex-direction: column; gap: 20px; }
-  .pure-caption p { font-size: 13px; }
   .pure-gallery-label span { display: block; margin: 5px 0 0; }
 }

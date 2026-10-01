@@ -984,21 +984,19 @@ function renderWork() {
       wireCards(byId('work-grid'));
       observeReveals(byId('work-grid'));
       watchWorkGrid();
-      wirePureFilm();
     });
   });
   wireCards(section);
   watchWorkGrid();
-  wirePureFilm();
 }
 
 function workCards() {
   const list = orderedProjects().filter(p => workFilter === 'all' ||
     (workFilter === 'ai' ? p.category !== 'liveaction' : p.category === 'liveaction'));
   if (!list.length) return `<p class="empty">이 분류에는 아직 공개한 작업이 없습니다.</p>`;
-  return list.map((p, i) => p.carousel ? pureFilmCard(p) : `
-    <article class="card reveal" style="--i:${i % 8}" data-open="${p.id}" tabindex="0" role="button" aria-label="${esc(p.title)} 자세히 보기">
-      <div class="card-media ${p.orientation === 'vertical' ? 'is-vertical' : 'is-horizontal'}">
+  return list.map((p, i) => `
+    <article class="card reveal${p.orientation === 'panorama' ? ' pure-film' : ''}" ${p.id === 309 ? 'id="pure-solution"' : ''} style="--i:${i % 8}" data-open="${p.id}" tabindex="0" role="button" aria-label="${esc(p.title)} 자세히 보기">
+      <div class="card-media ${p.orientation === 'vertical' ? 'is-vertical' : p.orientation === 'panorama' ? 'is-panorama' : 'is-horizontal'}">
         ${p.thumbnail
           ? `<img src="${p.thumbnail}" alt="${esc(p.title)}" loading="lazy">`
           : `<div class="card-blank"></div>`}
@@ -1016,64 +1014,6 @@ function workCards() {
   `).join('');
 }
 
-/* One panoramic video remains synchronized while its four mobile panels scroll. */
-function pureFilmCard(p) {
-  return `<article class="card pure-film reveal" id="pure-solution" aria-labelledby="pure-title">
-    <div class="pure-kicker"><span>AI FILM / SNS CAROUSEL</span><span>하나의 장면, 네 장의 이야기</span></div>
-    <div class="pure-viewport" tabindex="0" role="region" aria-label="퓨어솔루션 영상. 모바일에서 좌우로 넘겨 네 장 보기">
-      <div class="pure-track">
-        <video src="${p.videoSrc}" poster="${p.poster}" muted loop playsinline preload="none" aria-label="퓨어솔루션 파노라마 영상"></video>
-        <div class="pure-stops" aria-hidden="true">${p.carousel.map(() => '<span></span>').join('')}</div>
-      </div>
-    </div>
-    <div class="pure-toolbar">
-      <span class="pure-hint">옆으로 넘겨 이어지는 장면을 만나보세요</span>
-      <div class="pure-paging"><button type="button" data-pure-prev aria-label="이전 영상 장면">←</button><span data-pure-count aria-live="polite">01 / 04</span><button type="button" data-pure-next aria-label="다음 영상 장면">→</button></div>
-      <button type="button" class="pure-play">영상 재생</button>
-    </div>
-    <div class="pure-caption"><div><h3 id="pure-title">PURE SOLUTION</h3><p>${esc(p.desc)}</p></div>
-      <button type="button" class="pure-open" data-open="${p.id}">캐러셀로 보기 <span aria-hidden="true">↗</span></button>
-    </div>
-  </article>`;
-}
-let cleanupPureFilm = () => {};
-function wirePureFilm() {
-  cleanupPureFilm();
-  const card = byId('pure-solution');
-  if (!card) return;
-  const abort = new AbortController(), opts = { signal: abort.signal };
-  const viewport = card.querySelector('.pure-viewport'), video = card.querySelector('video');
-  const play = card.querySelector('.pure-play');
-  const previous = card.querySelector('[data-pure-prev]'), next = card.querySelector('[data-pure-next]');
-  let inView = false, wantsPlayback = !reduceMotion && !navigator.connection?.saveData;
-  function updatePlayback() {
-    if (wantsPlayback && inView && !document.hidden && !byId('modal').classList.contains('is-open')) {
-      video.play().catch(() => { play.textContent = '영상 재생'; });
-    } else video.pause();
-  }
-  video.addEventListener('play', () => { play.textContent = '일시정지'; }, opts);
-  video.addEventListener('pause', () => { play.textContent = '영상 재생'; }, opts);
-  play.addEventListener('click', () => { wantsPlayback = video.paused; updatePlayback(); }, opts);
-  const index = () => Math.max(0, Math.min(3, Math.round(viewport.scrollLeft / viewport.clientWidth)));
-  const updatePage = () => {
-    const n = index(); card.querySelector('[data-pure-count]').textContent = `0${n + 1} / 04`;
-    previous.disabled = n === 0; next.disabled = n === 3;
-  };
-  const move = delta => viewport.scrollTo({left: Math.max(0, Math.min(3, index() + delta)) * viewport.clientWidth, behavior: reduceMotion ? 'instant' : 'smooth'});
-  previous.addEventListener('click', () => move(-1), opts);
-  next.addEventListener('click', () => move(1), opts);
-  viewport.addEventListener('scroll', updatePage, { ...opts, passive: true });
-  viewport.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); move(e.key === 'ArrowRight' ? 1 : -1); }
-  }, opts);
-  const io = new IntersectionObserver(entries => { inView = entries[0].isIntersecting; updatePlayback(); }, {threshold: .15});
-  io.observe(viewport);
-  document.addEventListener('visibilitychange', updatePlayback, opts);
-  document.addEventListener('portfolio-modal', updatePlayback, opts);
-  const resize = new ResizeObserver(updatePage); resize.observe(viewport);
-  updatePage();
-  cleanupPureFilm = () => { video.pause(); abort.abort(); io.disconnect(); resize.disconnect(); };
-}
 function pureGallery(p) {
   return `<section class="pure-gallery" aria-label="퓨어솔루션 실제 게시 캐러셀">
     <p class="pure-gallery-label">SNS CAROUSEL <span>실제 게시 이미지 · 4:5</span></p>
@@ -1318,9 +1258,8 @@ function renderAbout() {
    MODAL
 ═══════════════════════════════════════════════ */
 function mediaBlock(p) {
-  if (p.carousel) return pureGallery(p);
   const vertical = p.orientation === 'vertical';
-  const cls = vertical ? 'modal-media is-vertical' : 'modal-media';
+  const cls = vertical ? 'modal-media is-vertical' : p.orientation === 'panorama' ? 'modal-media is-panorama' : 'modal-media';
   if (p.videoSrc) {
     return `<div class="${cls}"><video src="${p.videoSrc}" poster="${p.poster || ''}" controls autoplay muted playsinline preload="metadata"></video></div>`;
   }
@@ -1377,6 +1316,7 @@ function detailBlock(p) {
     ${proc}
     ${scenes}
     ${shots}
+    ${p.carousel ? pureGallery(p) : ''}
   `;
 }
 
@@ -1396,7 +1336,6 @@ function openModal(id) {
   modal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('no-scroll');
   wirePureGallery(inner);
-  document.dispatchEvent(new Event('portfolio-modal'));
   byId('modal-close').focus();
   byId('modal-close').addEventListener('click', closeModal);
   inner.querySelectorAll('[data-lb]').forEach(img => img.addEventListener('click', () => openLightbox(img.dataset.lb)));
@@ -1412,7 +1351,6 @@ function closeModal() {
   byId('modal-inner').innerHTML = '';
   if (lastFocused) lastFocused.focus();
   document.dispatchEvent(new Event('reel-resume'));
-  document.dispatchEvent(new Event('portfolio-modal'));
 }
 
 /* ── Lightbox ── */
