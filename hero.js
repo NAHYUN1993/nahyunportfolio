@@ -173,6 +173,104 @@
     };
   }
 
+  // One generated take: front → left → up → right → down → left → front.
+  // Only that video is shown, always fully opaque. The cursor angle scrubs its
+  // ring part; leaving and returning to the front use the take's own
+  // front ↔ left frames, so every change is real footage.
+  function makeLoopGaze(container, stage) {
+    // [degrees from screen-left through up, video seconds]; measured by eye.
+    // 1.79s and 7.71s are the closest frames of the two left holds, so going
+    // round past screen-left is a plain cut between near-identical frames.
+    const KNOTS = [[0, 1.79], [45, 3.3], [90, 4.1], [135, 4.6], [180, 5.0],
+      [225, 5.6], [270, 6.6], [315, 7.05], [360, 7.71]];
+    const LEFT_A = KNOTS[0][1], LEFT_B = KNOTS[KNOTS.length - 1][1];
+    const CENTER = .12;   // inner radius where she turns back to the viewer
+    const SPEED = 1.6;    // front ↔ left plays at this multiple of real time
+    const video = document.createElement('video');
+    video.muted = true; video.playsInline = true; video.preload = 'auto';
+    video.setAttribute('aria-hidden', 'true'); video.tabIndex = -1;
+    video.src = 'assets/character/gaze-loop.mp4';
+    container.append(video);
+    // phase: 'front' (0 → LEFT_A), 'end' (LEFT_B → end), or 'ring'.
+    let active = true, raf = 0, lastTime = 0, ready = false;
+    let goal = null, phase = 'front', t = 0, phi = 0;
+    video.addEventListener('loadeddata', () => { ready = true; schedule(); });
+    video.addEventListener('seeked', () => schedule());
+    container.dataset.mode = 'loop-video';
+    const timeAt = p => {
+      for (let i = 1; i < KNOTS.length; i++) {
+        const [a0, t0] = KNOTS[i - 1], [a1, t1] = KNOTS[i];
+        if (p <= a1) return t0 + (t1 - t0) * (p - a0) / (a1 - a0);
+      }
+      return LEFT_B;
+    };
+    function schedule() {
+      if (!raf && active && !document.hidden) raf = requestAnimationFrame(tick);
+    }
+    const step = (from, to, amount) => from < to ? Math.min(to, from + amount) : Math.max(to, from - amount);
+    function tick(now) {
+      raf = 0;
+      if (!active || document.hidden || !ready) return;
+      const dt = lastTime ? Math.min(40, now - lastTime) : 16;
+      lastTime = now;
+      const play = dt / 1000 * SPEED;
+      const end = video.duration - .05;
+      if (phase === 'front' || phase === 'end') {
+        const left = phase === 'front' ? LEFT_A : LEFT_B;
+        const rest = phase === 'front' ? 0 : end;
+        t = step(t, goal === null ? rest : left, play);
+        if (goal !== null && t === left) { phi = phase === 'front' ? 0 : 360; phase = 'ring'; }
+      } else {
+        // Toward the cursor by the shortest way round; toward the nearer
+        // left pose when she should face the viewer again.
+        const target = goal === null ? (phi < 180 ? 0 : 360) : goal;
+        let d = target - phi;
+        if (goal !== null) { if (d > 180) d -= 360; else if (d < -180) d += 360; }
+        phi += d * (1 - Math.exp(-dt / 110));
+        if (Math.abs(target - phi) < .3) phi = target;
+        if (goal !== null) phi = (phi + 360) % 360;
+        t = timeAt(phi);
+        if (goal === null && phi === target) phase = target === 0 ? 'front' : 'end';
+      }
+      if (!video.seeking && Math.abs(video.currentTime - t) > .02) video.currentTime = t;
+      video.style.opacity = '1';
+      container.dataset.pose = phase;
+      container.dataset.angle = phi.toFixed(1);
+      container.dataset.videoTime = t.toFixed(3);
+      const resting = phase !== 'ring' && goal === null && (t === 0 || t === end);
+      if (!resting && !(phase === 'ring' && goal !== null && phi === goal)) schedule();
+      else lastTime = 0;
+    }
+    stage.addEventListener('pointermove', e => {
+      if (!active || e.pointerType === 'touch') return;
+      const r = container.getBoundingClientRect();
+      const eyeY = r.top + r.height * .345;
+      const headerBottom = document.getElementById('topbar')?.getBoundingClientRect().bottom || 0;
+      const upwardRange = Math.min(stage.clientHeight * .50,
+        Math.max(48, eyeY - Math.max(stage.getBoundingClientRect().top, headerBottom) - 24));
+      const x = (e.clientX - (r.left + r.width * .487)) / (stage.clientWidth * .45);
+      const y = (e.clientY - eyeY) / (e.clientY < eyeY ? upwardRange : stage.clientHeight * .50);
+      // 0 = screen-left, 90 = up, 180 = right, 270 = down.
+      goal = Math.hypot(x, y) < CENTER ? null : (Math.atan2(-y, -x) * 180 / Math.PI + 360) % 360;
+      container.dataset.target = goal === null ? 'center' : goal.toFixed(1);
+      schedule();
+    }, { passive: true });
+    stage.addEventListener('pointerleave', () => { goal = null; schedule(); });
+    return {
+      setActive(value) {
+        if (value === active) return;
+        active = value;
+        if (!value) {
+          cancelAnimationFrame(raf); raf = 0; lastTime = 0;
+          video.style.opacity = '0';
+          goal = null; phase = 'front'; t = 0; phi = 0;
+          if (ready) video.currentTime = 0;
+          container.dataset.pose = 'front';
+        } else schedule();
+      }
+    };
+  }
+
   window.initPortfolioHero = ({ root, project, openProject, openShowreel, esc }) => {
     const config = window.PORTFOLIO_HERO || {};
     const title = config.title || project.title;
@@ -327,7 +425,7 @@
           video.load();
         }
         if (finePointer && !gaze) {
-          gaze = makeGaze(gazeContainer, stage);
+          gaze = makeLoopGaze(gazeContainer, stage);
         }
       }
       measure();
