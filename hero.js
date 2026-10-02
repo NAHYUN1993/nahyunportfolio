@@ -10,7 +10,8 @@
   // Full-resolution generated head turns. Cursor distance selects a frame, rather
   // than playing an entire turn whenever it enters one of eight regions.
   function makeGaze(container, stage) {
-    const names = ['right', 'down-right', 'down', 'down-left', 'left', 'up-left', 'up', 'up-right'];
+    // Four cardinal turns only: fewer, wider sectors mean fewer clip switches.
+    const names = ['right', 'down', 'left', 'up'];
     const clips = new Map();
     let active = true, target = 'center', current = null, position = 0, handoff = null;
     let pointerX = 0, pointerY = 0, radius = 0, raf = 0, lastTime = 0;
@@ -141,13 +142,13 @@
       radius = clamp((distance - .035) / .965);
       if (radius < .008) { target = 'center'; radius = 0; }
       else {
-        let angle = Math.atan2(pointerY, pointerX) / (Math.PI / 4);
-        if (angle < 0) angle += 8;
+        let angle = Math.atan2(pointerY, pointerX) / (Math.PI / 2);
+        if (angle < 0) angle += 4;
         const old = names.indexOf(target);
         let delta = old < 0 ? Infinity : Math.abs(angle - old);
-        delta = Math.min(delta, 8 - delta);
+        delta = Math.min(delta, 4 - delta);
         // A narrow angular margin prevents boundary chatter, while radius stays continuous.
-        if (old < 0 || delta > .58) target = names[Math.round(angle) % 8];
+        if (old < 0 || delta > .58) target = names[Math.round(angle) % 4];
       }
       container.dataset.target = target;
       container.dataset.radius = radius.toFixed(3);
