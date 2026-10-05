@@ -768,11 +768,9 @@ const techStack = [
 
 /* ── Config ── */
 const SECTIONS = [
-  { id: 'work',   label: '영상' },
-  { id: 'images', label: '이미지' },
-  { id: 'motion', label: '자막디자인' },
-  { id: 'tools',  label: '웹앱' },
-  { id: 'about',  label: '사용 도구' }
+  { id: 'results', label: '성과' },
+  { id: 'work',    label: '작업' },
+  { id: 'career',  label: '경력' }
 ];
 
 /* 구 URL 앵커 호환: 예전 섹션 id로 들어와도 새 섹션으로 보냄 */
@@ -1378,12 +1376,7 @@ function closeLightbox() {
 function init() {
   renderNav();
   renderHero();
-  renderFeatured();
-  renderWork();
-  renderImages();
-  renderMotion();
-  renderTools();
-  renderAbout();
+  /* 애경 버전: 대표 작업·성과·경력은 aekyung.js가 그린다 */
   observeReveals();
   watchActiveSection();
 
