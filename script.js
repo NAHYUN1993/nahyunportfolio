@@ -768,16 +768,29 @@ const techStack = [
 
 /* ── Config ── */
 const SECTIONS = [
-  { id: 'results', label: '성과' },
-  { id: 'work',    label: '작업' },
-  { id: 'career',  label: '경력' }
+  { id: 'selected', label: '대표 작업' },
+  { id: 'archive',  label: '전체 작업' },
+  { id: 'stack',    label: '사용 도구' }
 ];
 
 /* 구 URL 앵커 호환: 예전 섹션 id로 들어와도 새 섹션으로 보냄 */
 const ANCHOR_ALIAS = {
-  cinematic: 'work', artfilm: 'work', commercial: 'work', liveaction: 'work',
-  subtitle: 'motion', 'ai-image': 'images', photography: 'images', dashboard: 'tools'
+  work: 'archive', images: 'archive', motion: 'archive', tools: 'archive', about: 'stack',
+  cinematic: 'archive', artfilm: 'archive', commercial: 'archive', liveaction: 'archive',
+  subtitle: 'archive', 'ai-image': 'archive', photography: 'archive', dashboard: 'archive'
 };
+
+/* 드라이브·유튜브로만 연결된 작품의 카드 미리보기(6초, 무음). 상세 재생은 원래 링크 그대로 */
+const PREVIEW = {
+  1: 'p1', 2: 'p2', 3: 'p3', 4: 'p4', 6: 'p6', 103: 'p103',
+  201: 'p201', 202: 'p202', 204: 'p204', 205: 'p205', 206: 'p206'
+};
+/* 수상작은 썸네일 위에 수상 배지를 띄워 다른 카드와 구분한다 */
+const AWARDS = { 301: 'LG 유쓰 AI 쇼츠 페스티벌 우수상', 207: '사내 도전왕 1위' };
+const previewOf = p => p.videoSrc || (PREVIEW[p.id] ? `videos/preview/${PREVIEW[p.id]}.mp4` : '');
+
+/* 대표 작업(aekyung.js)에 이미 나온 작품은 전체 작업 목록에서 뺀다 */
+const ARCHIVE_EXCLUDE = [7, 309, 308, 304, 101];
 
 const FEATURED_IDS = [301, 207, 305];
 
@@ -804,10 +817,23 @@ function orderedProjects(order) {
 }
 
 const WORK_FILTERS = [
-  { key: 'all', label: '전체' },
-  { key: 'ai', label: 'AI 영상' },
-  { key: 'liveaction', label: '실사 촬영' }
+  { key: 'all',      label: '전체' },
+  { key: 'ad',       label: '제품 광고' },
+  { key: 'guide',    label: '가이드·리뷰' },
+  { key: 'branded',  label: '브랜디드 콘텐츠' },
+  { key: 'contest',  label: '공모전·수상' },
+  { key: 'film',     label: '단편 영화' }
 ];
+
+/* 전체 작업 영상 분류 (AI/실사 대신 콘텐츠 유형으로 나눈다) */
+const WORK_KIND = {
+  305: 'ad', 306: 'ad', 307: 'ad', 1: 'ad', 302: 'ad', 303: 'ad', 3: 'ad',
+  2: 'guide', 202: 'guide', 203: 'guide', 206: 'guide',
+  201: 'ad', 204: 'ad',
+  207: 'branded', 205: 'branded',
+  4: 'contest', 301: 'contest',
+  6: 'film', 103: 'film'
+};
 
 const IMAGE_FILTERS = [
   { key: 'all',           label: '전체' },
@@ -989,16 +1015,16 @@ function renderWork() {
 }
 
 function workCards() {
-  const list = orderedProjects().filter(p => workFilter === 'all' ||
-    (workFilter === 'ai' ? p.category !== 'liveaction' : p.category === 'liveaction'));
+  const list = orderedProjects().filter(p => !ARCHIVE_EXCLUDE.includes(p.id)).filter(p => workFilter === 'all' || WORK_KIND[p.id] === workFilter);
   if (!list.length) return `<p class="empty">이 분류에는 아직 공개한 작업이 없습니다.</p>`;
   return list.map((p, i) => `
-    <article class="card reveal${p.orientation === 'panorama' ? ' pure-film' : ''}" ${p.id === 309 ? 'id="pure-solution"' : ''} style="--i:${i % 8}" data-open="${p.id}" tabindex="0" role="button" aria-label="${esc(p.title)} 자세히 보기">
+    <article class="card reveal${p.orientation === 'panorama' ? ' pure-film' : ''}${AWARDS[p.id] ? ' is-award' : ''}" ${p.id === 309 ? 'id="pure-solution"' : ''} style="--i:${i % 8}" data-open="${p.id}" tabindex="0" role="button" aria-label="${esc(p.title)} 자세히 보기">
       <div class="card-media ${p.orientation === 'vertical' ? 'is-vertical' : p.orientation === 'panorama' ? 'is-panorama' : 'is-horizontal'}">
         ${p.thumbnail
           ? `<img src="${p.thumbnail}" alt="${esc(p.title)}" loading="lazy">`
           : `<div class="card-blank"></div>`}
-        ${p.videoSrc ? `<video src="${p.videoSrc}" muted loop playsinline preload="none" aria-hidden="true"></video>` : ''}
+        ${previewOf(p) ? `<video src="${previewOf(p)}" muted loop playsinline preload="none" aria-hidden="true"></video>` : ''}
+        ${AWARDS[p.id] ? `<span class="ak-award"><span class="ak-award-mark" aria-hidden="true">★</span>${esc(AWARDS[p.id])}</span>` : ''}
       </div>
       <div class="card-info">
         <h3>${esc(p.title)}</h3>
@@ -1376,7 +1402,11 @@ function closeLightbox() {
 function init() {
   renderNav();
   renderHero();
-  /* 애경 버전: 대표 작업·성과·경력은 aekyung.js가 그린다 */
+  /* 애경 버전: 대표 작업·성과·경력은 aekyung.js가 그린다. 아래는 접힌 '전체 작업' 탭 내용 */
+  renderWork();
+  renderImages();
+  renderMotion();
+  renderTools();
   observeReveals();
   watchActiveSection();
 
