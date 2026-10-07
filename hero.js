@@ -272,6 +272,24 @@
   }
 
   window.initPortfolioHero = ({ root, project, openProject, openShowreel, esc }) => {
+    // 폰: 스크롤 애니메이션 없이 캐릭터 얼굴 한 장으로 바로 작업까지 내려가게 한다.
+    if (matchMedia('(max-width: 780px)').matches) {
+      root.classList.add('character-mobile');
+      root.innerHTML = `
+        <div class="cm-copy">
+          <p class="cm-role">AI Creator &amp; Visual Director</p>
+          <h1>LEE NAHYUN</h1>
+          <p>현실을 담고, 상상을 만듭니다.</p>
+        </div>
+        <img class="cm-face" src="assets/character/face-mobile.jpg?v=2" width="760" height="624" alt="실버 헤드셋을 쓴 이나현의 캐릭터" fetchpriority="high">
+        <div class="cm-links">
+          <button class="character-button" id="showreel-open" type="button" aria-haspopup="dialog"><span aria-hidden="true">▶</span> 쇼릴 전체 보기</button>
+          <a class="character-button" href="#selected">작품 바로 보기 <span aria-hidden="true">↓</span></a>
+        </div>`;
+      document.getElementById('topbar')?.classList.add('is-scrolled');
+      root.querySelector('#showreel-open').addEventListener('click', openShowreel);
+      return;
+    }
     const config = window.PORTFOLIO_HERO || {};
     const title = config.title || project.title;
     const thumbnail = config.thumbnail || project.thumbnail || project.poster;

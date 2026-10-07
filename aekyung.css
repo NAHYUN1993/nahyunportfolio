@@ -215,3 +215,12 @@
 }
 .ak-award-mark { color: #f3d36b; }
 .card.is-award .card-media { outline: 3px solid var(--accent); outline-offset: -3px; }
+
+/* ── 폰 히어로: 캐릭터 얼굴 한 장 (hero.js의 모바일 분기) ── */
+#hero.character-mobile { padding: calc(var(--bar) + 24px) var(--pad) 0; margin-bottom: 56px; }
+.cm-copy h1 { font: 800 clamp(34px, 10vw, 48px)/1 var(--font-display); letter-spacing: -0.03em; margin: 6px 0 10px; }
+.cm-copy p { font-size: 15px; color: var(--ink-2); }
+.cm-copy .cm-role { font: 600 13px var(--font-display); color: var(--ink); }
+.cm-face { display: block; width: 100%; height: auto; margin-top: 24px; background: var(--paper-2); }
+.cm-links { display: flex; justify-content: space-between; gap: 10px; margin-top: 16px; }
+.cm-links .character-button { flex: 1; justify-content: center; }
