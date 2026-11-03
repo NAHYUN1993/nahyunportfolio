@@ -411,7 +411,7 @@ body.blue-portfolio .intro-name-en {font-family:'Kalnia',Georgia,serif !importan
 
 /* Featured case summary: purpose → key decisions → role → evidence → limits. */
 .blue-portfolio .case-decisions,.blue-portfolio .case-limits {margin:28px 0;}
-.blue-portfolio .case-decisions ul {list-style:none;padding:0;margin:0;}
+.blue-portfolio .case-decisions > ul {list-style:none;padding:0;margin:0;}
 .blue-portfolio .case-decisions li {border-top:1px solid var(--line);padding:12px 0;line-height:1.75;word-break:keep-all;}
 .blue-portfolio .case-decisions li:last-child {border-bottom:1px solid var(--line);}
 .blue-portfolio .case-decisions li b {display:block;font-size:13px;font-weight:700;margin-bottom:4px;}
@@ -433,3 +433,50 @@ body.blue-portfolio .intro-name-en {font-family:'Kalnia',Georgia,serif !importan
 .blue-portfolio .case-metric-note {margin-top:10px !important;font-size:12px;line-height:1.7;}
 .blue-portfolio .case-research-link--flush {margin-top:0;padding-top:0;border-top:0;}
 .blue-portfolio .case-applied-link {margin-top:16px;padding:8px 14px;border:1px solid currentColor;border-radius:999px;background:none;color:inherit;font:inherit;font-size:14px;font-weight:650;cursor:pointer;}
+
+/* Consistent bullet copy and responsive Korean wrapping across both readers. */
+.blue-portfolio :is(.intro-detail,.ak-sec-sub,.project-context,.career-intro,.career-flow,.case-content,.modal-body) {
+  word-break:keep-all;
+  overflow-wrap:anywhere;
+}
+.blue-portfolio .copy-list {
+  display:block;
+  list-style:disc;
+  margin:0;
+  padding-left:1.2em;
+  font-size:inherit;
+  line-height:1.75;
+}
+.blue-portfolio .copy-list > li,
+.blue-portfolio .case-content .copy-list > li {
+  display:list-item;
+  padding:0;
+  border:0;
+  font-size:inherit;
+  line-height:inherit;
+}
+.blue-portfolio .copy-list > li + li {margin-top:6px;}
+.blue-portfolio .copy-list > li::marker {color:currentColor;}
+.blue-portfolio .case-content .copy-list {font-size:15px;}
+.blue-portfolio .case-result-copy > .copy-list {margin-bottom:24px;}
+.blue-portfolio .case-process-step .copy-list {max-width:780px;}
+.blue-portfolio .case-decisions li .copy-list,
+.blue-portfolio .case-research-link li .copy-list {margin-top:6px;}
+.blue-portfolio .case-evidence > .copy-list + .copy-list {margin-top:12px;}
+.blue-portfolio .case-content .copy-list.case-scope {margin-top:18px;font-size:13px;}
+.blue-portfolio .case-content .copy-list.case-metric-note {font-size:12px;}
+.blue-portfolio .case-tools .copy-list,
+.blue-portfolio .change-comparison .copy-list {font-size:inherit;}
+.blue-portfolio .modal-block > .copy-list {max-width:68ch;color:var(--ink-2);font-size:15px;}
+.blue-portfolio .process .copy-list {max-width:68ch;color:var(--ink-2);font-size:14px;}
+.blue-portfolio .intro-detail.copy-list {max-width:720px;margin-top:12px;font-size:15px;line-height:1.7;}
+.blue-portfolio .intro-detail.copy-list > li + li {margin-top:4px;}
+.blue-portfolio .career-intro {white-space:normal;overflow:visible;}
+.blue-portfolio .career-flow > li > .copy-list {font-size:14px;}
+.blue-portfolio .project-context .copy-list {margin-top:3px;}
+.blue-portfolio .project-context .project-change {margin-top:10px;}
+.blue-portfolio .case-concept > .ak-steps > li > .copy-list {margin-top:6px;}
+.blue-portfolio .case-concept .copy-list > li {counter-increment:none;}
+.blue-portfolio .case-concept .copy-list > li::before {content:none;}
+@media(max-width:760px){.blue-portfolio .intro-detail.copy-list{font-size:14px;}}
+
