@@ -247,7 +247,7 @@ body.blue-portfolio .gaze-stage .hero-title h1 {font-family:'Kalnia',Georgia,ser
 #ak-vertical .project-media > video,#ak-vertical .project-media > img {object-fit:cover;}
 #ak-vertical .project-copy h3 {font-size:22px;}
 #ak-vertical .project-badge {font-size:10px;left:10px;right:10px;text-align:center;}
-#shortform {margin-top:48px;}
+#shortform {margin-top:0;}
 @media(max-width:760px){#ak-vertical{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 14px;}#ak-vertical .project-copy h3{font-size:18px;}#ak-vertical .project-badge{font-size:8px;left:5px;right:5px;}}
 
 /* Representative rows share one heading; archives retain their original order. */
@@ -255,7 +255,7 @@ body.blue-portfolio .gaze-stage .hero-title h1 {font-family:'Kalnia',Georgia,ser
 #ak-vertical .project-badge {right:auto;text-align:left;max-width:calc(100% - 20px);}
 .blue-portfolio .featured-head {align-items:flex-start;}
 #showreel-open {align-self:flex-start;margin-top:8px;}
-#shortform {margin-top:48px;padding:0;border:0;}
+#shortform {margin-top:0;padding:0;border:0;}
 .blue-portfolio #work-grid {display:block;}
 .archive-format-row {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 26px;margin-bottom:48px;align-items:start;}
 .archive-format-row.is-vertical {grid-template-columns:repeat(4,minmax(0,1fr));}
@@ -480,3 +480,6 @@ body.blue-portfolio .intro-name-en {font-family:'Kalnia',Georgia,serif !importan
 .blue-portfolio .case-concept .copy-list > li::before {content:none;}
 @media(max-width:760px){.blue-portfolio .intro-detail.copy-list{font-size:14px;}}
 
+
+/* Vertical featured videos precede the landscape pair. */
+#shortform + #ak-grid {margin-top:48px;}
