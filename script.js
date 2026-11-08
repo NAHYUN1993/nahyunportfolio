@@ -1529,7 +1529,7 @@ function closeLightbox() {
 function init() {
   renderNav();
   renderHero();
-  /* 애경 버전: 대표 작업·성과·경력은 aekyung.js가 그린다. 아래는 접힌 '전체 작업' 탭 내용 */
+  /* 포트폴리오: 대표 작업·성과·경력은 aekyung.js가 그린다. 아래는 접힌 '전체 작업' 탭 내용 */
   renderWork();
   renderImages();
   renderMotion();
